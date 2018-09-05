@@ -1,23 +1,16 @@
 import React from 'react';
 import './DriversApplication.css';
 
-
 // Components
-// import About from '../../components/About';
+import ApplicationForm from '../../components/ApplicationForm';
 // import Carousel from '../../components/Carousel';
 // import Draggable from '../../components/Draggable';
-// import withAuthorization from '../../components/FirebaseWithAuthorization'
+
 class DriversApplication extends React.PureComponent {
     render() {
         return (
-            <div>
-                <div>
-                    {/* <Carousel /> */}
-                </div>
-                <div className="container">
-                    {/* <About /> */}
-                    <p>DriversApplication Page</p>
-                </div>
+            <div className="container">
+                <ApplicationForm />
             </div>
         )
     }

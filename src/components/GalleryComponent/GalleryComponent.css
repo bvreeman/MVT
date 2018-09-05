@@ -1,0 +1,88 @@
+/* Gallery */
+#art-gallery {
+    max-height: 600px;
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.galleryPhotos {
+    margin-bottom: 200px;
+    padding-bottom: 200px;
+}
+/* Gallery Scrollbar */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        /* box-shadow: inset 0 0 5px grey;  */
+        border-radius: 5px;
+        border: solid lightgrey 1px ;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: lightgrey; 
+        border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2699FB; 
+    }
+
+/* Gallery Thumbnails */
+    .art {
+        height: 200px;
+        padding-bottom: 25px;
+    }
+
+    .art-img:hover {
+        transform: scale(1.1) rotate(-2.5deg);
+        box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    }
+
+    .art-img {
+        object-fit: cover;
+        max-height: 100%;
+        max-width: 100%;
+        object-position: center;
+    }
+
+/* Art Feature Modal */
+    .close-btn {
+        background-color: #ffffff00;
+        border: none;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    i.fa.fa-close {
+        font-size: 20px;
+        margin: 0 0;
+        color: lightgray;
+    }
+
+    #feature-image {
+        max-height: 100%;
+        max-width: 100%;
+        
+    } 
+/* Media Queries */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 575px) {
+.art {
+    height: 250px;
+}
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+.art {
+    height: 200px;
+}
+} 
