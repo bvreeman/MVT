@@ -3,12 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "dot-env": "0.0.1",
-=======
     "firebase": "^5.4.2",
     "mdbreact": "^4.7.0",
->>>>>>> 2636cfca1bb9e3364a797559206f6c485164b486
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-firebase-file-uploader": "^2.4.2",
