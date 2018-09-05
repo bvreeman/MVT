@@ -1,15 +1,16 @@
 import React from 'react';
 import './Gallery.css';
-
+// Components
+import GalleryComponent from '../../components/GalleryComponent';
+// import Carousel from '../../components/Carousel';
+// import Draggable from '../../components/Draggable';
+// import withAuthorization from '../../components/FirebaseWithAuthorization'
 class Gallery extends React.PureComponent {
     render() {
         return (
             <div>
-                <div>
-                </div>
-                <div className="container">
-                    {/* <About /> */}
-                    <p>Gallery Page</p>
+                <div className='container-fluid'>
+                    <GalleryComponent />
                 </div>
             </div>
         )
