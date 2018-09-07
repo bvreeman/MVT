@@ -1,6 +1,6 @@
 import React from 'react';
 import './GalleryComponent.css'
-// import ImageUpload from '../ImageUpload'
+import ImageUpload from '../ImageUpload'
 import firebase from 'firebase/app';
 import "firebase/database";
 import ReactModal from 'react-modal'
@@ -77,7 +77,7 @@ handleCloseModal () {
                 </div>
                 <div className="container-fluid">
                         <div className="imageUploader">
-                                {/* <ImageUpload fetchNewImages={this.getFirebaseData}/> */}
+                                <ImageUpload fetchNewImages={this.getFirebaseData}/>
                         </div>
                 </div>
                 {/* Art Feature Modal */}
