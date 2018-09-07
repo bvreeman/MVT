@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.navbarRight {
+    float: right;
+}
+
 .navbar-header{
     /* background-color: #451417; */
     background-color: #9c182f;

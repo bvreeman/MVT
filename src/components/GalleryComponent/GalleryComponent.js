@@ -74,8 +74,6 @@ handleCloseModal () {
                         <div id="art-gallery">
                                 {pics}
                         </div>
-                </div>
-                <div className="container-fluid">
                         <div className="imageUploader">
                                 <ImageUpload fetchNewImages={this.getFirebaseData}/>
                         </div>
