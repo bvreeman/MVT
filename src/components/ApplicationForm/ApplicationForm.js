@@ -99,6 +99,14 @@ const ApplicationForm = () =>
                     <label class="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
                 </div>
             </div>
+            <div class="control-group">
+            <label class="control-label" for="FirstName">Name</label>
+                <div class="controls row-fluid">
+                    <div class="span2 row"><input class="span12" id="FirstName" name="FirstName" placeholder="First Name" type="text" value="" /></div>
+                    <div class="span2 row"><input class="span12" id="MiddleName" name="MiddleName" placeholder="Middle Name" type="text" value="" /></div>
+                    <div class="span2 row"><input class="span12" id="LastName" name="LastName" placeholder="Last Name" type="text" value="" /></div>
+                </div>
+            </div>
         </div>
         <div className="form-group">
             <label htmlFor="exampleFormControlSelect1">Example select</label>
