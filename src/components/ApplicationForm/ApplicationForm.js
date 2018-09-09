@@ -3,11 +3,102 @@ import './ApplicationForm.css'
 
 const ApplicationForm = () => 
 <div className='container formDiv'>
+    <div>
+        <h2>Application Form</h2>
+    </div>
     <form>
         <div className="form-group">
-            <label htmlFor="exampleFormControlInput1">Email address</label>
-            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <input type="text" className="form-control" id="companyName" placeholder="Company">
             </input>
+            <input type="text" className="form-control" id="companyAddress" placeholder="Address">
+            </input>
+            <div className='row'>
+                <div className='col-md-6 col-xs-12'>
+                    <input type="text" className="form-control" id="companyCity" placeholder="City">
+                    </input>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <select className="form-control" id="companyState">
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="text" className="form-control" id="companyZip" placeholder="Zip Code">
+                    </input>
+                </div>
+            </div>
+            <p className='applicationDetails'>The purpose of this application is to determine whether or not the applicant is qualified to operate motor carrier equipment according to the requirements of the Federal Motor Carrier Safety Regulations and the Company named above.</p>
+        </div>
+        <hr/>
+        <div className='Instructions'>
+            <h4>Instructions to Applicant</h4>
+            <p className='applicationDetails'>Please answer all questions. If the answer to any question is "No" or "None", do not leave the item bank, but write "Not" or "None".</p>
+        </div>
+        <div className="form-group">
+            <div className='row'>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="text" className="form-control" id="applicationDate" placeholder="Date">
+                    </input>
+                </div>
+                <div className='col-md-4 col-xs-12'>
+                    <p className='applicationDetailsRight'>Position applying for. Check One:</p>
+                </div>
+                <div className='col-md-5 col-xs-12'>
+                    <label class="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor</label>
+                    <label class="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Driver</label>
+                    <label class="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
+                </div>
+            </div>
         </div>
         <div className="form-group">
             <label htmlFor="exampleFormControlSelect1">Example select</label>

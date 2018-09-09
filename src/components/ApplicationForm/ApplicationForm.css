@@ -1,0 +1,23 @@
+.form-control{
+    margin-top: 10px;
+}
+
+.applicationDetails{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.applicationDetailsRight{
+    text-align: right;
+    margin-top: 10px;
+}
+
+.jobTypeRadio-inline {
+    margin-left: 20px;
+    margin-top: 10px;
+
+}
+
+.radioButton {
+    margin-right: 5px;
+}
