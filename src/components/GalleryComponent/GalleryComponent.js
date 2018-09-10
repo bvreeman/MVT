@@ -79,7 +79,7 @@ handleCloseModal () {
                         </div>
                 </div>
                 {/* Art Feature Modal */}
-        <ReactModal isOpen={this.state.showModal} style={
+        <ReactModal ariaHideApp={false} isOpen={this.state.showModal} style={
                 {content: {
                     position: 'relative',
                     top: 'unset',
@@ -101,7 +101,7 @@ handleCloseModal () {
             }} >
             
                 <img alt={modalPicTitle} id="feature-image" src={modalPicUrl} />
-                <button id="closeLogin" href="#" onClick={this.handleCloseModal}>CLOSE <a id="closeX">X</a></button>
+                <button className="close-btn" onClick={this.handleCloseModal}>X</button>
             </ReactModal>
         </div>
                 

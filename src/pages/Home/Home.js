@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-
+import nightTruck from './bigger-night-truck.jpg'
 
 // Components
 // import About from '../../components/About';
@@ -10,13 +10,9 @@ import './Home.css';
 class Home extends React.PureComponent {
     render() {
         return (
-            <div>
-                <div>
-                    {/* <Carousel /> */}
-                </div>
-                <div className="container">
-                    {/* <About /> */}
-                    <p>this is the home page</p>
+            <div className="container-fluid homePage">
+                <div className="container-fluid mainPhotoDiv">
+                    <img className='mainPhoto' src={nightTruck} alt="One of our trucks at night"/>
                 </div>
             </div>
         )

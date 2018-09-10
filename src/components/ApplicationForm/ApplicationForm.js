@@ -8,14 +8,11 @@ const ApplicationForm = () =>
     </div>
     <form>
         <div className="form-group">
-            <input type="text" className="form-control" id="companyName" placeholder="Company">
-            </input>
-            <input type="text" className="form-control" id="companyAddress" placeholder="Address">
-            </input>
+            <input type="text" className="form-control" id="companyName" placeholder="Company"></input>
+            <input type="text" className="form-control" id="companyAddress" placeholder="Address"></input>
             <div className='row'>
                 <div className='col-md-6 col-xs-12'>
-                    <input type="text" className="form-control" id="companyCity" placeholder="City">
-                    </input>
+                    <input type="text" className="form-control" id="companyCity" placeholder="City"></input>
                 </div>
                 <div className='col-md-3 col-xs-12'>
                     <select className="form-control" id="companyState">
@@ -87,25 +84,22 @@ const ApplicationForm = () =>
         <div className="form-group">
             <div className='row'>
                 <div className='col-md-3 col-xs-12'>
-                    <input type="text" className="form-control" id="applicationDate" placeholder="Date">
-                    </input>
+                    <input type="text" className="form-control" id="applicationDate" placeholder="Date"></input>
                 </div>
                 <div className='col-md-4 col-xs-12'>
                     <p className='applicationDetailsRight'>Position applying for. Check One:</p>
                 </div>
                 <div className='col-md-5 col-xs-12'>
-                    <label class="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor</label>
-                    <label class="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Driver</label>
-                    <label class="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
+                    <label className="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor</label>
+                    <label className="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Driver</label>
+                    <label className="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
                 </div>
             </div>
-            <div class="control-group">
-            <label class="control-label" for="FirstName">Name</label>
-                <div class="controls row-fluid">
-                    <div class="span2 row"><input class="span12" id="FirstName" name="FirstName" placeholder="First Name" type="text" value="" /></div>
-                    <div class="span2 row"><input class="span12" id="MiddleName" name="MiddleName" placeholder="Middle Name" type="text" value="" /></div>
-                    <div class="span2 row"><input class="span12" id="LastName" name="LastName" placeholder="Last Name" type="text" value="" /></div>
-                </div>
+            <div className="row">
+                    <input type="text" className="form-control" id="FirstName" name="FirstName" placeholder="First Name" />
+                    <input type="text" className="form-control" id="MiddleName" name="MiddleName" placeholder="Middle Name" />
+                    <input type="text" className="form-control" id="LastName" name="LastName" placeholder="Last Name" />
+                    <input type="text" className="form-control" id="Phone" name="Phone" placeholder="Phone Number" />
             </div>
         </div>
         <div className="form-group">

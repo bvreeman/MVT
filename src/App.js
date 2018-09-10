@@ -29,7 +29,7 @@ class App extends PureComponent {
     return (
       <Router>
 
-        <div className="App">
+        <div className="App container-fluid">
           <HeaderNav />
             <Switch>
               <Route exact path='/' component={Home}/>
