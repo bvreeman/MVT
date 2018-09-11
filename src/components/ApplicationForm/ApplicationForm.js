@@ -136,6 +136,113 @@ const ApplicationForm = () =>
                     <input type="date" className="form-control" id="physicalExamExpDate" name="physicalExamExpDate" placeholder="Physical Exam Expiration Date" />
                 </div>
             </div>
+            <hr />
+            <div className="row">
+                <div className='col-md-12 col-xs-12'>
+                    <p className='applicationDetails'>Current and Three Years Previous Addresses:</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-md-4 col-xs-12'>
+                    <input type="text" className="form-control" id="address1" name="address1" placeholder='Address' />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect1">From:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressFromDate1" name="addressFromDate1" />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect1">To:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressToDate1" name="addressToDate1" />
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-md-4 col-xs-12'>
+                    <input type="text" className="form-control" id="address2" name="address2" placeholder='Address' />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect2">From:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressFromDate2" name="addressFromDate2" />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect2">To:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressToDate2" name="addressToDate2" />
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-md-4 col-xs-12'>
+                    <input type="text" className="form-control" id="address3" name="address3" placeholder='Address' />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect3">From:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressFromDate3" name="addressFromDate3" />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect3">To:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressToDate3" name="addressToDate3" />
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-md-4 col-xs-12'>
+                    <input type="text" className="form-control" id="address4" name="address4" placeholder='Address' />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect4">From:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressFromDate4" name="addressFromDate4" />
+                </div>
+                <div className='col-md-1 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect4">To:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="addressToDate4" name="addressToDate4" />
+                </div>
+            </div>
+            <hr />
+            <div className='row'>
+                <div className='col-md-4 col-xs-12'>
+                    <p className='applicationDetailsRight'>Have you worked for this company before?</p>
+                </div>
+                <div className='col-md-2 col-xs-12'>
+                    <label className="employedBeforeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                    <label className="employedBeforeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col-md-3 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect4">If so, from:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="employedHereBeforeFrom" name="employedHereBeforeFrom" />
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect4">To:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="employedHereBeforeTo" name="employedHereBeforeTo" />
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col-md-3 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect4">Reason for Leaving:</label>
+                </div>
+                <div className='col-md-9 col-xs-12'>
+                    <input type="text" className="form-control" id="reasonForLeaving" name="reasonForLeaving" placeholder='Reason for Leaving' />
+                </div>
+            </div>
+            <hr />
         </div>
         <div className="form-group">
             <label htmlFor="exampleFormControlSelect1">Example select</label>

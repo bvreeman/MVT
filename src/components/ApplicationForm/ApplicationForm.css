@@ -12,7 +12,8 @@
     margin-top: 10px;
 }
 
-.jobTypeRadio-inline {
+.jobTypeRadio-inline,
+.employedBeforeRadio-inline {
     margin-left: 20px;
     margin-top: 10px;
 
