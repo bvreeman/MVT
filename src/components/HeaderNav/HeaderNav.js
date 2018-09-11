@@ -3,7 +3,7 @@ import './HeaderNav.css';
 import {Link} from 'react-router-dom';
 
 const HeaderNav = () => 
-<div className="container-fluid sticky headerContainer">
+<div className="sticky headerContainer">
     <nav className="navbar">
         <div className="navbar-header">
             <div className="navbarCenter">

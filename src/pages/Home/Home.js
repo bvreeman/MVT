@@ -10,7 +10,7 @@ import nightTruck from './bigger-night-truck.jpg'
 class Home extends React.PureComponent {
     render() {
         return (
-            <div className="container-fluid homePage">
+            <div className="homePage">
                 <div className="container-fluid mainPhotoDiv">
                     <img className='mainPhoto' src={nightTruck} alt="One of our trucks at night"/>
                 </div>

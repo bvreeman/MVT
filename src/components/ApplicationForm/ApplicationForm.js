@@ -83,11 +83,14 @@ const ApplicationForm = () =>
         </div>
         <div className="form-group">
             <div className='row'>
-                <div className='col-md-3 col-xs-12'>
-                    <input type="text" className="form-control" id="applicationDate" placeholder="Date"></input>
+                <div className='col-md-2 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect1">Application Date:</label>
                 </div>
-                <div className='col-md-4 col-xs-12'>
-                    <p className='applicationDetailsRight'>Position applying for. Check One:</p>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="applicationDate" placeholder="Date"></input>
+                </div>
+                <div className='col-md-2 col-xs-12'>
+                    <p className='applicationDetailsRight'>Position applying for:</p>
                 </div>
                 <div className='col-md-5 col-xs-12'>
                     <label className="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor</label>
@@ -96,10 +99,42 @@ const ApplicationForm = () =>
                 </div>
             </div>
             <div className="row">
+                <div className='col-md-3 col-xs-12'>
                     <input type="text" className="form-control" id="FirstName" name="FirstName" placeholder="First Name" />
+                </div>
+                <div className='col-md-3 col-xs-12'>
                     <input type="text" className="form-control" id="MiddleName" name="MiddleName" placeholder="Middle Name" />
+                </div>
+                <div className='col-md-3 col-xs-12'>
                     <input type="text" className="form-control" id="LastName" name="LastName" placeholder="Last Name" />
+                </div>
+                <div className='col-md-3 col-xs-12'> 
+                    <input type="text" className="form-control" id="socialSecurityNumber" name="socialSecurityNumber" placeholder="Social Security Number" />
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-md-4 col-xs-12'> 
+                    <input type="number" className="form-control" id="Age" name="Age" placeholder="*Age" />
+                </div>
+                <div className='col-md-4 col-xs-12'> 
                     <input type="text" className="form-control" id="Phone" name="Phone" placeholder="Phone Number" />
+                </div>
+                <div className='col-md-4 col-xs-12'> 
+                    <input type="text" className="form-control" id="emergencyPhone" name="emergencyPhone" placeholder="Emergency Phone Number" />
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-md-12 col-xs-12'>
+                    <p className='applicationDetails'>*The Age Discrimination of Employement Act of 1967 prohibits discrimination on the basis of age with respect to individuas who are at least 40 years of age.</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className='col-md-3 col-xs-12'>
+                    <label className='formLabel' htmlFor="exampleFormControlSelect1">Physical Exam Expiration Date:</label>
+                </div>
+                <div className='col-md-3 col-xs-12'>
+                    <input type="date" className="form-control" id="physicalExamExpDate" name="physicalExamExpDate" placeholder="Physical Exam Expiration Date" />
+                </div>
             </div>
         </div>
         <div className="form-group">
