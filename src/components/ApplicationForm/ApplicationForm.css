@@ -13,7 +13,9 @@
 }
 
 .jobTypeRadio-inline,
-.employedBeforeRadio-inline {
+.employedBeforeRadio-inline,
+.jobFMCSR-inline,
+.job49CFRPart40-inline {
     margin-left: 20px;
     margin-top: 10px;
 
@@ -29,4 +31,10 @@
 
 .formLabel {
     margin-top: 20px;
+}
+
+.instructions,
+h4 {
+    font-weight: bold;
+    color: #333333
 }
