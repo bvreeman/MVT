@@ -6,3 +6,19 @@
     padding-right: 0px;
     padding-left: 0px;
 }
+
+.truckIcon {
+    width: 100px;
+    padding-top: 50px;
+}
+
+.maintenanceIcon {
+    width: 50px;
+    padding-top: 50px;
+}
+
+.truckIconHeading {
+    margin-top: 10px;
+    color: #333333;
+    font-weight: bold;
+}
