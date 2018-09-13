@@ -16,6 +16,12 @@
     z-index: 1;
 }
 
+.navbarLogo {
+    width: 100px;
+    float: left;
+    margin-left: 20px;
+}
+
 .navbar-brand {
     color: white;
     margin-right: 10px;
