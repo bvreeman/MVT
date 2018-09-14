@@ -808,12 +808,150 @@ class ApplicationForm extends React.PureComponent {
                         <div className='row'>
                             <input type="text" className="form-control" id="safeDrivingAwards" placeholder="List any Safe Driving Awards you hold and from whom"></input>
                         </div>
+                        <hr />
                         <div className="row">
-                            <p className='applicationDetails instructions'>Accident Record for past three years 'include more in the Other Info section at the bottom of the page'</p>
+                            <p className='applicationDetails instructions'>Accident Record for past three years (include more in the Other Info section at the bottom of the page)</p>
                         </div>
                         <div className='row'>
-                            <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" id="accidentDate" name="accidentDate" />
+                            <div className='col-md-2 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="month" className="form-control" id="accidentDate1" name="accidentDate" />
+                            </div>
+                            <div className='col-md-7 col-xs-12'>
+                                <input type="text" className="form-control" id="natureOfAccident1" placeholder="Nature of Accident (Head on, rear end, upset, etc.)"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-6 col-xs-12'>
+                                <input type="text" className="form-control" id="accidentLocation1" placeholder="Location of Accident"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="number" className="form-control" id="numberFatalities1" placeholder="Number of Fatalities"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="number" className="form-control" id="numberInjured1" placeholder="Number of People Injured"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-2 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="month" className="form-control" id="accidentDate2" name="accidentDate" />
+                            </div>
+                            <div className='col-md-7 col-xs-12'>
+                                <input type="text" className="form-control" id="natureOfAccident2" placeholder="Nature of Accident (Head on, rear end, upset, etc.)"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-6 col-xs-12'>
+                                <input type="text" className="form-control" id="accidentLocation2" placeholder="Location of Accident"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="number" className="form-control" id="numberFatalities2" placeholder="Number of Fatalities"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="number" className="form-control" id="numberInjured2" placeholder="Number of People Injured"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-2 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="month" className="form-control" id="accidentDate3" name="accidentDate" />
+                            </div>
+                            <div className='col-md-7 col-xs-12'>
+                                <input type="text" className="form-control" id="natureOfAccident3" placeholder="Nature of Accident (Head on, rear end, upset, etc.)"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-6 col-xs-12'>
+                                <input type="text" className="form-control" id="accidentLocation3" placeholder="Location of Accident"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="number" className="form-control" id="numberFatalities3" placeholder="Number of Fatalities"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="number" className="form-control" id="numberInjured3" placeholder="Number of People Injured"></input>
+                            </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                            <p className='applicationDetails instructions'>Traffic Convictions and Forfeitures for the last three years (other than parking violations)</p>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="month" className="form-control" id="convictionDate1" name="convictionDate1" />
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionLocation1" placeholder="Location"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionCharge1" placeholder="Charge"></input>
+                            </div>
+                            <div className='col-md-2 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionPenalty1" placeholder="Penalty"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="month" className="form-control" id="convictionDate2" name="convictionDate1" />
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionLocation2" placeholder="Location"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionCharge2" placeholder="Charge"></input>
+                            </div>
+                            <div className='col-md-2 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionPenalty2" placeholder="Penalty"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="month" className="form-control" id="convictionDate3" name="convictionDate1" />
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionLocation3" placeholder="Location"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionCharge3" placeholder="Charge"></input>
+                            </div>
+                            <div className='col-md-2 col-xs-12'>
+                                <input type="text" className="form-control" id="convictionPenalty3" placeholder="Penalty"></input>
+                            </div>
+                        </div>
+                        <hr />
+                        <div className="row">
+                            <p className='applicationDetails instructions'>Driver's License (list each driver's license held in the past three years)</p>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Expiration:</label>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="month" className="form-control" id="driversLicenseState1" name="driversLicenseState1" />
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseNumber1" placeholder="License Number"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseType1" placeholder="License Type"></input>
+                            </div>
+                            <div className='col-md-2 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseEndorsements" placeholder="Penalty"></input>
                             </div>
                         </div>
                     </div>

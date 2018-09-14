@@ -19,14 +19,17 @@ class Home extends React.PureComponent {
                     <div className="col-md-4 col-xs-12">
                         <img className='truckIcon' src={truckIconRight} alt="Truck Icon"/>
                         <h4 className='truckIconHeading'>Truck and Trailer Repair</h4>
+                        <p className='serviceDescription'>Full service truck and trailer shop. 2 full time mechanics with a combined 50+ years experience. If you broke it, chances are we can fix it.</p>
                     </div>
                     <div className="col-md-4 col-xs-12">
                         <img className='truckIcon' src={truckIconRight} alt="Truck Icon"/>
-                        <h4 className='truckIconHeading'>Refrigerated</h4>
+                        <h4 className='truckIconHeading'>Reefer Transportation</h4>
+                        <p className='serviceDescription'>From MN to all points in the US. Primarily NJ / GA / FL / CA. 25 late model trucks and 33 late model refrigerated trailers. 24/7 dispatch and customer service. Drivers have the option to be an employee or lease a truck and be their own boss. No force dispatch, no NYC, paid weekly based on percentage of linehaul revenue. Full benefits available for company drivers, employer contribution into a HAS and cell phone reimbursement.</p>
                     </div>
                     <div className="col-md-4 col-xs-12">
                         <img className='truckIcon' src={truckIconRight} alt="Truck Icon"/>
-                        <h4 className='truckIconHeading'>Truck and Equipment Wash</h4>
+                        <h4 className='truckIconHeading'>Warehousing</h4>
+                        <p className='serviceDescription'>We have a 6,000 sq ft refrigerated warehouse onsite to meet our customers warehousing needs. Lease the entire space or just a few feet for your product.</p>
                     </div>
                 </div>
             </div>

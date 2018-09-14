@@ -5,6 +5,7 @@
 
 .navbarRight {
     float: right;
+    line-height: 50px;
 }
 
 .navbar-header{
@@ -25,6 +26,7 @@
 .navbar-brand {
     color: white;
     margin-right: 10px;
+    line-height: 50px;
 }
 
 .headerContainer{
