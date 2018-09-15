@@ -93,9 +93,9 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Position applying for:</p>
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <label className="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor</label>
-                                <label className="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Driver</label>
-                                <label className="jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
+                                <label className="radioDetail jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor</label>
+                                <label className="radioDetail jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Driver</label>
+                                <label className="radioDetail jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
                             </div>
                         </div>
                         <div className="row">
@@ -216,8 +216,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Have you worked for this company before?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="employedBeforeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="employedBeforeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail employedBeforeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail employedBeforeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -333,8 +333,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -342,8 +342,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -385,8 +385,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -394,8 +394,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -437,8 +437,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -446,8 +446,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -489,8 +489,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -498,8 +498,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -541,8 +541,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -550,8 +550,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -593,8 +593,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -602,8 +602,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -645,8 +645,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -654,8 +654,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetailsRight'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
-                                <label className="job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -803,14 +803,14 @@ class ApplicationForm extends React.PureComponent {
                             </div>
                         </div>
                         <div className='row'>
-                            <input type="text" className="form-control" id="trainingCompeted" placeholder="List special courses/training competed (PTD/DDC, Haz Mat, etc.)"></input>
+                            <input type="text" className="form-control" id="trainingCompeted" placeholder="List special courses/training competed - PTD/DDC, Haz Mat, etc."></input>
                         </div>
                         <div className='row'>
                             <input type="text" className="form-control" id="safeDrivingAwards" placeholder="List any Safe Driving Awards you hold and from whom"></input>
                         </div>
                         <hr />
                         <div className="row">
-                            <p className='applicationDetails instructions'>Accident Record for past three years (include more in the Other Info section at the bottom of the page)</p>
+                            <p className='applicationDetails instructions'>Accident Record for past three years - include more in the Other Info section at the bottom of the page</p>
                         </div>
                         <div className='row'>
                             <div className='col-md-2 col-xs-12'>
@@ -820,7 +820,7 @@ class ApplicationForm extends React.PureComponent {
                                 <input type="month" className="form-control" id="accidentDate1" name="accidentDate" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" id="natureOfAccident1" placeholder="Nature of Accident (Head on, rear end, upset, etc.)"></input>
+                                <input type="text" className="form-control" id="natureOfAccident1" placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -842,7 +842,7 @@ class ApplicationForm extends React.PureComponent {
                                 <input type="month" className="form-control" id="accidentDate2" name="accidentDate" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" id="natureOfAccident2" placeholder="Nature of Accident (Head on, rear end, upset, etc.)"></input>
+                                <input type="text" className="form-control" id="natureOfAccident2" placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -864,7 +864,7 @@ class ApplicationForm extends React.PureComponent {
                                 <input type="month" className="form-control" id="accidentDate3" name="accidentDate" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" id="natureOfAccident3" placeholder="Nature of Accident (Head on, rear end, upset, etc.)"></input>
+                                <input type="text" className="form-control" id="natureOfAccident3" placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -880,7 +880,7 @@ class ApplicationForm extends React.PureComponent {
                         </div>
                         <hr />
                         <div className="row">
-                            <p className='applicationDetails instructions'>Traffic Convictions and Forfeitures for the last three years (other than parking violations)</p>
+                            <p className='applicationDetails instructions'>Traffic Convictions and Forfeitures for the last three years - other than parking violations</p>
                         </div>
                         <div className='row'>
                             <div className='col-md-1 col-xs-12'>
@@ -935,23 +935,138 @@ class ApplicationForm extends React.PureComponent {
                         </div>
                         <hr />
                         <div className="row">
-                            <p className='applicationDetails instructions'>Driver's License (list each driver's license held in the past three years)</p>
+                            <p className='applicationDetails instructions'>Driver's License - list each driver's license held in the past three years</p>
                         </div>
                         <div className='row'>
                             <div className='col-md-1 col-xs-12'>
-                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Expiration:</label>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">State:</label>
                             </div>
-                            <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" id="driversLicenseState1" name="driversLicenseState1" />
+                            <div className='col-md-6 col-xs-12'>
+                                <Select
+                                    className= 'form-control statesOperated'
+                                    id='licenseState1'
+                                    value={selectedOption}
+                                    onChange={this.handleChange}
+                                    options={options}
+                                />
                             </div>
-                            <div className='col-md-3 col-xs-12'>
+                            <div className='col-md-5 col-xs-12'>
                                 <input type="text" className="form-control" id="driversLicenseNumber1" placeholder="License Number"></input>
                             </div>
-                            <div className='col-md-3 col-xs-12'>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-4 col-xs-12'>
                                 <input type="text" className="form-control" id="driversLicenseType1" placeholder="License Type"></input>
                             </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseEndorsements1" placeholder="Endorsements"></input>
+                            </div>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">Expiration:</label>
+                            </div>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="month" className="form-control" id="driversLicenseExpiration1" name="driversLicenseExpiration1" />
+                            </div>
+                        </div>
+                        <hr />
+                        <div className='row'>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">State:</label>
+                            </div>
+                            <div className='col-md-6 col-xs-12'>
+                                <Select
+                                    className= 'form-control statesOperated'
+                                    id='licenseState2'
+                                    value={selectedOption}
+                                    onChange={this.handleChange}
+                                    options={options}
+                                />
+                            </div>
+                            <div className='col-md-5 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseNumber2" placeholder="License Number"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseType2" placeholder="License Type"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseEndorsements2" placeholder="Endorsements"></input>
+                            </div>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect2">Expiration:</label>
+                            </div>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="month" className="form-control" id="driversLicenseExpiration2" name="driversLicenseExpiration1" />
+                            </div>
+                        </div>
+                        <hr />
+                        <div className='row'>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect1">State:</label>
+                            </div>
+                            <div className='col-md-6 col-xs-12'>
+                                <Select
+                                    className= 'form-control statesOperated'
+                                    id='licenseState3'
+                                    value={selectedOption}
+                                    onChange={this.handleChange}
+                                    options={options}
+                                />
+                            </div>
+                            <div className='col-md-5 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseNumber3" placeholder="License Number"></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseType3" placeholder="License Type"></input>
+                            </div>
+                            <div className='col-md-3 col-xs-12'>
+                                <input type="text" className="form-control" id="driversLicenseEndorsements3" placeholder="Endorsements"></input>
+                            </div>
+                            <div className='col-md-1 col-xs-12'>
+                                <label className='formLabel' htmlFor="exampleFormControlSelect3">Expiration:</label>
+                            </div>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="month" className="form-control" id="driversLicenseExpiration3" name="driversLicenseExpiration1" />
+                            </div>
+                        </div>
+                        <hr />
+                        <div className='row'>
+                            <div className='col-md-8 col-xs-12'>
+                                <label className='applicationDetailsRight'>Have you ever been denied a license, permit, or privilege to operate a motor vehicle?:</label>
+                            </div>
                             <div className='col-md-2 col-xs-12'>
-                                <input type="text" className="form-control" id="driversLicenseEndorsements" placeholder="Penalty"></input>
+                                <label className="radioDetail deniedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail deniedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-8 col-xs-12'>
+                                <label className='applicationDetailsRight'>Has any license, permit, or privilege ever been suspended or revoked?:</label>
+                            </div>
+                            <div className='col-md-2 col-xs-12'>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-8 col-xs-12'>
+                                <label className='applicationDetailsRight'>Is there any reason you might be unable to perform the functions of the job for which you have applied - as described int he job description?:</label>
+                            </div>
+                            <div className='col-md-2 col-xs-12'>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-8 col-xs-12'>
+                                <label className='applicationDetailsRight'>Have you ever been convicted of a felony?:</label>
+                            </div>
+                            <div className='col-md-2 col-xs-12'>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Yes</label>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>No</label>
                             </div>
                         </div>
                     </div>

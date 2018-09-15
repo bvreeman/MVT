@@ -12,13 +12,15 @@
     margin-top: 10px;
 }
 
-.jobTypeRadio-inline,
-.employedBeforeRadio-inline,
-.jobFMCSR-inline,
-.job49CFRPart40-inline {
+.radioButtonDetails{
+    text-align: left;
+    margin-top: 10px;
+}
+
+.radioDetail {
     margin-left: 20px;
     margin-top: 10px;
-
+    text-align: left;
 }
 
 .radioButton {
