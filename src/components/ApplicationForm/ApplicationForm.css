@@ -1,19 +1,26 @@
-.form-control{
+.form-control {
     margin-top: 10px;
 }
 
-.applicationDetails{
+.applicationDetails {
     text-align: left;
     margin-top: 10px;
 }
 
-.applicationDetailsRight{
+.applicationDetailsRight {
     text-align: right;
     margin-top: 10px;
 }
 
-.radioButtonDetails{
-    text-align: left;
+.applicationSubmitButton {
+    margin-top: 10px;
+}
+
+.applicationAgreement {
+    font-weight: normal;
+}
+
+.radioButtonDetails {
     margin-top: 10px;
 }
 
