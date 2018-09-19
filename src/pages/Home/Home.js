@@ -29,7 +29,7 @@ class Home extends React.PureComponent {
                     <div className="col-md-3 col-xs-12">
                         <img className='truckIcon' src={truckIconRight} alt="Truck Icon"/>
                         <h4 className='truckIconHeading'>Reefer Transportation</h4>
-                        <p className='serviceDescription'>From MN to all points in the US. Primarily NJ / GA / FL / CA. 25 late model trucks and 33 late model refrigerated trailers. 24/7 dispatch and customer service. Drivers have the option to be an employee or lease a truck and be their own boss. No force dispatch, no NYC, paid weekly based on percentage of linehaul revenue. Full benefits available for company drivers, employer contribution into a HAS and cell phone reimbursement.</p>
+                        <p className='serviceDescription'>From MN to all points in the US. Primarily NJ / GA / FL / CA. 25 late model trucks and 33 late model refrigerated trailers. 24/7 dispatch and customer service.</p>
                     </div>
                     <div className="col-md-3 col-xs-12">
                         <img className='truckIcon' src={truckIconRight} alt="Truck Icon"/>

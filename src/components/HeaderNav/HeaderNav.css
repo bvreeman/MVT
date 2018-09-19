@@ -3,6 +3,11 @@
     width: 100%;
 }
 
+.navbarCenter {
+    text-align: center;
+    line-height: 50px;
+}
+
 .navbarRight {
     float: right;
     line-height: 50px;

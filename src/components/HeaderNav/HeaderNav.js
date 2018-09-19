@@ -9,8 +9,10 @@ const HeaderNav = () =>
 <div className="sticky headerContainer">
     <nav className="navbar">
         <div className="navbar-header">
-            <div className="navbarCenter">
+            <div className='navbarLeft'>
                 <Link to="/"><img src={whiteLogo} alt="Minnesota Valley Transport" className="navbarLogo"></img></Link>
+            </div>
+            <div className="navbarCenter">
                 <Link to="/" className="navbar-brand">Home</Link>
                 {/* <Link to="/Community" className="navbar-brand">Community</Link> */}
                 <Link to="/About" className="navbar-brand">About</Link>

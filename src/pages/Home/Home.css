@@ -5,11 +5,14 @@
 .mainPhotoDiv {
     padding-right: 0px;
     padding-left: 0px;
+
 }
 
 .truckIcon {
     width: 100px;
     padding-top: 50px;
+    display:block;
+    margin:auto;
 }
 
 .maintenanceIcon {
