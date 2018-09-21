@@ -82,6 +82,13 @@ class ApplicationForm extends React.PureComponent {
         this.setState({ selectedOptionLicenseState3 });
         console.log(`Option selected:`, selectedOptionLicenseState3);
       }
+
+      handleSubmit = (e) => {
+        //   e.preventDefault();
+          console.log('submitted?')
+      }
+
+
       
       render() {
         const { selectedOption } = this.state;
@@ -92,7 +99,7 @@ class ApplicationForm extends React.PureComponent {
                 <div>
                     <h2>Application Form</h2>
                 </div>
-                <form action='MAILTO:bvreeman@gmail.com' method='post' encType='text/plain'>
+                <form id='myApplicationForm' encType='text/plain'>
                     <div className="form-group">
                         <p className='applicationDetails instructions'>The purpose of this application is to determine whether or not the applicant is qualified to operate motor carrier equipment according to the requirements of the Federal Motor Carrier Safety Regulations and the Company named above.</p>
                         <hr/>
@@ -116,7 +123,7 @@ class ApplicationForm extends React.PureComponent {
                                 <label className="radioDetail jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
                             </div>
                         </div>
-                        <div className="row">
+                        {/* <div className="row">
                             <div className='col-md-4 col-xs-12'>
                                 <input required type="text" className="form-control" id="FirstName" name="FirstName" placeholder="First Name" />
                             </div>
@@ -126,9 +133,6 @@ class ApplicationForm extends React.PureComponent {
                             <div className='col-md-4 col-xs-12'>
                                 <input required type="text" className="form-control" id="LastName" name="LastName" placeholder="Last Name" />
                             </div>
-                            {/* <div className='col-md-3 col-xs-12'> 
-                                <input required type="text" className="form-control" id="socialSecurityNumber" name="socialSecurityNumber" placeholder="Social Security Number" />
-                            </div> */}
                         </div>
                         <div className="row">
                             <div className='col-md-4 col-xs-12'> 
@@ -1045,8 +1049,8 @@ class ApplicationForm extends React.PureComponent {
                         <hr />
                         <div className='row'>
                             <textarea rows="8" cols="250" name="additionalInfo" form="usrform">Enter additional info here...</textarea>
-                        </div>
-                        <input type='submit' className='applicationSubmitButton' value='Send Application' />
+                        </div> */}
+                        <input type='submit' className='applicationSubmitButton' onClick={this.handleSubmit()} value='Send Application' />
                     </div>
                 </form>
             </div>
