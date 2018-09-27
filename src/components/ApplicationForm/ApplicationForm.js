@@ -123,7 +123,7 @@ class ApplicationForm extends React.PureComponent {
                                 <label className="radioDetail jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio"></input>Contractor's Driver</label> 
                             </div>
                         </div>
-                        {/* <div className="row">
+                        <div className="row">
                             <div className='col-md-4 col-xs-12'>
                                 <input required type="text" className="form-control" id="FirstName" name="FirstName" placeholder="First Name" />
                             </div>
@@ -1049,7 +1049,7 @@ class ApplicationForm extends React.PureComponent {
                         <hr />
                         <div className='row'>
                             <textarea rows="8" cols="250" name="additionalInfo" form="usrform">Enter additional info here...</textarea>
-                        </div> */}
+                        </div>
                         <input type='submit' className='applicationSubmitButton' onClick={this.handleSubmit()} value='Send Application' />
                     </div>
                 </form>
