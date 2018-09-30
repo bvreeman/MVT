@@ -564,8 +564,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio2" ></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio2"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio2" value={this.state.FMCRsRadio2}></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio2" value={this.state.FMCRsRadio2}></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -573,20 +573,20 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_2"></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_2"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_2" value={this.state.CFRPart40_2}></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_2" value={this.state.CFRPart40_2}></input>No</label>
                             </div>
                         </div>
                         <hr />
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer3Name" placeholder="Company's Name"></input>
+                                <input type="text" className="form-control" value={this.state.employer3Name} placeholder="Company's Name"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer3Address" placeholder="Company's Full Address"></input>
+                                <input type="text" className="form-control" value={this.state.employer3Address} placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer3Phone" placeholder="Company's Phone Number"></input>
+                                <input type="text" className="form-control" value={this.state.employer3Phone} placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -594,21 +594,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed From:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="employment3Start" name="employment1Start" />
+                                <input type="month" className="form-control" value={this.state.employment3Start} name="employment1Start" />
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed To:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="employment3End" name="employment1End" />
+                                <input type="month" className="form-control" value={this.state.employment3End} name="employment1End" />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer3Position" placeholder="Position Held"></input>
+                                <input type="text" className="form-control" value={this.state.employer3Position} placeholder="Position Held"></input>
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input type="text" className="form-control" value="employer3Leaving" placeholder="Reason for Leaving"></input>
+                                <input type="text" className="form-control" value={this.state.employer3Leaving} placeholder="Reason for Leaving"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -616,8 +616,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio3"></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio3"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio3" value={this.state.FMCRsRadio3}></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio3" value={this.state.FMCRsRadio3}></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -625,20 +625,20 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_3"></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_3"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_3" value={this.state.CFRPart40_3}></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_3" value={this.state.CFRPart40_3}></input>No</label>
                             </div>
                         </div>
                         <hr />
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer4Name" placeholder="Company's Name"></input>
+                                <input type="text" className="form-control" value={this.state.employer4Name} placeholder="Company's Name"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer4Address" placeholder="Company's Full Address"></input>
+                                <input type="text" className="form-control" value={this.state.employer4Address} placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer4Phone" placeholder="Company's Phone Number"></input>
+                                <input type="text" className="form-control" value={this.state.employer4Phone} placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -646,21 +646,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed From:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="employment4Start" name="employment1Start" />
+                                <input type="month" className="form-control" value={this.state.employment4Start} name="employment1Start" />
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed To:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="employment4End" name="employment1End" />
+                                <input type="month" className="form-control" value={this.state.employment4End} name="employment1End" />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer4Position" placeholder="Position Held"></input>
+                                <input type="text" className="form-control" value={this.state.employer4Position} placeholder="Position Held"></input>
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input type="text" className="form-control" value="employer4Leaving" placeholder="Reason for Leaving"></input>
+                                <input type="text" className="form-control" value={this.state.employer4Leaving} placeholder="Reason for Leaving"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -668,8 +668,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio4"></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio4"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio4" value={this.state.FMCRsRadio4}></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio4" value={this.state.FMCRsRadio4}></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -677,20 +677,20 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_4"></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_4"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_4" value={this.state.CFRPart40_4}></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_4" value={this.state.CFRPart40_4}></input>No</label>
                             </div>
                         </div>
                         <hr />
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer5Name" placeholder="Company's Name"></input>
+                                <input type="text" className="form-control" value={this.state.employer5Name} placeholder="Company's Name"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer5Address" placeholder="Company's Full Address"></input>
+                                <input type="text" className="form-control" value={this.state.employer5Address} placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer5Phone" placeholder="Company's Phone Number"></input>
+                                <input type="text" className="form-control" value={this.state.employer5Phone} placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -698,21 +698,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed From:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="employment5Start" name="employment1Start" />
+                                <input type="month" className="form-control" value={this.state.employment5Start} name="employment1Start" />
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed To:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="employment5End" name="employment1End" />
+                                <input type="month" className="form-control" value={this.state.employment5End} name="employment1End" />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="employer5Position" placeholder="Position Held"></input>
+                                <input type="text" className="form-control" value={this.state.employer5Position} placeholder="Position Held"></input>
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input type="text" className="form-control" value="employer5Leaving" placeholder="Reason for Leaving"></input>
+                                <input type="text" className="form-control" value={this.state.employer5Leaving} placeholder="Reason for Leaving"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -720,8 +720,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio5"></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio5"></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio5" value={this.state.FMCRsRadio5}></input>Yes</label>
+                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio5" value={this.state.FMCRsRadio5}></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -729,8 +729,8 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_5"></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_5"></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_5" value={this.state.CFRPart40_5}></input>Yes</label>
+                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_5" value={this.state.CFRPart40_5}></input>No</label>
                             </div>
                         </div>
                         <hr />
@@ -745,13 +745,13 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">From:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="straightTruckFrom" name="straightTruckFrom" />
+                                <input type="month" className="form-control" value={this.state.straightTruckFrom} name="straightTruckFrom" />
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">To:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="straightTruckTo" name="straightTruckTo" />
+                                <input type="month" className="form-control" value={this.state.straightTruckTo} name="straightTruckTo" />
                             </div>
                         </div>
                         <div className='row'>
@@ -759,7 +759,7 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Miles Driven:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="straightTruckMilesDriven" name="straightTruckMilesDriven" />
+                                <input type="number" className="form-control" value={this.state.straightTruckMilesDriven} name="straightTruckMilesDriven" />
                             </div>
                         </div>
                         <div className='row'>
@@ -770,13 +770,13 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">From:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="TractorTruckFrom" name="TractorTruckFrom" />
+                                <input type="month" className="form-control" value={this.state.TractorTruckFrom} name="TractorTruckFrom" />
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">To:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="TractorTruckTo" name="TractorTruckTo" />
+                                <input type="month" className="form-control" value={this.state.TractorTruckTo} name="TractorTruckTo" />
                             </div>
                         </div>
                         <div className='row'>
@@ -784,7 +784,7 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Miles Driven:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="TractorTruckMilesDriven" name="TractorTruckMilesDriven" />
+                                <input type="number" className="form-control" value={this.state.TractorTruckMilesDriven} name="TractorTruckMilesDriven" />
                             </div>
                         </div>
                         <div className='row'>
@@ -795,13 +795,13 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">From:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="TractorTwoTrailersFrom" name="TractorTwoTrailersFrom" />
+                                <input type="month" className="form-control" value={this.state.TractorTwoTrailersFrom} name="TractorTwoTrailersFrom" />
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">To:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="TractorTwoTrailersTo" name="TractorTwoTrailersTo" />
+                                <input type="month" className="form-control" value={this.state.TractorTwoTrailersTo} name="TractorTwoTrailersTo" />
                             </div>
                         </div>
                         <div className='row'>
@@ -809,7 +809,7 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Miles Driven:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="TractorTwoTrailersMilesDriven" name="TractorTwoTrailersMilesDriven" />
+                                <input type="number" className="form-control" value={this.state.TractorTwoTrailersMilesDriven} name="TractorTwoTrailersMilesDriven" />
                             </div>
                         </div>
                         <div className='row'>
@@ -820,13 +820,13 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">From:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="TractorThreeTrailersFrom" name="TractorThreeTrailersFrom" />
+                                <input type="month" className="form-control" value={this.state.TractorThreeTrailersFrom} name="TractorThreeTrailersFrom" />
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">To:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="TractorThreeTrailersTo" name="TractorThreeTrailersTo" />
+                                <input type="month" className="form-control" value={this.state.TractorThreeTrailersTo} name="TractorThreeTrailersTo" />
                             </div>
                         </div>
                         <div className='row'>
@@ -834,7 +834,7 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Miles Driven:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="TractorThreeTrailersMilesDriven" name="TractorThreeTrailersMilesDriven" />
+                                <input type="number" className="form-control" value={this.state.TractorThreeTrailersMilesDriven} name="TractorThreeTrailersMilesDriven" />
                             </div>
                         </div>
                         <div className='row'>
@@ -845,13 +845,13 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">From:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="OtherFrom" name="OtherFrom" />
+                                <input type="month" className="form-control" value={this.state.OtherFrom} name="OtherFrom" />
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">To:</label>
                             </div>
                             <div className='col-md-2.5 col-xs-12'>
-                                <input type="month" className="form-control" value="OtherTo" name="OtherTo" />
+                                <input type="month" className="form-control" value={this.state.OtherTo} name="OtherTo" />
                             </div>
                         </div>
                         <div className='row'>
@@ -859,7 +859,7 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Miles Driven:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="OtherDriven" name="OtherDriven" />
+                                <input type="number" className="form-control" value={this.state.OtherDriven} name="OtherDriven" />
                             </div>
                         </div>
                         <div className='row'>
@@ -869,8 +869,7 @@ class ApplicationForm extends React.PureComponent {
                             <div className='col-md-7 col-xs-12'>
                                 <Select
                                     className= 'form-control statesOperated'
-                                    value='statesOperated'
-                                    value={selectedOption}
+                                    value={this.state.statesOperated}
                                     onChange={this.handleChange1}
                                     options={options}
                                     isMulti
@@ -878,10 +877,10 @@ class ApplicationForm extends React.PureComponent {
                             </div>
                         </div>
                         <div className='row'>
-                            <input type="text" className="form-control" value="trainingCompleted" placeholder="List special courses/training completed - PTD/DDC, Haz Mat, etc."></input>
+                            <input type="text" className="form-control" value={this.state.trainingCompleted} placeholder="List special courses/training completed - PTD/DDC, Haz Mat, etc."></input>
                         </div>
                         <div className='row'>
-                            <input type="text" className="form-control" value="safeDrivingAwards" placeholder="List any Safe Driving Awards you hold and from whom"></input>
+                            <input type="text" className="form-control" value={this.state.safeDrivingAwards} placeholder="List any Safe Driving Awards you hold and from whom"></input>
                         </div>
                         <hr />
                         <div className="row">
@@ -892,21 +891,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="accidentDate1" name="accidentDate" />
+                                <input type="month" className="form-control" value={this.state.accidentDate1} name="accidentDate" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" value="natureOfAccident1" placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
+                                <input type="text" className="form-control" value={this.state.natureOfAccident1} placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6 col-xs-12'>
-                                <input type="text" className="form-control" value="accidentLocation1" placeholder="Location of Accident"></input>
+                                <input type="text" className="form-control" value={this.state.accidentLocation1} placeholder="Location of Accident"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="numberFatalities1" placeholder="Number of Fatalities"></input>
+                                <input type="number" className="form-control" value={this.state.numberFatalities1} placeholder="Number of Fatalities"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="numberInjured1" placeholder="Number of People Injured"></input>
+                                <input type="number" className="form-control" value={this.state.numberInjured1} placeholder="Number of People Injured"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -914,21 +913,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="accidentDate2" name="accidentDate" />
+                                <input type="month" className="form-control" value={this.state.accidentDate2} name="accidentDate" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" value="natureOfAccident2" placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
+                                <input type="text" className="form-control" value={this.state.natureOfAccident2} placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6 col-xs-12'>
-                                <input type="text" className="form-control" value="accidentLocation2" placeholder="Location of Accident"></input>
+                                <input type="text" className="form-control" value={this.state.accidentLocation2} placeholder="Location of Accident"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="numberFatalities2" placeholder="Number of Fatalities"></input>
+                                <input type="number" className="form-control" value={this.state.numberFatalities2} placeholder="Number of Fatalities"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="numberInjured2" placeholder="Number of People Injured"></input>
+                                <input type="number" className="form-control" value={this.state.numberInjured2} placeholder="Number of People Injured"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -936,21 +935,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="accidentDate3" name="accidentDate" />
+                                <input type="month" className="form-control" value={this.state.accidentDate3} name="accidentDate" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" value="natureOfAccident3" placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
+                                <input type="text" className="form-control" value={this.state.natureOfAccident3} placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6 col-xs-12'>
-                                <input type="text" className="form-control" value="accidentLocation3" placeholder="Location of Accident"></input>
+                                <input type="text" className="form-control" value={this.state.accidentLocation3} placeholder="Location of Accident"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="numberFatalities3" placeholder="Number of Fatalities"></input>
+                                <input type="number" className="form-control" value={this.state.numberFatalities3} placeholder="Number of Fatalities"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" value="numberInjured3" placeholder="Number of People Injured"></input>
+                                <input type="number" className="form-control" value={this.state.numberInjured3} placeholder="Number of People Injured"></input>
                             </div>
                         </div>
                         <hr />
@@ -962,16 +961,16 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="convictionDate1" name="convictionDate1" />
+                                <input type="month" className="form-control" value={this.state.convictionDate1} name="convictionDate1" />
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionLocation1" placeholder="Location"></input>
+                                <input type="text" className="form-control" value={this.state.convictionLocation1} placeholder="Location"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionCharge1" placeholder="Charge"></input>
+                                <input type="text" className="form-control" value={this.state.convictionCharge1} placeholder="Charge"></input>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionPenalty1" placeholder="Penalty"></input>
+                                <input type="text" className="form-control" value={this.state.convictionPenalty1} placeholder="Penalty"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -979,16 +978,16 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="convictionDate2" name="convictionDate1" />
+                                <input type="month" className="form-control" value={this.state.convictionDate2} name="convictionDate1" />
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionLocation2" placeholder="Location"></input>
+                                <input type="text" className="form-control" value={this.state.convictionLocation2} placeholder="Location"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionCharge2" placeholder="Charge"></input>
+                                <input type="text" className="form-control" value={this.state.convictionCharge2} placeholder="Charge"></input>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionPenalty2" placeholder="Penalty"></input>
+                                <input type="text" className="form-control" value={this.state.convictionPenalty2} placeholder="Penalty"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -996,16 +995,16 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" value="convictionDate3" name="convictionDate1" />
+                                <input type="month" className="form-control" value={this.state.convictionDate3} name="convictionDate1" />
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionLocation3" placeholder="Location"></input>
+                                <input type="text" className="form-control" value={this.state.convictionLocation3} placeholder="Location"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionCharge3" placeholder="Charge"></input>
+                                <input type="text" className="form-control" value={this.state.convictionCharge3} placeholder="Charge"></input>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <input type="text" className="form-control" value="convictionPenalty3" placeholder="Penalty"></input>
+                                <input type="text" className="form-control" value={this.state.convictionPenalty3} placeholder="Penalty"></input>
                             </div>
                         </div>
                         <hr />
@@ -1020,28 +1019,27 @@ class ApplicationForm extends React.PureComponent {
                                 <Select
                                     required 
                                     className= 'form-control statesOperated'
-                                    value='licenseState1'
-                                    value={selectedOption}
+                                    value={this.state.licenseState1}
                                     onChange={this.handleChange2}
                                     options={options}
                                 />
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <input required type="text" className="form-control" value="driversLicenseNumber1" placeholder="License Number"></input>
+                                <input required type="text" className="form-control" value={this.state.driversLicenseNumber1} placeholder="License Number"></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" value="driversLicenseType1" placeholder="License Type"></input>
+                                <input required type="text" className="form-control" value={this.state.driversLicenseType1} placeholder="License Type"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input required type="text" className="form-control" value="driversLicenseEndorsements1" placeholder="Endorsements"></input>
+                                <input required type="text" className="form-control" value={this.state.driversLicenseEndorsements1} placeholder="Endorsements"></input>
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Expiration:</label>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="month" className="form-control" value="driversLicenseExpiration1" name="driversLicenseExpiration1" />
+                                <input required type="month" className="form-control" value={this.state.driversLicenseExpiration1} name="driversLicenseExpiration1" />
                             </div>
                         </div>
                         <hr />
@@ -1052,28 +1050,27 @@ class ApplicationForm extends React.PureComponent {
                             <div className='col-md-6 col-xs-12'>
                                 <Select
                                     className= 'form-control statesOperated'
-                                    value='licenseState2'
-                                    value={selectedOption}
+                                    value={this.state.licenseState2}
                                     onChange={this.handleChange3}
                                     options={options}
                                 />
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <input type="text" className="form-control" value="driversLicenseNumber2" placeholder="License Number"></input>
+                                <input type="text" className="form-control" value={this.state.driversLicenseNumber2} placeholder="License Number"></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="driversLicenseType2" placeholder="License Type"></input>
+                                <input type="text" className="form-control" value={this.state.driversLicenseType2} placeholder="License Type"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="driversLicenseEndorsements2" placeholder="Endorsements"></input>
+                                <input type="text" className="form-control" value={this.state.driversLicenseEndorsements2} placeholder="Endorsements"></input>
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect2">Expiration:</label>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="month" className="form-control" value="driversLicenseExpiration2" name="driversLicenseExpiration1" />
+                                <input type="month" className="form-control" value={this.state.driversLicenseExpiration2} name="driversLicenseExpiration1" />
                             </div>
                         </div>
                         <hr />
@@ -1084,28 +1081,27 @@ class ApplicationForm extends React.PureComponent {
                             <div className='col-md-6 col-xs-12'>
                                 <Select
                                     className= 'form-control statesOperated'
-                                    value='licenseState3'
-                                    value={selectedOption}
+                                    value={this.state.licenseState3}
                                     onChange={this.handleChange4}
                                     options={options}
                                 />
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <input type="text" className="form-control" value="driversLicenseNumber3" placeholder="License Number"></input>
+                                <input type="text" className="form-control" value={this.state.driversLicenseNumber3} placeholder="License Number"></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" value="driversLicenseType3" placeholder="License Type"></input>
+                                <input type="text" className="form-control" value={this.state.driversLicenseType3} placeholder="License Type"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" value="driversLicenseEndorsements3" placeholder="Endorsements"></input>
+                                <input type="text" className="form-control" value={this.state.driversLicenseEndorsements3} placeholder="Endorsements"></input>
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect3">Expiration:</label>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="month" className="form-control" value="driversLicenseExpiration3" name="driversLicenseExpiration1" />
+                                <input type="month" className="form-control" value={this.state.driversLicenseExpiration3} name="driversLicenseExpiration1" />
                             </div>
                         </div>
                         <hr />
@@ -1114,8 +1110,8 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='radioButtonDetails'>Have you ever been denied a license, permit, or privilege to operate a motor vehicle?:</label>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail deniedLicenseRadio-inline"><input required  className='radioButton' type="radio" name="deniedLicenceRadio"></input>Yes</label>
-                                <label className="radioDetail deniedLicenseRadio-inline"><input className='radioButton' type="radio" name="deniedLicenceRadio"></input>No</label>
+                                <label className="radioDetail deniedLicenseRadio-inline"><input required  className='radioButton' type="radio" name="deniedLicenceRadio" value={this.state.deniedLicenceRadio}></input>Yes</label>
+                                <label className="radioDetail deniedLicenseRadio-inline"><input className='radioButton' type="radio" name="deniedLicenceRadio" value={this.state.deniedLicenceRadio}></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
@@ -1123,8 +1119,8 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='radioButtonDetails'>Has any license, permit, or privilege ever been suspended or revoked?:</label>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input required className='radioButton' type="radio" name="suspendedLicenseRadio"></input>Yes</label>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="suspendedLicenseRadio"></input>No</label>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input required className='radioButton' type="radio" name="suspendedLicenseRadio" value={this.state.suspendedLicenseRadio}></input>Yes</label>
+                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="suspendedLicenseRadio" value={this.state.suspendedLicenseRadio}></input>No</label>
                             </div>
                         </div>
                         <div className='row'>
