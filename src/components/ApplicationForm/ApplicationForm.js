@@ -1,60 +1,7 @@
 import React from 'react';
 import './ApplicationForm.css'
 import Select from 'react-select';
-
-const options = [
-    { value: 'A', label: 'Alabama' },
-    { value: "AK", label: 'Alaska' },
-    { value: "AZ", label: 'Arizona' },
-    { value: "AR", label: 'Arkansas' },
-    { value: "CA", label: 'California' },
-    { value: "CO", label: 'Colorado' },
-    { value: "CT", label: 'Connecticut' },
-    { value: "DE", label: 'Delaware' },
-    { value: "DC", label: 'District Of Columbia' },
-    { value: "FL", label: 'Florida' },
-    { value: "GA", label: 'Georgia' },
-    { value: "HI", label: 'Hawaii' },
-    { value: "ID", label: 'Idaho' },
-    { value: "IL", label: 'Illinois' },
-    { value: "IN", label: 'Indiana' },
-    { value: "IA", label: 'Iowa' },
-    { value: "KS", label: 'Kansas' },
-    { value: "KY", label: 'Kentucky' },
-    { value: "LA", label: 'Louisiana' },
-    { value: "ME", label: 'Maine' },
-    { value: "MD", label: 'Maryland' },
-    { value: "MA", label: 'Massachusetts' },
-    { value: "MI", label: 'Michigan' },
-    { value: "MN", label: 'Minnesota' },
-    { value: "MS", label: 'Mississippi' },
-    { value: "MO", label: 'Missouri' },
-    { value: "MT", label: 'Montana' },
-    { value: "NE", label: 'Nebraska' },
-    { value: "NV", label: 'Nevada' },
-    { value: "NH", label: 'New Hampshire' },
-    { value: "NJ", label: 'New Jersey' },
-    { value: "NM", label: 'New Mexico' },
-    { value: "NY", label: 'New York' },
-    { value: "NC", label: 'North Carolina' },
-    { value: "ND", label: 'North Dakota' },
-    { value: "OH", label: 'Ohio' },
-    { value: "OK", label: 'Oklahoma' },
-    { value: "OR", label: 'Oregon' },
-    { value: "PA", label: 'Pennsylvania' },
-    { value: "RI", label: 'Rhode Island' },
-    { value: "SC", label: 'South Carolina' },
-    { value: "SD", label: 'South Dakota' },
-    { value: "TN", label: 'Tennessee' },
-    { value: "TX", label: 'Texas' },
-    { value: "UT", label: 'Utah' },
-    { value: "VT", label: 'Vermont' },
-    { value: "VA", label: 'Virginia' },
-    { value: "WA", label: 'Washington' },
-    { value: "WV", label: 'West Virginia' },
-    { value: "WI", label: 'Wisconsin' },
-    { value: "WY", label: 'Wyoming' }
-]
+import {statesData} from './data';
 
 class ApplicationForm extends React.PureComponent {
     constructor(props) {
@@ -148,7 +95,7 @@ class ApplicationForm extends React.PureComponent {
             OtherFrom: '',
             OtherTo: '',
             OtherDriven: '',
-            statesOperated: '',
+            statesOperated: [],
             trainingCompleted: '',
             safeDrivingAwards: '',
             accidentDate1: '',
@@ -193,7 +140,7 @@ class ApplicationForm extends React.PureComponent {
             driversLicenseType3: '',
             driversLicenseEndorsements3: '',
             driversLicenseExpiration3: '',
-            deniedLicenceRadio: '',
+            deniedLicenseRadio: '',
             suspendedLicenseRadio: '',
             performJobRadio: '',
             felonyRadio: '',
@@ -219,6 +166,7 @@ class ApplicationForm extends React.PureComponent {
     }
 
     handleChange(event) {
+        event.preventDefault();
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -229,35 +177,33 @@ class ApplicationForm extends React.PureComponent {
     }
 
     handleChange1 = (selectedOptionOperated) => {
-    this.setState({ selectedOptionOperated });
-    console.log(`Option selected:`, selectedOptionOperated);
+        this.state.statesOperated.push(selectedOptionOperated);
     }
 
     handleChange2 = (selectedOptionLicenseState1) => {
-    this.setState({ selectedOptionLicenseState1 });
-    console.log(`Option selected:`, selectedOptionLicenseState1);
+        this.setState({ licenseState1: selectedOptionLicenseState1 })
+        console.log('license state1', this.licenseState1);
     }
 
     handleChange3 = (selectedOptionLicenseState2) => {
-    this.setState({ selectedOptionLicenseState2 });
-    console.log(`Option selected:`, selectedOptionLicenseState2);
+        this.setState({ licenseState2: selectedOptionLicenseState2 })
+        // this.state.licenseState2 === selectedOptionLicenseState2
     }
 
     handleChange4 = (selectedOptionLicenseState3) => {
-    this.setState({ selectedOptionLicenseState3 });
-    console.log(`Option selected:`, selectedOptionLicenseState3);
+        this.setState({ licenseState3: selectedOptionLicenseState3 })
     }
 
     handleSubmit = (e) => {
     //   e.preventDefault();
-        console.log('submitted?')
+        // console.log('submitted?')
+        console.log(this.state)
     }
 
 
       
       render() {
-        const { selectedOption } = this.state;
- 
+        // const { selectedOption } = this.state; 
         return (
     
             <div className='container formDiv'>
@@ -277,15 +223,44 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Application Date:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input required type="date" onChange={this.handleChange} className="form-control" value={this.state.applicationDate} placeholder="Date"></input>
+                                {/* <input required type="date" className="form-control" onChange={this.handleChange} value={this.state.applicationDate} placeholder="Date" /> */}
+                                <input type="date" className="form-control" onChange={this.handleChange} value={this.state.applicationDate} name="applicationDate"/>
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <p className='radioButtonDetails'>Position applying for:</p>
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <label className="radioDetail jobTypeRadio-inline"><input onChange={this.handleChange} required className='radioButton' type="radio" name="optradio"></input>Contractor</label>
-                                <label className="radioDetail jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio" value={this.state.optradio}></input>Driver</label>
-                                <label className="radioDetail jobTypeRadio-inline"><input className='radioButton' type="radio" name="optradio" value={this.state.optradio}></input>Contractor's Driver</label> 
+                                <label className="radioDetail jobTypeRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="optradio" 
+                                        value='Contractor'
+                                        checked={this.state.optradio === 'Contractor'}>
+                                    </input>Contractor
+                                </label>
+                                <label className="radioDetail jobTypeRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="optradio" 
+                                        value='Driver'
+                                        checked={this.state.optradio === 'Driver'}>
+                                    </input>Driver
+                                </label>
+                                <label className="radioDetail jobTypeRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="optradio"
+                                        value='Contractor Driver' 
+                                        checked={this.state.optradio === 'Contractor Driver'}>
+                                    </input>Contractor's Driver
+                                </label> 
                             </div>
                         </div>
                         <div className="row">
@@ -403,8 +378,27 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Have you worked for this company before?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail employedBeforeRadio-inline"><input onChange={this.handleChange} required className='radioButton' type="radio" name="employedBeforeRadio" value={this.state.employedBeforeRadio}></input>Yes</label>
-                                <label className="radioDetail employedBeforeRadio-inline"><input className='radioButton' type="radio" name="employedBeforeRadio" value={this.state.employedBeforeRadio}></input>No</label>
+                                <label className="radioDetail employedBeforeRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="employedBeforeRadio" 
+                                        value='employedBeforeRadio_Yes'
+                                        checked={this.state.employedBeforeRadio === 'employedBeforeRadio_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail employedBeforeRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="employedBeforeRadio"
+                                        value='employedBeforeRadio_No' 
+                                        checked={this.state.employedBeforeRadio === 'employedBeforeRadio_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -435,49 +429,14 @@ class ApplicationForm extends React.PureComponent {
                             <p className='applicationDetails'>Please select the highest grade completed:</p>
                         </div>
                         <div className='row'>
-                            <div className='col-md-1 col-xs-12'>
-                                <label className='formLabel' htmlFor="exampleFormControlSelect4">Grade School:</label>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.gradeSchool} name="gradeSchool" placeholder="Highest Grade Completed in Grade School" />
                             </div>
-                            <div className='col-md-3 col-xs-12'>
-                                <select required className="form-control" onChange={this.handleChange} value={this.state.gradeSchool}>
-                                    <option disabled selected value> -- select an option -- </option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                </select>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.College} name="College" placeholder="Level of College Completed" />
                             </div>
-                            <div className='col-md-1 col-xs-12'>
-                                <label className='formLabel' htmlFor="exampleFormControlSelect4">College:</label>
-                            </div>
-                            <div className='col-md-3 col-xs-12'>
-                                <select className="form-control" onChange={this.handleChange} value={this.state.College}>
-                                    <option disabled selected value> -- select an option -- </option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-                            <div className='col-md-1 col-xs-12'>
-                                <label className='formLabel' htmlFor="exampleFormControlSelect4">Post-Graduate:</label>
-                            </div>
-                            <div className='col-md-3 col-xs-12'>
-                                <select className="form-control" onChange={this.handleChange} value={this.state.postGraduate}>
-                                    <option disabled selected value> -- select an option -- </option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
+                            <div className='col-md-4 col-xs-12'>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.postGraduate} name="postGraduate" placeholder="Post Graduate Completed" />
                             </div>
                         </div>
                         <hr />
@@ -487,13 +446,13 @@ class ApplicationForm extends React.PureComponent {
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Name} placeholder="Company's Name"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Name} name="employer1Name" placeholder="Company's Name" />
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Address} placeholder="Company's Full Address"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Address} name="employer1Address" placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Phone} placeholder="Company's Phone Number"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Phone} name="employer1Phone" placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -512,10 +471,10 @@ class ApplicationForm extends React.PureComponent {
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Position} placeholder="Position Held"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Position} name="employer1Position" placeholder="Position Held" />
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Leaving} placeholder="Reason for Leaving"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.employer1Leaving} name="employer1Leaving" placeholder="Reason for Leaving" />
                             </div>
                         </div>
                         <div className='row'>
@@ -523,8 +482,27 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input onChange={this.handleChange} required className='radioButton' type="radio" name="FMCRsRadio1" value={this.state.FMCRsRadio1}></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio1" vlaue={this.state.FMCRsRadio1}></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        required 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="FMCRsRadio1" 
+                                        value='FMCRsRadio1_Yes'
+                                        checked={this.state.FMCRsRadio1 === 'FMCRsRadio1_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='FMCRsRadio1_No'
+                                        checked={this.state.FMCRsRadio1 === 'FMCRsRadio1_No'} 
+                                        name="FMCRsRadio1" >
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -532,20 +510,39 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input onChange={this.handleChange} required className='radioButton' type="radio" name="CFRPart40_1" value={this.state.CFRPart40_1}></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_1" value={this.state.CFRPart40_1}></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_1" 
+                                        value='CFRPart40_1_Yes'
+                                        checked={this.state.CFRPart40_1 === 'CFRPart40_1_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_1" 
+                                        value='CFRPart40_1_No'
+                                        checked={this.state.CFRPart40_1 === 'CFRPart40_1_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <hr />
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Name} placeholder="Company's Name"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Name} name='employer2Name' placeholder="Company's Name"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Address} placeholder="Company's Full Address"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Address} name='employer2Address' placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Phone} placeholder="Company's Phone Number"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Phone} name='employer2Phone' placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -553,21 +550,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed From:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment2Start} name="employment1Start" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment2Start} name="employment2Start" />
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed To:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment2End} name="employment1End" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment2End} name="employment2End" />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Position} placeholder="Position Held"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Position} name='employer2Position' placeholder="Position Held"></input>
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Leaving} placeholder="Reason for Leaving"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer2Leaving} name='employer2Leaving' placeholder="Reason for Leaving"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -575,8 +572,27 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="FMCRsRadio2" value={this.state.FMCRsRadio2}></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio2" value={this.state.FMCRsRadio2}></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        required 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="FMCRsRadio2" 
+                                        value='FMCRsRadio2_Yes'
+                                        checked={this.state.FMCRsRadio2 === 'FMCRsRadio2_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='FMCRsRadio2_No'
+                                        checked={this.state.FMCRsRadio2 === 'FMCRsRadio2_No'} 
+                                        name="FMCRsRadio2" >
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -584,20 +600,39 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="CFRPart40_2" value={this.state.CFRPart40_2}></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_2" value={this.state.CFRPart40_2}></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_2" 
+                                        value='CFRPart40_2_Yes'
+                                        checked={this.state.CFRPart40_2 === 'CFRPart40_2_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_2" 
+                                        value='CFRPart40_2_No'
+                                        checked={this.state.CFRPart40_2 === 'CFRPart40_2_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <hr />
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Name} placeholder="Company's Name"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Name} name='employer3Name' placeholder="Company's Name"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Address} placeholder="Company's Full Address"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Address} name='employer3Address' placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Phone} placeholder="Company's Phone Number"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Phone} name='employer3Phone' placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -605,21 +640,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed From:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment3Start} name="employment1Start" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment3Start} name="employment3Start" />
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed To:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment3End} name="employment1End" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment3End} name="employment3End" />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Position} placeholder="Position Held"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Position} name='employer3Position' placeholder="Position Held"></input>
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Leaving} placeholder="Reason for Leaving"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer3Leaving} name='employer3Leaving' placeholder="Reason for Leaving"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -627,8 +662,27 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="FMCRsRadio3" value={this.state.FMCRsRadio3}></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio3" value={this.state.FMCRsRadio3}></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        required 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="FMCRsRadio3" 
+                                        value='FMCRsRadio3_Yes'
+                                        checked={this.state.FMCRsRadio3 === 'FMCRsRadio3_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='FMCRsRadio3_No'
+                                        checked={this.state.FMCRsRadio3 === 'FMCRsRadio3_No'} 
+                                        name="FMCRsRadio3" >
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -636,20 +690,39 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="CFRPart40_3" value={this.state.CFRPart40_3}></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_3" value={this.state.CFRPart40_3}></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_3" 
+                                        value='CFRPart40_3_Yes'
+                                        checked={this.state.CFRPart40_3 === 'CFRPart40_3_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_3" 
+                                        value='CFRPart40_3_No'
+                                        checked={this.state.CFRPart40_3 === 'CFRPart40_3_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <hr />
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Name} placeholder="Company's Name"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Name} name='employer4Name' placeholder="Company's Name"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Address} placeholder="Company's Full Address"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Address} name='employer4Address' placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Phone} placeholder="Company's Phone Number"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Phone} name='employer4Phone' placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -657,21 +730,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed From:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment4Start} name="employment1Start" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment4Start} name="employment4Start" />
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed To:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment4End} name="employment1End" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment4End} name="employment4End" />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Position} placeholder="Position Held"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Position} name='employer4Position' placeholder="Position Held"></input>
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Leaving} placeholder="Reason for Leaving"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer4Leaving} name='employer4Leaving' placeholder="Reason for Leaving"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -679,8 +752,27 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="FMCRsRadio4" value={this.state.FMCRsRadio4}></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio4" value={this.state.FMCRsRadio4}></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        required 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="FMCRsRadio4" 
+                                        value='FMCRsRadio4_Yes'
+                                        checked={this.state.FMCRsRadio4 === 'FMCRsRadio4_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='FMCRsRadio4_No'
+                                        checked={this.state.FMCRsRadio4 === 'FMCRsRadio4_No'} 
+                                        name="FMCRsRadio4" >
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -688,20 +780,39 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="CFRPart40_4" value={this.state.CFRPart40_4}></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_4" value={this.state.CFRPart40_4}></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_4" 
+                                        value='CFRPart40_4_Yes'
+                                        checked={this.state.CFRPart40_4 === 'CFRPart40_4_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_4" 
+                                        value='CFRPart40_4_No'
+                                        checked={this.state.CFRPart40_4 === 'CFRPart40_4_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <hr />
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Name} placeholder="Company's Name"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Name} name='employer5Name' placeholder="Company's Name"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Address} placeholder="Company's Full Address"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Address} name='employer5Address' placeholder="Company's Full Address"></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Phone} placeholder="Company's Phone Number"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Phone} name='employer5Phone' placeholder="Company's Phone Number"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -709,21 +820,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed From:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment5Start} name="employment1Start" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment5Start} name="employment5Start" />
                             </div>
                             <div className='col-md-2 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect4">Employed To:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment5End} name="employment1End" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.employment5End} name="employment5End" />
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Position} placeholder="Position Held"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Position} name='employer5Position' placeholder="Position Held"></input>
                             </div>
                             <div className='col-md-8 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Leaving} placeholder="Reason for Leaving"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.employer5Leaving} name='employer5Leaving' placeholder="Reason for Leaving"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -731,8 +842,27 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Were you subject to the FMCRs* while employed here?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail jobFMCSR-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="FMCRsRadio5" value={this.state.FMCRsRadio5}></input>Yes</label>
-                                <label className="radioDetail jobFMCSR-inline"><input className='radioButton' type="radio" name="FMCRsRadio5" value={this.state.FMCRsRadio5}></input>No</label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        required 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="FMCRsRadio5" 
+                                        value='FMCRsRadio5_Yes'
+                                        checked={this.state.FMCRsRadio5 === 'FMCRsRadio5_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail jobFMCSR-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='FMCRsRadio5_No'
+                                        checked={this.state.FMCRsRadio5 === 'FMCRsRadio5_No'} 
+                                        name="FMCRsRadio5" >
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -740,8 +870,27 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='radioButtonDetails'>Was your job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40?</p>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail job49CFRPart40-inline"><input onChange={this.handleChange} className='radioButton' type="radio" name="CFRPart40_5" value={this.state.CFRPart40_5}></input>Yes</label>
-                                <label className="radioDetail job49CFRPart40-inline"><input className='radioButton' type="radio" name="CFRPart40_5" value={this.state.CFRPart40_5}></input>No</label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_5" 
+                                        value='CFRPart40_5_Yes'
+                                        checked={this.state.CFRPart40_5 === 'CFRPart40_5_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail job49CFRPart40-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="CFRPart40_5" 
+                                        value='CFRPart40_5_No'
+                                        checked={this.state.CFRPart40_5 === 'CFRPart40_5_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <hr />
@@ -882,17 +1031,18 @@ class ApplicationForm extends React.PureComponent {
                                     className= 'form-control statesOperated'
                                     // onChange={this.handleChange} 
                                     value={this.state.statesOperated}
+                                    name="statesOperated"
                                     onChange={this.handleChange1}
-                                    options={options}
+                                    options={statesData}
                                     isMulti
                                 />
                             </div>
                         </div>
                         <div className='row'>
-                            <input type="text" className="form-control" onChange={this.handleChange} value={this.state.trainingCompleted} placeholder="List special courses/training completed - PTD/DDC, Haz Mat, etc."></input>
+                            <input type="text" className="form-control" onChange={this.handleChange} value={this.state.trainingCompleted} name='trainingCompleted' placeholder="List special courses/training completed - PTD/DDC, Haz Mat, etc." />
                         </div>
                         <div className='row'>
-                            <input type="text" className="form-control" onChange={this.handleChange} value={this.state.safeDrivingAwards} placeholder="List any Safe Driving Awards you hold and from whom"></input>
+                            <input type="text" className="form-control" onChange={this.handleChange} value={this.state.safeDrivingAwards} name='safeDrivingAwards' placeholder="List any Safe Driving Awards you hold and from whom"></input>
                         </div>
                         <hr />
                         <div className="row">
@@ -903,21 +1053,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.accidentDate1} name="accidentDate" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.accidentDate1} name="accidentDate1" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.natureOfAccident1} placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.natureOfAccident1} name='natureOfAccident1' placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.accidentLocation1} placeholder="Location of Accident"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.accidentLocation1} name='accidentLocation1' placeholder="Location of Accident"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberFatalities1} placeholder="Number of Fatalities"></input>
+                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberFatalities1} name='numberFatalities1' placeholder="Number of Fatalities"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberInjured1} placeholder="Number of People Injured"></input>
+                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberInjured1} name='numberInjured1' placeholder="Number of People Injured"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -925,21 +1075,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.accidentDate2} name="accidentDate" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.accidentDate2} name="accidentDate2" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.natureOfAccident2} placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.natureOfAccident2} name='natureOfAccident2' placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.accidentLocation2} placeholder="Location of Accident"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.accidentLocation2} name='accidentLocation2' placeholder="Location of Accident"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberFatalities2} placeholder="Number of Fatalities"></input>
+                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberFatalities2} name='numberFatalities2' placeholder="Number of Fatalities"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberInjured2} placeholder="Number of People Injured"></input>
+                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberInjured2} name='numberInjured2' placeholder="Number of People Injured"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -947,21 +1097,21 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.accidentDate3} name="accidentDate" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.accidentDate3} name="accidentDate3" />
                             </div>
                             <div className='col-md-7 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.natureOfAccident3} placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.natureOfAccident3} name='natureOfAccident3' placeholder="Nature of Accident - Head on, rear end, upset, etc."></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-6 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.accidentLocation3} placeholder="Location of Accident"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.accidentLocation3} name='accidentLocation3' placeholder="Location of Accident"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberFatalities3} placeholder="Number of Fatalities"></input>
+                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberFatalities3} name='numberFatalities3' placeholder="Number of Fatalities"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberInjured3} placeholder="Number of People Injured"></input>
+                                <input type="number" className="form-control" onChange={this.handleChange} value={this.state.numberInjured3} name='numberInjured3' placeholder="Number of People Injured"></input>
                             </div>
                         </div>
                         <hr />
@@ -976,13 +1126,13 @@ class ApplicationForm extends React.PureComponent {
                                 <input type="month" className="form-control" onChange={this.handleChange} value={this.state.convictionDate1} name="convictionDate1" />
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionLocation1} placeholder="Location"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionLocation1} name='convictionLocation1' placeholder="Location"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionCharge1} placeholder="Charge"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionCharge1} name='convictionCharge1' placeholder="Charge"></input>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionPenalty1} placeholder="Penalty"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionPenalty1} name='convictionPenalty1' placeholder="Penalty"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -990,16 +1140,16 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.convictionDate2} name="convictionDate1" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.convictionDate2} name="convictionDate2" />
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionLocation2} placeholder="Location"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionLocation2} name='convictionLocation2' placeholder="Location"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionCharge2} placeholder="Charge"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionCharge2} name='convictionCharge2' placeholder="Charge"></input>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionPenalty2} placeholder="Penalty"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionPenalty2} name='convictionPenalty2' placeholder="Penalty"></input>
                             </div>
                         </div>
                         <div className='row'>
@@ -1007,16 +1157,16 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Date:</label>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.convictionDate3} name="convictionDate1" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.convictionDate3} name="convictionDate3" />
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionLocation3} placeholder="Location"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionLocation3} name='convictionLocation3' placeholder="Location"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionCharge3} placeholder="Charge"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionCharge3} name='convictionCharge3' placeholder="Charge"></input>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionPenalty3} placeholder="Penalty"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionPenalty3} name='convictionPenalty3' placeholder="Penalty"></input>
                             </div>
                         </div>
                         <hr />
@@ -1033,20 +1183,21 @@ class ApplicationForm extends React.PureComponent {
                                     className= 'form-control statesOperated'
                                     // onChange={this.handleChange} 
                                     value={this.state.licenseState1}
+                                    name="licenseState1"
                                     onChange={this.handleChange2}
-                                    options={options}
+                                    options={statesData}
                                 />
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber1} placeholder="License Number"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber1} name='driversLicenseNumber1' placeholder="License Number"></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType1} placeholder="License Type"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType1} name='driversLicenseType1' placeholder="License Type"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseEndorsements1} placeholder="Endorsements"></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseEndorsements1} name='driversLicenseEndorsements1' placeholder="Endorsements"></input>
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect1">Expiration:</label>
@@ -1065,26 +1216,27 @@ class ApplicationForm extends React.PureComponent {
                                     className= 'form-control statesOperated'
                                     // onChange={this.handleChange} 
                                     value={this.state.licenseState2}
+                                    name='licenseState2' 
                                     onChange={this.handleChange3}
-                                    options={options}
+                                    options={statesData}
                                 />
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber2} placeholder="License Number"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber2} name='driversLicenseNumber2' placeholder="License Number"></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType2} placeholder="License Type"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType2} name='driversLicenseType2' placeholder="License Type"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseEndorsements2} placeholder="Endorsements"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseEndorsements2} name='driversLicenseEndorsements2' placeholder="Endorsements"></input>
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect2">Expiration:</label>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseExpiration2} name="driversLicenseExpiration1" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseExpiration2} name="driversLicenseExpiration2" />
                             </div>
                         </div>
                         <hr />
@@ -1097,26 +1249,27 @@ class ApplicationForm extends React.PureComponent {
                                     className= 'form-control statesOperated'
                                     // onChange={this.handleChange} 
                                     value={this.state.licenseState3}
+                                    name='licenseState3' 
                                     onChange={this.handleChange4}
-                                    options={options}
+                                    options={statesData}
                                 />
                             </div>
                             <div className='col-md-5 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber3} placeholder="License Number"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber3} name='driversLicenseNumber3' placeholder="License Number"></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType3} placeholder="License Type"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType3} name='driversLicenseType3' placeholder="License Type"></input>
                             </div>
                             <div className='col-md-3 col-xs-12'>
-                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseEndorsements3} placeholder="Endorsements"></input>
+                                <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseEndorsements3} name='driversLicenseEndorsements3' placeholder="Endorsements"></input>
                             </div>
                             <div className='col-md-1 col-xs-12'>
                                 <label className='formLabel' htmlFor="exampleFormControlSelect3">Expiration:</label>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseExpiration3} name="driversLicenseExpiration1" />
+                                <input type="month" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseExpiration3} name="driversLicenseExpiration3" />
                             </div>
                         </div>
                         <hr />
@@ -1125,8 +1278,27 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='radioButtonDetails'>Have you ever been denied a license, permit, or privilege to operate a motor vehicle?:</label>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail deniedLicenseRadio-inline"><input onChange={this.handleChange} required  className='radioButton' type="radio" name="deniedLicenceRadio" value={this.state.deniedLicenceRadio}></input>Yes</label>
-                                <label className="radioDetail deniedLicenseRadio-inline"><input className='radioButton' type="radio" name="deniedLicenceRadio" value={this.state.deniedLicenceRadio}></input>No</label>
+                                <label className="radioDetail deniedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="deniedLicenseRadio"
+                                        value='deniedLicenseRadio_Yes'
+                                        checked={this.state.deniedLicenseRadio === 'deniedLicenseRadio_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail deniedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="deniedLicenseRadio"
+                                        value='deniedLicenseRadio_No' 
+                                        checked={this.state.deniedLicenseRadio === 'deniedLicenseRadio_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -1134,8 +1306,27 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='radioButtonDetails'>Has any license, permit, or privilege ever been suspended or revoked?:</label>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input onChange={this.handleChange} required className='radioButton' type="radio" name="suspendedLicenseRadio" value={this.state.suspendedLicenseRadio}></input>Yes</label>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="suspendedLicenseRadio" value={this.state.suspendedLicenseRadio}></input>No</label>
+                                <label className="radioDetail revokedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="suspendedLicenseRadio" 
+                                        value='suspendedLicenseRadio_Yes'
+                                        checked={this.state.suspendedLicenseRadio === 'suspendedLicenseRadio_Yes'}>
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail revokedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        name="suspendedLicenseRadio" 
+                                        value='suspendedLicenseRadio_No'
+                                        checked={this.state.suspendedLicenseRadio === 'suspendedLicenseRadio_No'}>
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -1143,8 +1334,27 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='radioButtonDetails'>Is there any reason you might be unable to perform the functions of the job for which you have applied - as described in the job description?:</label>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input onChange={this.handleChange} required className='radioButton' type="radio" name="performJobRadio"></input>Yes</label>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="performJobRadio"></input>No</label>
+                                <label className="radioDetail revokedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='performJobRadio_Yes'
+                                        checked={this.state.performJobRadio === 'performJobRadio_Yes'} 
+                                        name="performJobRadio">
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail revokedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='performJobRadio_No'
+                                        checked={this.state.performJobRadio === 'performJobRadio_No'} 
+                                        name="performJobRadio">
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
@@ -1152,12 +1362,31 @@ class ApplicationForm extends React.PureComponent {
                                 <label className='radioButtonDetails'>Have you ever been convicted of a felony?:</label>
                             </div>
                             <div className='col-md-2 col-xs-12'>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input onChange={this.handleChange} required className='radioButton' type="radio" name="felonyRadio"></input>Yes</label>
-                                <label className="radioDetail revokedLicenseRadio-inline"><input className='radioButton' type="radio" name="felonyRadio"></input>No</label>
+                                <label className="radioDetail revokedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        required 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='felonyRadio_Yes'
+                                        checked={this.state.felonyRadio === 'felonyRadio_Yes'} 
+                                        name="felonyRadio">
+                                    </input>Yes
+                                </label>
+                                <label className="radioDetail revokedLicenseRadio-inline">
+                                    <input 
+                                        onChange={this.handleChange} 
+                                        className='radioButton' 
+                                        type="radio" 
+                                        value='felonyRadio_No'
+                                        checked={this.state.felonyRadio === 'felonyRadio_No'} 
+                                        name="felonyRadio">
+                                    </input>No
+                                </label>
                             </div>
                         </div>
                         <div className='row'>
-                            <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseReasons} placeholder='If the answers to A, B, C, or D is "Yes", give details'></input>
+                            <input type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseReasons} name='driversLicenseReasons' placeholder='If the answers to A, B, C, or D is "Yes", give details'></input>
                         </div>
                         <hr />
                         <div className='instructions'>
@@ -1166,35 +1395,35 @@ class ApplicationForm extends React.PureComponent {
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceName1} placeholder='Name'></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceName1} name='referenceName1' placeholder='Name'></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceAddress1} placeholder='Address'></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceAddress1} name='referenceAddress1' placeholder='Address'></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referencePhone1} placeholder='Phone'></input>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceName2} placeholder='Name'></input>
-                            </div>
-                            <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceAddress2} placeholder='Address'></input>
-                            </div>
-                            <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referencePhone2} placeholder='Phone'></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referencePhone1} name='referencePhone1' placeholder='Phone'></input>
                             </div>
                         </div>
                         <div className='row'>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceName3} placeholder='Name'></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceName2} name='referenceName2' placeholder='Name'></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceAddress3} placeholder='Address'></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceAddress2} name='referenceAddress2' placeholder='Address'></input>
                             </div>
                             <div className='col-md-4 col-xs-12'>
-                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referencePhone3} placeholder='Phone'></input>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referencePhone2} name='referencePhone2' placeholder='Phone'></input>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-4 col-xs-12'>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceName3} name='referenceName3' placeholder='Name'></input>
+                            </div>
+                            <div className='col-md-4 col-xs-12'>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referenceAddress3} name='referenceAddress3' placeholder='Address'></input>
+                            </div>
+                            <div className='col-md-4 col-xs-12'>
+                                <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.referencePhone3} name='referencePhone3' placeholder='Phone'></input>
                             </div>
                         </div>
                         <hr />
@@ -1209,7 +1438,7 @@ class ApplicationForm extends React.PureComponent {
                             <p className='applicationAgreement'>This certifies that this application was completed by me, and that all entries on it and information in it are true and complete to the best of my knowledge.</p>
                         </div>
                         <div className='row'>
-                            <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.signature} placeholder='Your Name'></input>
+                            <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.signature} name='signature' placeholder='Your Name'></input>
                         </div>
                         <hr />
                         <div className='row'>
