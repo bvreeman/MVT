@@ -2,6 +2,8 @@ import React from 'react';
 import './ApplicationForm.css'
 import Select from 'react-select';
 import {statesData} from './data';
+import Button from './Button';
+
 
 class ApplicationForm extends React.PureComponent {
     constructor(props) {
@@ -194,10 +196,10 @@ class ApplicationForm extends React.PureComponent {
         this.setState({ licenseState3: selectedOptionLicenseState3 })
     }
 
-    handleSubmit = (e) => {
-    //   e.preventDefault();
+    handleSubmit = (event) => {
+    //   event.preventDefault();
         // console.log('submitted?')
-        console.log(this.state)
+        console.log('here', this.state)
     }
 
 
@@ -1444,7 +1446,11 @@ class ApplicationForm extends React.PureComponent {
                         <div className='row'>
                             <textarea rows="8" cols="250" name="additionalInfo" onChange={this.handleChange} value={this.state.additionalInfo} form="usrform">Enter additional info here...</textarea>
                         </div>
-                        <input type='submit' className='applicationSubmitButton' onClick={this.handleSubmit()} value='Send Application' />
+                        {/* <Button
+                            email={process.env.REACT_APP_EMAIL_ADDRESS}
+                            formValues={this.state}
+                        /> */}
+                        <input type='submit' className='applicationSubmitButton' onClick={ () => { this.handleSubmit() }} value='Send Application' />
                     </div>
                 </form>
             </div>
