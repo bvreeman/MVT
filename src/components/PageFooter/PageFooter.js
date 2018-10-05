@@ -57,7 +57,7 @@ class PageFooter extends React.PureComponent {
                 </Container>
                 <div className="footer-copyright text-center py-3">
                     <Container fluid>
-                        &copy; {(new Date().getFullYear())} Copyright: <a href="www.vreemanconsulting.com"> Vreeman Consulting, LLC </a>
+                        &copy; {(new Date().getFullYear())} Copyright: Minnesota Valley Transport, Inc. Web Design by <a href="www.vreemanconsulting.com"> Vreeman Consulting, LLC </a>
                     </Container>
                 </div>
             </Footer>
