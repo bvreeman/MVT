@@ -1,0 +1,22 @@
+.AboutUsLogo{
+    max-width: 60%;
+}
+
+.buildingPic{
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+.aboutMVT,
+.aboutMVT2{
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+    .secondAboutSection {
+        display: flex;
+        flex-direction: row;
+    }
+    .secondAboutSection :nth-child(1) { order: 2; }
+    .secondAboutSection :nth-child(2) { order: 1; }
+}

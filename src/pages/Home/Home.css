@@ -33,3 +33,15 @@
     color: #333333;
     margin-left: 20px;
 }
+
+.choosingMVTh3,
+.homePageServices {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.homePageServices span,
+.choosingMVTh3 span {
+    color: #9C182F;
+}

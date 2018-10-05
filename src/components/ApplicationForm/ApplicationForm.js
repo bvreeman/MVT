@@ -2,6 +2,8 @@ import React from 'react';
 import './ApplicationForm.css'
 import Select from 'react-select';
 import {statesData} from './data';
+import firebase from 'firebase/app';
+import "firebase/database";
 // import Button from './Button';
 
 
@@ -167,6 +169,35 @@ class ApplicationForm extends React.PureComponent {
 
     }
 
+    // getFirebaseData = () => {
+    //     // console.log('props here?', this.props)
+
+    //     const database = firebase.database();
+    //     const submittedApplication = [];
+    //     database.ref(`/${Date.now()}/applicationFormData`).once('value').then((snapshot) => {
+    //             if (snapshot.val() !== null) {                        
+    //             const submittedApplicationObject = snapshot.val();
+    //             const keys = Object.keys(submittedApplicationObject);
+    //             // console.log(keys)
+    //             keys.forEach(key => submittedApplication.push(submittedApplicationObject[key]))
+    //             } else {
+    //                     console.log("No Images to display")
+    //             } 
+    //     }).then(() => {
+    //             this.setState({ submittedApplication })
+    //     })
+    // }
+
+    databasePush = () => {
+        let itemsRef = firebase.database().ref(`${this.state.LastName}${this.state.FirstName}Application/`)
+        // console.log(this.state);
+        
+        let submittedApplicationData = {
+            data: this.state
+        }
+        itemsRef.push(submittedApplicationData);
+    }
+
     handleChange(event) {
         event.preventDefault();
         const target = event.target;
@@ -200,6 +231,8 @@ class ApplicationForm extends React.PureComponent {
     //   event.preventDefault();
         // console.log('submitted?')
         console.log('here', this.state)
+        //create a redirect
+        this.databasePush();
     }
 
 

@@ -3,11 +3,6 @@ import './Home.css';
 import nightTruck from './bigger-night-truck.jpg'
 import truckIconRight from './truckFacingRight.png'
 
-// Components
-// import About from '../../components/About';
-// import Carousel from '../../components/Carousel';
-// import Draggable from '../../components/Draggable';
-// import withAuthorization from '../../components/FirebaseWithAuthorization'
 class Home extends React.PureComponent {
     render() {
         return (
@@ -15,6 +10,7 @@ class Home extends React.PureComponent {
                 <div className="container-fluid mainPhotoDiv">
                     <img className='mainPhoto' src={nightTruck} alt="One of our trucks at night"/>
                 </div>
+                <h3 className='homePageServices'><span>Services</span> We Provide</h3>
                 <div className="row">
                     <div className="col-md-3 col-xs-12">
                         <img className='truckIcon' src={truckIconRight} alt="Truck Icon"/>
@@ -37,6 +33,8 @@ class Home extends React.PureComponent {
                         <p className='serviceDescription'>We have a 6,000 sq ft refrigerated warehouse onsite to meet our customers warehousing needs. Lease the entire space or just a few feet for your product.</p>
                     </div>
                 </div>
+                <hr/>
+                <h3 className='choosingMVTh3'>Why Choose <span>MVT?</span></h3>
             </div>
         )
     }

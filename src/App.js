@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HeaderNav from './components/HeaderNav'
 import Footer from './components/PageFooter'
 import Home from './pages/Home'
-import About from './pages/About'
+import AboutPage from './pages/AboutPage'
 import Gallery from './pages/Gallery'
 import DriversApplication from './pages/DriversApplication'
 import ApplicationSubmit from './pages/ApplicationSubmit'
@@ -34,7 +34,7 @@ class App extends PureComponent {
           <HeaderNav />
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/About' component={About}/>
+              <Route path='/About' component={AboutPage}/>
               <Route path='/Gallery' component={Gallery}/>
               <Route path='/DriversApplication' component={DriversApplication}/>
               <Route path='/ApplicationSubmit' component={ApplicationSubmit}/>
