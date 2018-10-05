@@ -3,8 +3,6 @@ import './DriversApplication.css';
 
 // Components
 import ApplicationForm from '../../components/ApplicationForm';
-// import Carousel from '../../components/Carousel';
-// import Draggable from '../../components/Draggable';
 
 class DriversApplication extends React.PureComponent {
     render() {
@@ -15,6 +13,5 @@ class DriversApplication extends React.PureComponent {
         )
     }
 }
-// const authCondition = (authUser) => !!authUser;
-// export default withAuthorization(authCondition)(Home);
+
 export default DriversApplication

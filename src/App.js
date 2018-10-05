@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Gallery from './pages/Gallery'
 import DriversApplication from './pages/DriversApplication'
+import ApplicationSubmit from './pages/ApplicationSubmit'
 import firebase from 'firebase/app';
 // import 'firebase/auth';
 import 'firebase/database';
@@ -36,6 +37,7 @@ class App extends PureComponent {
               <Route path='/About' component={About}/>
               <Route path='/Gallery' component={Gallery}/>
               <Route path='/DriversApplication' component={DriversApplication}/>
+              <Route path='/ApplicationSubmit' component={ApplicationSubmit}/>
             </Switch>
           <Footer />
         </div>

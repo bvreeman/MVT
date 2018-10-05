@@ -1,0 +1,15 @@
+.applicationSubmitPage{
+    background-color: #DFDFDF;
+    text-align: center;
+    width: 75%;
+    margin:0 auto;
+    border: 1px;
+    border-color: #333333;
+    border-style: solid;
+    margin-top: 20px;
+    padding: 30px;
+}
+
+.submitPageLogo{
+    max-width: 90%;
+}
