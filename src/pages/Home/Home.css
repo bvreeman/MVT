@@ -8,7 +8,8 @@
 
 }
 
-.truckIcon {
+.truckIcon,
+.whyChooseIcon {
     width: 100px;
     padding-top: 50px;
     display:block;
@@ -20,7 +21,8 @@
     padding-top: 50px;
 }
 
-.truckIconHeading {
+.truckIconHeading,
+.whyChooseHeading {
     margin-top: 10px;
     color: #333333;
     font-weight: bold;

@@ -1,7 +1,13 @@
 import React from 'react';
 import './Home.css';
 import nightTruck from './bigger-night-truck.jpg'
-import truckIconRight from './truckFacingRight.png'
+// import truckIconRight from './truckFacingRight.png'
+import truckIconRight from '../../images/truckFacingRight.png'
+import locationPNG from '../../images/location.png'
+import bestPNG from '../../images/best.png'
+import timePNG from '../../images/time.png'
+import truckPNG from '../../images/truck.png'
+
 
 class Home extends React.PureComponent {
     render() {
@@ -35,7 +41,29 @@ class Home extends React.PureComponent {
                 </div>
                 <hr/>
                 <h3 className='choosingMVTh3'>Why Choose <span>MVT?</span></h3>
+            <div className="row">
+                <div className="col-md-3 col-xs-12">
+                    <img className='whyChooseIcon' src={locationPNG} alt="Location Services"/>
+                    <h4 className='whyChooseHeading'>Real Time Tracking</h4>
+                    <p className='serviceDescription'>Real time tractor and trailer tracking technology with live trailer temp readings.</p>
+                </div>
+                <div className="col-md-3 col-xs-12">
+                    <img className='whyChooseIcon' src={bestPNG} alt="Best in Service"/>
+                    <h4 className='whyChooseHeading'>Best in Service</h4>
+                    <p className='serviceDescription'>Second to none customer service and driver professionalism.</p>
+                </div>
+                <div className="col-md-3 col-xs-12">
+                    <img className='whyChooseIcon' src={timePNG} alt="On Time"/>
+                    <h4 className='whyChooseHeading'>On Time</h4>
+                    <p className='serviceDescription'>Reliable, honest, proactive and forward thinking company. We deliver on-time every time while maintaining a spotless safety record.</p>
+                </div>
+                <div className="col-md-3 col-xs-12">
+                    <img className='whyChooseIcon' src={truckPNG} alt="New Equipment"/>
+                    <h4 className='whyChooseHeading'>Late Model Equipment</h4>
+                    <p className='serviceDescription'>Late model equipment, trucks and trailers average 1.5 yrs old.</p>
+                </div>
             </div>
+        </div>
         )
     }
 }
