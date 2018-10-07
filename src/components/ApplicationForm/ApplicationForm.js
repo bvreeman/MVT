@@ -169,25 +169,6 @@ class ApplicationForm extends React.PureComponent {
 
     }
 
-    // getFirebaseData = () => {
-    //     // console.log('props here?', this.props)
-
-    //     const database = firebase.database();
-    //     const submittedApplication = [];
-    //     database.ref(`/${Date.now()}/applicationFormData`).once('value').then((snapshot) => {
-    //             if (snapshot.val() !== null) {                        
-    //             const submittedApplicationObject = snapshot.val();
-    //             const keys = Object.keys(submittedApplicationObject);
-    //             // console.log(keys)
-    //             keys.forEach(key => submittedApplication.push(submittedApplicationObject[key]))
-    //             } else {
-    //                     console.log("No Images to display")
-    //             } 
-    //     }).then(() => {
-    //             this.setState({ submittedApplication })
-    //     })
-    // }
-
     databasePush = () => {
         let itemsRef = firebase.database().ref(`${this.state.LastName}${this.state.FirstName}Application/`)
         // console.log(this.state);

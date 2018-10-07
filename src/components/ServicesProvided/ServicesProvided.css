@@ -1,0 +1,30 @@
+.truckIcon {
+    width: 100px;
+    padding-top: 50px;
+    display:block;
+    margin:auto;
+}
+
+.homePageServices {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.homePageServices span {
+    color: #9C182F;
+}
+
+.truckIconHeading {
+    margin-top: 10px;
+    color: #333333;
+    font-weight: bold;
+    text-align: center;
+    height: 56px;
+}
+
+.serviceDescription {
+    text-align: left;
+    color: #333333;
+    margin-left: 20px;
+}
