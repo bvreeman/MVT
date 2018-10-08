@@ -1,0 +1,44 @@
+.contactSubmitLogo{
+    max-width: 90%;
+}
+
+.ContactFormSubmit{
+    background-color: #DFDFDF;
+    text-align: center;
+    width: 75%;
+    margin:0 auto;
+    border: 1px;
+    border-color: #333333;
+    border-style: solid;
+    margin-top: 20px;
+    padding: 30px;
+}
+
+.contactSubmitParagraph {
+    font-size: 20px;
+}
+
+.callUsHeading,
+.phoneNumber {
+    font-weight: bold;
+    text-align: center; 
+    display:block;
+    margin:auto;
+    position: relative;
+    top: 10%;
+    padding-top: 20px;
+}
+
+.callUsHeading span {
+    color: #9C182F;
+}
+
+.phoneIcon {
+    position: relative;
+    top: 10%;
+    width: 100px;
+    display:block;
+    margin:auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
