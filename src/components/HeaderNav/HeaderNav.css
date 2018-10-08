@@ -32,6 +32,8 @@
     color: white;
     margin-right: 10px;
     line-height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .headerContainer{

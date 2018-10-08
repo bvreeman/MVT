@@ -1,6 +1,7 @@
 import React from 'react';
-import './ContactForQuote.css'
-import ContactFormSubmit from '../../components/ContactFormSubmit'
+import './ContactForQuote.css';
+import ContactFormSubmit from '../../components/ContactFormSubmit';
+import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
 import firebase from 'firebase/app';
 import "firebase/database";
 
@@ -31,7 +32,9 @@ class ContactForQuote extends React.PureComponent {
     }
 
     databasePush = () => {
-        let itemsRef = firebase.database().ref(`ContactUsMessageFrom${this.state.FullName}/`)
+        let fullName = this.state.FullName.split(' ').join('')
+        console.log(fullName)
+        let itemsRef = firebase.database().ref(`ContactUsMessageFrom${fullName}/`)
         // console.log(this.state);
         
         let submittedContactUsData = {
@@ -58,6 +61,9 @@ class ContactForQuote extends React.PureComponent {
                             <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.FullName} name="FullName" placeholder="Full Name" />
                             <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name="PhoneNumber" placeholder="Phone Number" />
                             <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Customer Message" />
+                            <div className='contactFormReCaptcha'>
+                                <ReCAPTCHAComponent />
+                            </div>
                             <input type='submit' className='contactSubmitButton' onClick={ () => { this.handleSubmit() }} value='Submit' />
                         </div>
                         <div className='col-md-1 col-xs-12'>

@@ -8,6 +8,8 @@ import AboutPage from './pages/AboutPage'
 import Gallery from './pages/Gallery'
 import DriversApplication from './pages/DriversApplication'
 import ApplicationSubmit from './pages/ApplicationSubmit'
+import ContactUsPage from './pages/ContactUsPage'
+
 import firebase from 'firebase/app';
 // import 'firebase/auth';
 import 'firebase/database';
@@ -33,11 +35,12 @@ class App extends PureComponent {
         <div className="App">
           <HeaderNav />
             <Switch>
-              <Route exact path='/' component={Home}/>
-              <Route path='/About' component={AboutPage}/>
-              <Route path='/Gallery' component={Gallery}/>
-              <Route path='/DriversApplication' component={DriversApplication}/>
-              <Route path='/ApplicationSubmit' component={ApplicationSubmit}/>
+              <Route exact path='/' component={Home} />
+              <Route path='/About' component={AboutPage} />
+              <Route path='/Gallery' component={Gallery} />
+              <Route path='/DriversApplication' component={DriversApplication} />
+              <Route path='/ApplicationSubmit' component={ApplicationSubmit} />
+              <Route path='/ContactUsPage' component={ContactUsPage} />
             </Switch>
           <Footer />
         </div>
