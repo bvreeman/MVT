@@ -3,6 +3,9 @@ import './About.css'
 // import logo from '../../images/mvtShadowedLogo.png'
 import buildingPic from '../../images/MVTBuilding.jpg'
 import danCert from '../../images/minnesota-valley-transport.jpg'
+import mtaLogo from '../../images/MTALogo.png'
+import smartwayLogo from '../../images/smartway.png'
+
 class About extends React.PureComponent {
 
     render() {
@@ -31,6 +34,16 @@ class About extends React.PureComponent {
                     </div>
                     <div className='col-md-6 col-xs-12'>
                         <img className='buildingPic' src={danCert} alt="Minnesota Valley Transport Headquarters"/>
+                    </div>
+                </div>
+                <hr/>
+                <h2 className='associationsHeading'>Proud members of these great <span>associations</span></h2>
+                <div className='row'>
+                    <div className='col-md-6 col-xs-12 mtaDiv'>
+                        <img className='associationsLogo' src={mtaLogo} alt="Minnesota Trucking Association"/>
+                    </div>
+                    <div className='col-md-6 col-xs-12 mtaDiv'>
+                        <img className='associationsLogo' src={smartwayLogo} alt="SmartWay"/>
                     </div>
                 </div>
             </div>
