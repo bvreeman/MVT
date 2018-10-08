@@ -48,10 +48,10 @@ class ContactForQuote extends React.PureComponent {
     }
 
     render() {
-        // if (this.state.submitted) {
-        //     return <ContactFormSubmit/>;
-        // }
-        // else {
+        if (this.state.submitted) {
+            return <ContactFormSubmit/>;
+        }
+        else {
             return(
                 <div className='contactForQuote'>
                     <h3 className='contactForQuoteHeading'><span>Contact Us</span> for a Quote</h3>
@@ -77,7 +77,7 @@ class ContactForQuote extends React.PureComponent {
                 </div>
                 
             )
-        // }
+        }
     }
 
 }
