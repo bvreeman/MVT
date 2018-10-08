@@ -33,7 +33,6 @@ class ContactForQuote extends React.PureComponent {
 
     databasePush = () => {
         let fullName = this.state.FullName.split(' ').join('')
-        console.log(fullName)
         let itemsRef = firebase.database().ref(`ContactUsMessageFrom${fullName}/`)
         // console.log(this.state);
         
@@ -43,16 +42,16 @@ class ContactForQuote extends React.PureComponent {
         itemsRef.push(submittedContactUsData);
     }
 
-    handleSubmit(e) {
+    handleSubmit() {
         this.databasePush();
         this.setState({'submitted': true });
     }
 
     render() {
-        if (this.state.submitted) {
-            return <ContactFormSubmit/>;
-        }
-        else {
+        // if (this.state.submitted) {
+        //     return <ContactFormSubmit/>;
+        // }
+        // else {
             return(
                 <div className='contactForQuote'>
                     <h3 className='contactForQuoteHeading'><span>Contact Us</span> for a Quote</h3>
@@ -62,9 +61,9 @@ class ContactForQuote extends React.PureComponent {
                             <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name="PhoneNumber" placeholder="Phone Number" />
                             <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Customer Message" />
                             <div className='contactFormReCaptcha'>
-                                <ReCAPTCHAComponent />
+                                <ReCAPTCHAComponent required/>
                             </div>
-                            <input type='submit' className='contactSubmitButton' onClick={ () => { this.handleSubmit() }} value='Submit' />
+                            <input type='submit' className='contactSubmitButton' onClick={ () => {this.handleSubmit()} } value='Submit' />
                         </div>
                         <div className='col-md-1 col-xs-12'>
                             <h2 className='Or'>Or</h2>
@@ -78,7 +77,7 @@ class ContactForQuote extends React.PureComponent {
                 </div>
                 
             )
-        }
+        // }
     }
 
 }

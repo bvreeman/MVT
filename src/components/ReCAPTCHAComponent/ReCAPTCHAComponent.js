@@ -34,15 +34,9 @@ class ReCAPTCHAComponent extends React.Component {
     this.setState({ callback: "called!" });
     console.log("scriptLoad - reCaptcha Ref-", this._reCaptchaRef);
   };
-  handleExpired = () => {
-    this.setState({ expired: "true" });
-  };
-  handleExpired2 = () => {
-    this.setState({ expired2: "true" });
-  };
 
   render() {
-    const { value, callback, load, expired } = this.state || {};
+    const { load } = this.state || {};
     return (
       <div className="reCAPTCHA">
         {load && (
