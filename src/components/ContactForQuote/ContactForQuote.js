@@ -61,7 +61,7 @@ class ContactForQuote extends React.PureComponent {
                             <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name="PhoneNumber" placeholder="Phone Number" />
                             <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Customer Message" />
                             <div className='contactFormReCaptcha'>
-                                <ReCAPTCHAComponent required/>
+                                <ReCAPTCHAComponent />
                             </div>
                             <input type='submit' className='contactSubmitButton' onClick={ () => {this.handleSubmit()} } value='Submit' />
                         </div>

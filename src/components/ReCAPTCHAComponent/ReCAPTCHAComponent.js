@@ -42,7 +42,7 @@ class ReCAPTCHAComponent extends React.Component {
         {load && (
           <ReCAPTCHA
             style={{ display: "inline-block" }}
-            theme="dark"
+            theme="light"
             ref={this._reCaptchaRef}
             sitekey={process.env.REACT_APP_SITEKEY}
             onChange={this.handleChange}
