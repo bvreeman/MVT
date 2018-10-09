@@ -4,6 +4,7 @@ import ContactFormSubmit from '../../components/ContactFormSubmit';
 import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
 import firebase from 'firebase/app';
 import "firebase/database";
+import axios from 'axios';
 
 import phone from '../../images/phone.png'
 
@@ -14,10 +15,12 @@ class ContactForQuote extends React.PureComponent {
         this.state = {
             FullName: '',
             PhoneNumber: '',
+            Email: '',
             CustomerMessage: '',
             submitted: false
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -42,7 +45,15 @@ class ContactForQuote extends React.PureComponent {
         itemsRef.push(submittedContactUsData);
     }
 
-    handleSubmit() {
+    async handleSubmit(e) {
+        e.preventDefault()
+        const { FullName, PhoneNumber, Email, Message } = this.state
+        const form = await axios.post('/api/form', {
+            FullName,
+            PhoneNumber,
+            Email,
+            Message
+        })
         this.databasePush();
         this.setState({'submitted': true });
     }
@@ -58,11 +69,12 @@ class ContactForQuote extends React.PureComponent {
                     <div className='row'>
                         <div className='col-md-5 col-xs-12 form-group contactUsForm'>
                             <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.FullName} name="FullName" placeholder="Full Name" />
-                            <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name="PhoneNumber" placeholder="Phone Number" />
+                            <input type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name="PhoneNumber" placeholder="Phone Number" />
+                            <input required type='text' onChange={this.handleChange} className="form-control" value={this.state.Email} name="Email" placeholder="Email" />
                             <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Customer Message" />
-                            <div className='contactFormReCaptcha'>
+                            {/* <div className='contactFormReCaptcha'>
                                 <ReCAPTCHAComponent />
-                            </div>
+                            </div> */}
                             <input type='submit' className='contactSubmitButton' onClick={ () => {this.handleSubmit()} } value='Submit' />
                         </div>
                         <div className='col-md-1 col-xs-12'>
