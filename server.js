@@ -23,10 +23,14 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes)
 
-app.post('/api/form', (req, res) => {
-  console.log(req.body)
+app.post('/', (req, res) => {
   res.send();
 })
+
+// app.post('/api/form', (req, res) => {
+//   console.log(req.body)
+//   res.send();
+// })
 
 // mongoose.Promise = global.Promise;
 
