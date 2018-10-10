@@ -16,7 +16,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use('/static', express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "client/build")));
 }
 // Add routes, both API and view
 app.use('/', routes)
@@ -31,11 +31,11 @@ app.use('/', routes)
 // })
  
 // If no API routes are hit, send the React app
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, "/client/public/index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build"));
 });
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
