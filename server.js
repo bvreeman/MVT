@@ -27,10 +27,10 @@ app.post('/', (req, res) => {
   res.send();
 })
 
-// app.post('/api/form', (req, res) => {
-//   console.log(req.body)
-//   res.send();
-// })
+app.post('/api/form', (req, res) => {
+  console.log(req.body)
+  res.send();
+})
 
 // mongoose.Promise = global.Promise;
 
