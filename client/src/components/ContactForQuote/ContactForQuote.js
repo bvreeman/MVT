@@ -7,6 +7,7 @@ import "firebase/database";
 import axios from 'axios';
 
 import phone from '../../images/phone.png'
+import { networkInterfaces } from 'os';
 
 
 class ContactForQuote extends React.PureComponent {
@@ -17,21 +18,26 @@ class ContactForQuote extends React.PureComponent {
             PhoneNumber: '',
             Email: '',
             CustomerMessage: '',
+            date: '',
             submitted: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        event.preventDefault();
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-    
-        this.setState({
-          [name]: value
-        });
+    handleChange = e => {    
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    getTheDate = () => {
+        var x = new Date();
+        var y = x.getFullYear().toString();
+        var m = (x.getMonth() + 1).toString();
+        var d = x.getDate().toString();
+        (d.length === 1) && (d = '0' + d);
+        (m.length === 1) && (m = '0' + m);
+        var formattedDate = `Sent on ${m}-${d}-${y}`;
+        return formattedDate;
     }
 
     databasePush = () => {
@@ -40,20 +46,22 @@ class ContactForQuote extends React.PureComponent {
         // console.log(this.state);
         
         let submittedContactUsData = {
-            data: this.state
+            data: this.state,
+            date: this.getTheDate()
         }
         itemsRef.push(submittedContactUsData);
     }
 
     async handleSubmit(e) {
         e.preventDefault()
-        const { FullName, PhoneNumber, Email, Message } = this.state
-        const form = await axios.post('/api/form', {
-            FullName,
-            PhoneNumber,
-            Email,
-            Message
-        })
+
+        // const { FullName, PhoneNumber, Email, CustomerMessage } = this.state
+        // const form = await axios.post('/api/form', {
+        //     FullName,
+        //     PhoneNumber,
+        //     Email,
+        //     CustomerMessage
+        // })
         this.databasePush();
         this.setState({'submitted': true });
     }
@@ -71,11 +79,11 @@ class ContactForQuote extends React.PureComponent {
                             <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.FullName} name="FullName" placeholder="Full Name" />
                             <input type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name="PhoneNumber" placeholder="Phone Number" />
                             <input required type='text' onChange={this.handleChange} className="form-control" value={this.state.Email} name="Email" placeholder="Email" />
-                            <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Customer Message" />
+                            <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Message" />
                             <div className='contactFormReCaptcha'>
                                 <ReCAPTCHAComponent />
                             </div>
-                            <input type='submit' className='contactSubmitButton' onClick={ () => {this.handleSubmit()} } value='Submit' />
+                            <input type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
                         </div>
                         <div className='col-md-1 col-xs-12'>
                             <h2 className='Or'>Or</h2>
