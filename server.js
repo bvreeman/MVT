@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const nodemailer = require('nodemailer')
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 // const methodOverride = require('method-override');
 const path = require('path');
 
@@ -47,9 +47,6 @@ app.get('*', function(req, res) {
 });
 
 // Start the API server
-if (PORT == null || port == "") {
-  PORT === 3001
-}
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
