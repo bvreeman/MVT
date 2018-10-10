@@ -4,10 +4,10 @@ import ContactFormSubmit from '../../components/ContactFormSubmit';
 import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
 import firebase from 'firebase/app';
 import "firebase/database";
-import axios from 'axios';
+// import axios from 'axios';
 
 import phone from '../../images/phone.png'
-import { networkInterfaces } from 'os';
+// import { networkInterfaces } from 'os';
 
 
 class ContactForQuote extends React.PureComponent {
@@ -53,7 +53,7 @@ class ContactForQuote extends React.PureComponent {
     }
 
     async handleSubmit(e) {
-        // e.preventDefault()
+        e.preventDefault()
 
         // const { FullName, PhoneNumber, Email, CustomerMessage } = this.state
         // const form = await axios.post('/api/form', {

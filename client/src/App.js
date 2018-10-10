@@ -11,10 +11,16 @@ import ApplicationSubmit from './pages/ApplicationSubmit'
 import ContactUsPage from './pages/ContactUsPage'
 
 import firebase from 'firebase/app';
-// import 'firebase/auth';
 import 'firebase/database';
+import admin from 'firebase-admin';
+
 class App extends PureComponent {
   render() {
+
+    admin.initializeApp({
+      credential: admin.credential.applicationDefault(),
+      databaseURL: process.env.REACT_APP_URL
+    })
     const config = {
       apiKey: process.env.REACT_APP_APIKEY,
       authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -27,6 +33,15 @@ class App extends PureComponent {
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     }
+
+    // const messaging = firebase.messaging();
+    // messaging.requestPermission()
+    //   .then( () => {
+    //     console.log('Gave permission')
+    //   })
+    //   .catch( () => {
+    //     console.log('Error occurred');
+    //   })
     
     // const db = firebase.database();
     return (
