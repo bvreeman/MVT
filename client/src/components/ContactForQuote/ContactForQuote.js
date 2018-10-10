@@ -53,7 +53,7 @@ class ContactForQuote extends React.PureComponent {
     }
 
     async handleSubmit(e) {
-        e.preventDefault()
+        // e.preventDefault()
 
         // const { FullName, PhoneNumber, Email, CustomerMessage } = this.state
         // const form = await axios.post('/api/form', {
