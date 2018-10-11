@@ -12,15 +12,15 @@ import ContactUsPage from './pages/ContactUsPage'
 
 import firebase from 'firebase/app';
 import 'firebase/database';
-import admin from 'firebase-admin';
+// import admin from 'firebase-admin';
 
 class App extends PureComponent {
   render() {
 
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
-      databaseURL: process.env.REACT_APP_URL
-    })
+    // admin.initializeApp({
+    //   credential: admin.credential.applicationDefault(),
+    //   databaseURL: process.env.REACT_APP_URL
+    // })
     const config = {
       apiKey: process.env.REACT_APP_APIKEY,
       authDomain: process.env.REACT_APP_AUTH_DOMAIN,
