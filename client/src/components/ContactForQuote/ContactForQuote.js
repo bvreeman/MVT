@@ -1,7 +1,7 @@
 import React from 'react';
 import './ContactForQuote.css';
 import ContactFormSubmit from '../../components/ContactFormSubmit';
-import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
+// import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
 import firebase from 'firebase/app';
 import "firebase/database";
 // import axios from 'axios';
@@ -31,7 +31,9 @@ class ContactForQuote extends React.PureComponent {
     }
 
     handleReCAPTCHAchange = () =>{
+        console.log('before', this.state.reCAPTCHAvalue)
         this.setState( this.state.reCAPTCHAvalue === true )
+        console.log('after', this.state.reCAPTCHAvalue)
     }
 
     getTheDate = () => {
@@ -90,7 +92,8 @@ class ContactForQuote extends React.PureComponent {
                             <input required type='text' onChange={this.handleChange} className="form-control" value={this.state.Email} name="Email" placeholder="Email (required)" />
                             <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Message (required)" />
                             <div className='contactFormReCaptcha'>
-                                <ReCAPTCHAComponent onChange={this.handleReCAPTCHAchange} />
+                                <div className="g-recaptcha" data-sitekey={process.env.REACT_APP_SITEKEY} onChange={this.handleReCAPTCHAchange} ></div>
+                                {/* <ReCAPTCHAComponent /> */}
                             </div>
                             <input type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
                         </div>
