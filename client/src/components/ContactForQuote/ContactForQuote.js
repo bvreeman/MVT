@@ -30,7 +30,8 @@ class ContactForQuote extends React.PureComponent {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleReCAPTCHAchange = () =>{
+    handleReCAPTCHAchange = (response) =>{
+        console.log('is there a response', response)
         console.log('before', this.state.reCAPTCHAvalue)
         this.setState( this.state.reCAPTCHAvalue === true )
         console.log('after', this.state.reCAPTCHAvalue)
@@ -69,7 +70,8 @@ class ContactForQuote extends React.PureComponent {
         //     Email,
         //     CustomerMessage
         // })
-        if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '' && this.state.reCAPTCHAvalue === true) {
+        if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '') {
+        // if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '' && this.state.reCAPTCHAvalue === true) {
             this.databasePush();
             this.setState({'submitted': true });
         } else {
@@ -92,7 +94,7 @@ class ContactForQuote extends React.PureComponent {
                             <input required type='text' onChange={this.handleChange} className="form-control" value={this.state.Email} name="Email" placeholder="Email (required)" />
                             <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Message (required)" />
                             <div className='contactFormReCaptcha'>
-                                <div className="g-recaptcha" data-sitekey={process.env.REACT_APP_SITEKEY} onChange={this.handleReCAPTCHAchange} ></div>
+                                {/* <div className="g-recaptcha" data-sitekey={process.env.REACT_APP_SITEKEY} value={this.state.reCAPTCHAvalue} onChange={this.handleReCAPTCHAchange}></div> */}
                                 {/* <ReCAPTCHAComponent /> */}
                             </div>
                             <input type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
