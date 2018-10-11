@@ -2,8 +2,6 @@ import React from 'react';
 import './ContactForQuote.css';
 import ContactFormSubmit from '../../components/ContactFormSubmit';
 // import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
-import firebase from 'firebase/app';
-import "firebase/database";
 import axios from 'axios';
 
 import phone from '../../images/phone.png'
@@ -18,8 +16,7 @@ class ContactForQuote extends React.PureComponent {
             PhoneNumber: '',
             Email: '',
             CustomerMessage: '',
-            reCAPTCHAvalue: false,
-            date: '',
+            // reCAPTCHAvalue: false,
             submitted: false
         }
         this.handleChange = this.handleChange.bind(this);
@@ -37,30 +34,7 @@ class ContactForQuote extends React.PureComponent {
         console.log('after', this.state.reCAPTCHAvalue)
     }
 
-    getTheDate = () => {
-        var x = new Date();
-        var y = x.getFullYear().toString();
-        var m = (x.getMonth() + 1).toString();
-        var d = x.getDate().toString();
-        (d.length === 1) && (d = '0' + d);
-        (m.length === 1) && (m = '0' + m);
-        var formattedDate = `Sent on ${m}-${d}-${y}`;
-        return formattedDate;
-    }
-
-    databasePush = () => {
-        let fullName = this.state.FullName.split(' ').join('')
-        let itemsRef = firebase.database().ref(`ContactUsMessageFrom${fullName}/`)
-        // console.log(this.state);
-        
-        let submittedContactUsData = {
-            data: this.state,
-            date: this.getTheDate()
-        }
-        itemsRef.push(submittedContactUsData);
-    }
-
-    async handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault()
         const FullName = document.getElementById('FullName').value;
         const PhoneNumber = document.getElementById('PhoneNumber').value;
@@ -68,26 +42,21 @@ class ContactForQuote extends React.PureComponent {
         const CustomerMessage = document.getElementById('CustomerMessage').value;
         axios({
             method: 'POST',
-            url: 'https://young-depths-71671.herokuapp.com/send',
+            url: '/send',
             data: {
                 FullName,
                 PhoneNumber,
                 Email,
                 CustomerMessage
             }
-        }).then( (response) => {
-            if (response.data.msg === 'success'){
-                alert("Message Sent.");
-                this.databasePush();
-                this.setState({'submitted': true });
-            } else if(response.data.msg === 'fail'){
+        }).then( () => {
+            console.log(this.state)
+            if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
+                this.setState({submitted: true });
+            } else {
                 alert('Please fill out the remaining required fields')
             }
         })
-        // if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '') {
-        // // if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '' && this.state.reCAPTCHAvalue === true) {
-        // } else {
-        // }
     }
 
     render() {

@@ -1,12 +1,8 @@
 const router = require("express").Router();
-const apiRoutes = require("./api");
-const creds = require('../config/config');
+const creds = require('../../config/config');
 const nodemailer = require('nodemailer')
 
-
 // API Routes
-router.use("/api", apiRoutes);
-
 const transport = {
     host:'smtp.gmail.com',
     auth: {
