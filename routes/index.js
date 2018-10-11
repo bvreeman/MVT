@@ -35,7 +35,7 @@ const transport = {
     const mail = {
       from: FullName,
       to: creds.OUTGOING,
-      subject: 'New Message from Contact Form',
+      subject: 'New Message from your website contact form',
       text: content
     }
   
