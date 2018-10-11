@@ -11,26 +11,37 @@
     border-color: #333333;
     border-style: solid;
     margin-top: 20px;
-    padding: 30px;
+    padding: 0px 30px 30px 30px;
 }
 
 .contactSubmitParagraph {
     font-size: 20px;
+    display:block;
+    margin:auto;
+    position: relative;
+    top: 10%;
 }
 
 .callUsHeading,
-.phoneNumber {
+.phoneNumber,
+.contactSubmitHeader {
     font-weight: bold;
     text-align: center; 
     display:block;
     margin:auto;
     position: relative;
     top: 10%;
-    padding-top: 20px;
 }
 
 .callUsHeading span {
     color: #9C182F;
+}
+
+.contactSubmitLogo {
+    position: relative;
+    display:block;
+    margin:auto;
+    top: 10%;
 }
 
 .phoneIcon {
