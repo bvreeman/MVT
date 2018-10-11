@@ -25,13 +25,6 @@ app.use('/', routes)
 //   res.send();
 // })
 
-const transport = {
-  host:'smtp.gmail.com',
-  auth: {
-    user: {process.env.REACT}
-  }
-}
-
 // app.post('/api/form', (req, res) => {
 //   console.log(req.body)
 //   res.send();

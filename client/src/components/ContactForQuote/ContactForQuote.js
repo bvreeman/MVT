@@ -68,7 +68,7 @@ class ContactForQuote extends React.PureComponent {
         const CustomerMessage = document.getElementById('CustomerMessage').value;
         axios({
             method: 'POST',
-            url: '/api/send',
+            url: 'http://localhost:3000/send',
             data: {
                 FullName,
                 PhoneNumber,
