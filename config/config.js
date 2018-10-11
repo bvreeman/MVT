@@ -1,4 +1,4 @@
 module.exports = {
-    USER: 'YOUR_EMAIL_ADDRESS', 
+    USER: 'fsdafsda', 
     PASS: 'PASSWORD_FOR_EMAIL'
 }
