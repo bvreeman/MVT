@@ -4,7 +4,7 @@ import ContactFormSubmit from '../../components/ContactFormSubmit';
 // import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
 import firebase from 'firebase/app';
 import "firebase/database";
-// import axios from 'axios';
+import axios from 'axios';
 
 import phone from '../../images/phone.png'
 // import { networkInterfaces } from 'os';
@@ -23,7 +23,7 @@ class ContactForQuote extends React.PureComponent {
             submitted: false
         }
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = e => {    
@@ -62,21 +62,32 @@ class ContactForQuote extends React.PureComponent {
 
     async handleSubmit(e) {
         e.preventDefault()
-
-        // const { FullName, PhoneNumber, Email, CustomerMessage } = this.state
-        // const form = await axios.post('/api/form', {
-        //     FullName,
-        //     PhoneNumber,
-        //     Email,
-        //     CustomerMessage
-        // })
-        if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '') {
-        // if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '' && this.state.reCAPTCHAvalue === true) {
-            this.databasePush();
-            this.setState({'submitted': true });
-        } else {
-            alert('Please fill out the remaining required fields')
-        }
+        const FullName = document.getElementById('FullName').value;
+        const PhoneNumber = document.getElementById('PhoneNumber').value;
+        const Email = document.getElementById('Email').value;
+        const CustomerMessage = document.getElementById('CustomerMessage').value;
+        axios({
+            method: 'POST',
+            url: '/api/send',
+            data: {
+                FullName,
+                PhoneNumber,
+                Email,
+                CustomerMessage
+            }
+        }).then( (response) => {
+            if (response.data.msg === 'success'){
+                alert("Message Sent.");
+                this.databasePush();
+                this.setState({'submitted': true });
+            } else if(response.data.msg === 'fail'){
+                alert('Please fill out the remaining required fields')
+            }
+        })
+        // if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '') {
+        // // if ( this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== '' && this.state.reCAPTCHAvalue === true) {
+        // } else {
+        // }
     }
 
     render() {
@@ -88,17 +99,27 @@ class ContactForQuote extends React.PureComponent {
                 <div className='contactForQuote'>
                     <h3 className='contactForQuoteHeading'><span>Contact Us</span> for a Quote</h3>
                     <div className='row'>
-                        <div className='col-md-5 col-xs-12 form-group contactUsForm'>
-                            <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.FullName} name="FullName" placeholder="Full Name (required)" />
-                            <input type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name="PhoneNumber" placeholder="Phone Number" />
-                            <input required type='text' onChange={this.handleChange} className="form-control" value={this.state.Email} name="Email" placeholder="Email (required)" />
-                            <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name="CustomerMessage" placeholder="Message (required)" />
-                            <div className='contactFormReCaptcha'>
-                                {/* <div className="g-recaptcha" data-sitekey={process.env.REACT_APP_SITEKEY} value={this.state.reCAPTCHAvalue} onChange={this.handleReCAPTCHAchange}></div> */}
-                                {/* <ReCAPTCHAComponent /> */}
+                        <form id="contact-form" className='contactForm col-md-5 col-xs-12' onSubmit={this.handleSubmit.bind(this)} method="POST">
+                            <div className='col-md-12 col-xs-12 contactUsForm'>
+                                <div className="form-group">
+                                    <input required type="text" onChange={this.handleChange} className="form-control" value={this.state.FullName} name="FullName" id="FullName" placeholder="Full Name (required)" />
+                                </div>
+                                <div className="form-group">
+                                    <input type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name='PhoneNumber' id="PhoneNumber" placeholder="Phone Number" />
+                                </div>
+                                <div className="form-group">
+                                <input required type='text' onChange={this.handleChange} className="form-control" value={this.state.Email} name='Email' id="Email" placeholder="Email (required)" />
+                                </div>
+                                <div className="form-group">
+                                <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name='CustomerMessage' id="CustomerMessage" placeholder="Message (required)" />
+                                </div>
+                                {/* <div className='contactFormReCaptcha'>
+                                    <div className="g-recaptcha" data-sitekey={process.env.REACT_APP_SITEKEY} value={this.state.reCAPTCHAvalue} onChange={this.handleReCAPTCHAchange}></div>
+                                    <ReCAPTCHAComponent />
+                                </div> */}
+                                <input type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
                             </div>
-                            <input type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
-                        </div>
+                        </form>
                         <div className='col-md-1 col-xs-12'>
                             <h2 className='Or'>Or</h2>
                         </div>

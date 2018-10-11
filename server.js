@@ -25,10 +25,17 @@ app.use('/', routes)
 //   res.send();
 // })
 
-app.post('/api/form', (req, res) => {
-  console.log(req.body)
-  res.send();
-})
+const transport = {
+  host:'smtp.gmail.com',
+  auth: {
+    user: {process.env.REACT}
+  }
+}
+
+// app.post('/api/form', (req, res) => {
+//   console.log(req.body)
+//   res.send();
+// })
  
 // If no API routes are hit, send the React app
 app.get('*', (req, res) => {
