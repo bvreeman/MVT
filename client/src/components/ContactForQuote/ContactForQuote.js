@@ -68,7 +68,7 @@ class ContactForQuote extends React.PureComponent {
         const CustomerMessage = document.getElementById('CustomerMessage').value;
         axios({
             method: 'POST',
-            url: 'http://localhost:3000/send',
+            url: 'https://young-depths-71671.herokuapp.com/send',
             data: {
                 FullName,
                 PhoneNumber,
