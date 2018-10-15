@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer')
 
 
 // API Routes
-// router.use("/api", apiRoutes);
+router.use("/api", apiRoutes);
 
 const transport = {
     host:'smtp.gmail.com',
