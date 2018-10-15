@@ -5,17 +5,17 @@ const nodemailer = require('nodemailer')
 
 
 // API Routes
-router.use("/api", apiRoutes);
+// router.use("/api", apiRoutes);
 
 const transport = {
-    host:'smtp.outlook.com',
+    host:'smtp.gmail.com',
     auth: {
       user: creds.USER,
       pass: creds.PASS
     }
   }
   
-  const transporter = nodemailer.createTransport(transport[, defaults])
+  const transporter = nodemailer.createTransport(transport)
   
   transporter.verify((error, success) => {
     if (error) {
