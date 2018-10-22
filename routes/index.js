@@ -33,9 +33,9 @@ const transport = {
     const content = `name: ${FullName} \n phone: ${PhoneNumber} \n email: ${Email} \n message: ${CustomerMessage} `
   
     const mail = {
-      from: FullName,
+      from: Email,
       to: creds.OUTGOING,
-      subject: 'New Message from your website contact form',
+      subject: `New Message from ${FullName} from your website contact form`,
       text: content
     }
   
