@@ -59,7 +59,14 @@ class ContactForQuote extends React.PureComponent {
                     Email,
                     CustomerMessage
                 }
-            }).then( () => {
+            }).then( 
+               (response) => {
+                   console.log(response)
+               } ,
+               (error) => {
+                   console.log(error)
+               }
+            ).then(() => {
                 console.log(this.state)
                 this.databasePush();
                 this.setState({submitted: true });
