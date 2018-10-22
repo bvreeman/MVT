@@ -8,8 +8,13 @@ const nodemailer = require('nodemailer')
 router.use("/api", apiRoutes);
 
 const transport = {
-    host:'smtp.gmail.com',
-    auth: {
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  // tls: {
+  //    ciphers:'SSLv3'
+  // },
+  auth: {
       user: creds.USER,
       pass: creds.PASS
     }
@@ -33,9 +38,9 @@ const transport = {
     const content = `name: ${FullName} \n phone: ${PhoneNumber} \n email: ${Email} \n message: ${CustomerMessage} `
   
     const mail = {
-      from: Email,
+      from: FullName,
       to: creds.OUTGOING,
-      subject: `New Message from ${FullName} from your website contact form`,
+      subject: 'New Message from your website contact form',
       text: content
     }
   

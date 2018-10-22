@@ -3,6 +3,8 @@ import './ContactForQuote.css';
 import ContactFormSubmit from '../../components/ContactFormSubmit';
 // import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
 import axios from 'axios';
+import firebase from 'firebase/app';
+import "firebase/database";
 
 import phone from '../../images/phone.png'
 // import { networkInterfaces } from 'os';
@@ -34,6 +36,13 @@ class ContactForQuote extends React.PureComponent {
         console.log('after', this.state.reCAPTCHAvalue)
     }
 
+    databasePush = () => {
+        let str = this.state.FullName.replace(/\s/g, '')
+        console.log(str)
+        let itemsRef = firebase.database().ref(`${str}ContactForm/`)
+        itemsRef.push(this.state);
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const FullName = document.getElementById('FullName').value;
@@ -52,6 +61,7 @@ class ContactForQuote extends React.PureComponent {
         }).then( () => {
             console.log(this.state)
             if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
+                this.databasePush();
                 this.setState({submitted: true });
             } else {
                 alert('Please fill out the remaining required fields')
