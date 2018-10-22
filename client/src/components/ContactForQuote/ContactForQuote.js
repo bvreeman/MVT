@@ -49,24 +49,24 @@ class ContactForQuote extends React.PureComponent {
         const PhoneNumber = document.getElementById('PhoneNumber').value;
         const Email = document.getElementById('Email').value;
         const CustomerMessage = document.getElementById('CustomerMessage').value;
-        axios({
-            method: 'POST',
-            url: '/send',
-            data: {
-                FullName,
-                PhoneNumber,
-                Email,
-                CustomerMessage
-            }
-        }).then( () => {
-            console.log(this.state)
-            if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
+        if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
+            axios({
+                method: 'POST',
+                url: '/send',
+                data: {
+                    FullName,
+                    PhoneNumber,
+                    Email,
+                    CustomerMessage
+                }
+            }).then( () => {
+                console.log(this.state)
                 this.databasePush();
                 this.setState({submitted: true });
-            } else {
-                alert('Please fill out the remaining required fields')
-            }
-        })
+            })
+        } else {
+            alert('Please fill out the remaining required fields')
+        }
     }
 
     render() {
