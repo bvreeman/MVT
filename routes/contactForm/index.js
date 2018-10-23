@@ -4,13 +4,13 @@ const nodemailer = require('nodemailer')
 
 // API Routes
 const transport = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  // tls: {
-  //    ciphers:'SSLv3'
-  // },
-  // service: "Hotmail",
+  // host: 'smtp.gmail.com',
+  // port: 465,
+  // secure: true,
+  // // tls: {
+  // //    ciphers:'SSLv3'
+  // // },
+  service: "Hotmail",
   auth: {
       user: creds.USER,
       pass: creds.PASS

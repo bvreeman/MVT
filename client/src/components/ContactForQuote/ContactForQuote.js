@@ -52,7 +52,7 @@ class ContactForQuote extends React.PureComponent {
         if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
             axios({
                 method: 'POST',
-                url: '/contactForm/send',
+                url: '/send',
                 data: {
                     FullName,
                     PhoneNumber,
