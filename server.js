@@ -31,7 +31,7 @@ app.post('/', (req, res) => {
  
 // If no API routes are hit, send the React app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build"));
+  res.sendFile(path.join(__dirname, "/client/public/index.html"));
 });
 
 // Start the API server
