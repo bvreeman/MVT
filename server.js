@@ -15,14 +15,14 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static("client/build"));
 }
 // Add routes, both API and view
 app.use('/', routes)
 
-// app.post('/', (req, res) => {
-//   res.send();
-// })
+app.post('/', (req, res) => {
+  res.send();
+})
 
 // app.post('/api/form', (req, res) => {
 //   console.log(req.body)
