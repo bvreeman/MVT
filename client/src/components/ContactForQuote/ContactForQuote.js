@@ -38,7 +38,6 @@ class ContactForQuote extends React.PureComponent {
 
     databasePush = () => {
         let str = this.state.FullName.replace(/\s/g, '')
-        console.log(str)
         let itemsRef = firebase.database().ref(`${str}ContactForm/`)
         itemsRef.push(this.state);
     }
@@ -67,7 +66,6 @@ class ContactForQuote extends React.PureComponent {
                    console.log('this is the error', error)
                }
             ).then(() => {
-                console.log(this.state)
                 this.databasePush();
                 this.setState({submitted: true });
             })

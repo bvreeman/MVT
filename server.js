@@ -18,14 +18,19 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 }
 // Add routes, both API and view
-app.use('/', routes)
+app.use(routes)
 
-app.post('/', (req, res) => {
-  res.send();
-})
+// app.post('/', (req, res) => {
+
+//   res.send();
+// })
+
+// app.get('/contactForm/send', (req, res) => {
+
+// })
 
 app.post('/contactForm/send', (req, res) => {
-  console.log(req.body)
+  console.log('does this happen?', req.body)
   res.send();
 })
  
