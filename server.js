@@ -20,9 +20,9 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use('/', routes)
 
-app.post('/', (req, res) => {
-  res.send();
-})
+// app.post('/', (req, res) => {
+//   res.send();
+// })
 
 app.post('/contactForm/send', (req, res) => {
   console.log(req.body)
