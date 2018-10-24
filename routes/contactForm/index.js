@@ -27,7 +27,7 @@ transport.verify((error, success) => {
   }
 });
 
-router.post('/send', (req, res, next) => {
+router.post('/contactForm/send', (req, res, next) => {
   const FullName = req.body.FullName
   const Email = req.body.Email
   const CustomerMessage = req.body.CustomerMessage
