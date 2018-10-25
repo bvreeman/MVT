@@ -10,8 +10,8 @@ if (process.env.NODE_ENV === "production") {
   transport = nodemailer.createTransport({
     service: "Hotmail",
     auth: {
-        user: CREDS_USER,
-        pass: CREDS_PASS
+        user: process.env.CREDS_USER,
+        pass: process.env.CREDS_PASS
       }
     })
   } else {
@@ -46,7 +46,7 @@ if (process.env.NODE_ENV === "production") {
   console.log('production')
   mail = {
     from: FullName,
-    to: CREDS_OUTGOING,
+    to: process.env.CREDS_OUTGOING,
     subject: 'New Message from your website contact form',
     text: content
   }
