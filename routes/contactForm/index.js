@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const creds = require('../../config/config');
+// const creds = require('../../config/config');
 const nodemailer = require('nodemailer')
 
 // API Routes
@@ -36,7 +36,7 @@ router.post('/contactForm/send', (req, res, next) => {
 
   const mail = {
     from: FullName,
-    to: creds.OUTGOING,
+    to: "bvCodingTester@hotmail.com",
     subject: 'New Message from your website contact form',
     text: content
   }
