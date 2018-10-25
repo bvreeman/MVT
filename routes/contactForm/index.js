@@ -1,23 +1,29 @@
 const router = require("express").Router();
-// const creds = require('../../config/config');
+const creds = require('../../config/config');
 const nodemailer = require('nodemailer')
 
 // API Routes
-const transport = nodemailer.createTransport({
-  // host: 'smtp.gmail.com',
-  // port: 465,
-  // secure: true,
-  // // tls: {
-  // //    ciphers:'SSLv3'
-  // // },
-  service: "Hotmail",
-  auth: {
-      user: "bvCodingTester@hotmail.com",
-      pass: "testing123456!"
-    }
-  }
+let transport;
 
-)
+if (process.env.NODE_ENV === "production") {
+  console.log('production')
+  transport = nodemailer.createTransport({
+    service: "Hotmail",
+    auth: {
+        user: CREDS_USER,
+        pass: CREDS_PASS
+      }
+    })
+  } else {
+    console.log('development')
+    transport = nodemailer.createTransport({
+      service: "Hotmail",
+      auth: {
+        user: creds.USER,
+        pass: creds.PASS
+        }
+      })
+  }
 
 transport.verify((error, success) => {
   if (error) {
@@ -34,14 +40,28 @@ router.post('/contactForm/send', (req, res, next) => {
   const PhoneNumber = req.body.PhoneNumber
   const content = `name: ${FullName} \n phone: ${PhoneNumber} \n email: ${Email} \n message: ${CustomerMessage} `
 
-  const mail = {
+let mail;
+
+if (process.env.NODE_ENV === "production") {
+  console.log('production')
+  mail = {
     from: FullName,
-    to: "bvCodingTester@hotmail.com",
+    to: CREDS_OUTGOING,
     subject: 'New Message from your website contact form',
     text: content
   }
+} else {
+  console.log('development')
+  mail = {
+    from: FullName,
+    to: creds.OUTGOING,
+    subject: 'New Message from your website contact form',
+    text: content
+  }
+}
 
   transport.sendMail(mail, (err, data) => {
+    console.log('this is the mail', mail)
     if (err) {
       res.json({
         msg: 'fail'
