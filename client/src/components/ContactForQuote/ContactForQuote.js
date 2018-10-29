@@ -66,8 +66,8 @@ class ContactForQuote extends React.PureComponent {
                    console.log('this is the error', error)
                }
             ).then(() => {
-                this.databasePush();
                 this.setState({submitted: true });
+                this.databasePush();
             })
         } else {
             alert('Please fill out the remaining required fields')
