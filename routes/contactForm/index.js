@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const creds = require('../../config/config');
 const nodemailer = require('nodemailer')
 
 // API Routes
@@ -16,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
     })
   } else {
     console.log('development')
+    let creds = require('../../config/config');
     transport = nodemailer.createTransport({
       service: "Hotmail",
       auth: {
@@ -52,6 +52,7 @@ if (process.env.NODE_ENV === "production") {
   }
 } else {
   console.log('development')
+  let creds = require('../../config/config');
   mail = {
     from: FullName,
     to: creds.OUTGOING,
