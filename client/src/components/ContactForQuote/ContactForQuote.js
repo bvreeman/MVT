@@ -63,7 +63,7 @@ class ContactForQuote extends React.PureComponent {
                    console.log('this is the response', response)
                } ,
                (error) => {
-                   console.log('this is the error', error)
+                   console.log('this is the error', error, 'show me the response', response)
                }
             ).then(() => {
                 this.databasePush();
