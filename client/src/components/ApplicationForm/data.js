@@ -1,6 +1,6 @@
 
 export const statesData = [
-    { value: 'A', label: 'Alabama' },
+    { value: 'AL', label: 'Alabama' },
     { value: "AK", label: 'Alaska' },
     { value: "AZ", label: 'Arizona' },
     { value: "AR", label: 'Arkansas' },

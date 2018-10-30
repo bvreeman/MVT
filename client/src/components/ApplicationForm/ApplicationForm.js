@@ -2,7 +2,8 @@ import React from 'react';
 import './ApplicationForm.css'
 import ApplicationSubmit from '../../pages/ApplicationSubmit'
 import Select from 'react-select';
-import {statesData} from './data';
+import { statesData } from './data';
+import axios from 'axios';
 import firebase from 'firebase/app';
 import "firebase/database";
 
@@ -182,7 +183,7 @@ class ApplicationForm extends React.PureComponent {
     }
 
     handleChange(event) {
-        event.preventDefault();
+        // event.preventDefault();
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -194,14 +195,10 @@ class ApplicationForm extends React.PureComponent {
 
     handleChange1 = (selectedOption) => {
         this.setState({ selectedOption })
-        console.log('selected option', selectedOption)
-        this.state.statesOperated.push(selectedOption);
-        console.log('states operated', this.state.statesOperated)
     }
 
     handleChange2 = (selectedOptionLicenseState1) => {
         this.setState({ licenseState1: selectedOptionLicenseState1 })
-        console.log('license state1', this.licenseState1);
     }
 
     handleChange3 = (selectedOptionLicenseState2) => {
@@ -212,11 +209,50 @@ class ApplicationForm extends React.PureComponent {
         this.setState({ licenseState3: selectedOptionLicenseState3 })
     }
 
-    handleSubmit = (event) => {
-    //   event.preventDefault();
-        this.databasePush();
-        this.setState({'submitted': true });
+    // handleSubmit = (event) => {
+    // //   event.preventDefault();
+    // this.state.selectedOption.forEach((item, i) => {
+    //     this.state.statesOperated.push(this.state.selectedOption[i].label)
+    //  })
+    //     // this.databasePush();
+    //     this.setState({'submitted': true });
+    // }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.state.selectedOption.forEach((item, i) => {
+            this.state.statesOperated.push(this.state.selectedOption[i].label)
+         })
+        const FullName = document.getElementById('FullName').value;
+        const PhoneNumber = document.getElementById('PhoneNumber').value;
+        const Email = document.getElementById('Email').value;
+        const CustomerMessage = document.getElementById('CustomerMessage').value;
+        if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
+            axios({
+                method: 'POST',
+                url: '/contactForm/send',
+                data: {
+                    FullName,
+                    PhoneNumber,
+                    Email,
+                    CustomerMessage
+                }
+            }).then( 
+               (response) => {
+                   console.log('this is the response', response)
+               } ,
+               (error) => {
+                   console.log('this is the error', error)
+               }
+            ).then(() => {
+                this.setState({submitted: true });
+                this.databasePush();
+            })
+        } else {
+            alert('Please fill out the remaining required fields')
+        }
     }
+    
       render() {
         if (this.state.submitted) {
             return <ApplicationSubmit/>;
@@ -235,12 +271,11 @@ class ApplicationForm extends React.PureComponent {
                                 <h4>Instructions to Applicant</h4>
                                 <p className='applicationDetails'>Please answer all questions. If the answer to any question is "No" or "None", do not leave the item bank, but write "Not" or "None".</p>
                             </div>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className='col-md-2 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">Application Date:</label>
                                 </div>
                                 <div className='col-md-3 col-xs-12'>
-                                    {/* <input required type="date" className="form-control" onChange={this.handleChange} value={this.state.applicationDate} placeholder="Date" /> */}
                                     <input type="date" className="form-control" onChange={this.handleChange} value={this.state.applicationDate} name="applicationDate"/>
                                 </div>
                                 <div className='col-md-2 col-xs-12'>
@@ -1038,7 +1073,7 @@ class ApplicationForm extends React.PureComponent {
                                 <div className='col-md-3 col-xs-12'>
                                     <input type="number" className="form-control" onChange={this.handleChange} value={this.state.OtherDriven} name="OtherDriven" />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className='row'>
                                 <div className='col-md-5 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">Select all states operated in, for the last five years</label>
@@ -1055,7 +1090,7 @@ class ApplicationForm extends React.PureComponent {
                                     />
                                 </div>
                             </div>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <input type="text" className="form-control" onChange={this.handleChange} value={this.state.trainingCompleted} name='trainingCompleted' placeholder="List special courses/training completed - PTD/DDC, Haz Mat, etc." />
                             </div>
                             <div className='row'>
@@ -1241,7 +1276,7 @@ class ApplicationForm extends React.PureComponent {
                                 <div className='col-md-2 col-xs-12'>
                                     <input type="text" className="form-control" onChange={this.handleChange} value={this.state.convictionPenalty3} name='convictionPenalty3' placeholder="Penalty"></input>
                                 </div>
-                            </div>
+                            </div> */}
                             <hr />
                             <div className="row">
                                 <p className='applicationDetails instructions'>Driver's License - list each driver's license held in the past three years</p>
@@ -1261,11 +1296,11 @@ class ApplicationForm extends React.PureComponent {
                                         options={statesData}
                                     />
                                 </div>
-                                <div className='col-md-5 col-xs-12'>
+                                {/* <div className='col-md-5 col-xs-12'>
                                     <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber1} name='driversLicenseNumber1' placeholder="License Number"></input>
-                                </div>
+                                </div> */}
                             </div>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className='col-md-4 col-xs-12'>
                                     <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType1} name='driversLicenseType1' placeholder="License Type"></input>
                                 </div>
@@ -1404,7 +1439,7 @@ class ApplicationForm extends React.PureComponent {
                             </div>
                             <div className='row'>
                                 <div className='col-md-8 col-xs-12'>
-                                    <label className='radioButtonDetails'>Is there any reason you might be unable to perform the functions of the job for which you have applied - as described in the job description?:</label>
+                                    <label className='radioButtonDetails'>Is there any reason you might be unable to perform the functions of the job for which you have applied?:</label>
                                 </div>
                                 <div className='col-md-2 col-xs-12'>
                                     <label className="radioDetail revokedLicenseRadio-inline">
@@ -1516,7 +1551,7 @@ class ApplicationForm extends React.PureComponent {
                             <hr />
                             <div className='row'>
                                 <textarea rows="8" cols="250" name="additionalInfo" onChange={this.handleChange} value={this.state.additionalInfo} form="usrform">Enter additional info here...</textarea>
-                            </div>
+                            </div> */}
                             <input type='submit' className='applicationSubmitButton' onClick={ () => { this.handleSubmit() }} value='Send Application' />
                         </div>
                     </form>
