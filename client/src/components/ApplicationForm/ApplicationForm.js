@@ -102,6 +102,7 @@ class ApplicationForm extends React.PureComponent {
             statesOperated: [],
             trainingCompleted: '',
             safeDrivingAwards: '',
+            anyAccidents: '',
             accidentDate1: '',
             natureOfAccident1: '',
             accidentLocation1: '',
@@ -117,6 +118,7 @@ class ApplicationForm extends React.PureComponent {
             accidentLocation3: '',
             numberFatalities3: '',
             numberInjured3: '',
+            anyConvictions: '',
             convictionDate1: '',
             convictionLocation1: '',
             convictionCharge1: '',
@@ -204,7 +206,6 @@ class ApplicationForm extends React.PureComponent {
 
     handleChange3 = (selectedOptionLicenseState2) => {
         this.setState({ licenseState2: selectedOptionLicenseState2 })
-        // this.state.licenseState2 === selectedOptionLicenseState2
     }
 
     handleChange4 = (selectedOptionLicenseState3) => {
@@ -213,10 +214,6 @@ class ApplicationForm extends React.PureComponent {
 
     handleSubmit = (event) => {
     //   event.preventDefault();
-        // console.log('submitted?')
-        console.log('here', this.state)
-        //create a redirect
-        // push to firebase database
         this.databasePush();
         this.setState({'submitted': true });
     }
@@ -1069,6 +1066,34 @@ class ApplicationForm extends React.PureComponent {
                                 <p className='applicationDetails instructions'>Accident Record for past three years - include more in the Other Info section at the bottom of the page</p>
                             </div>
                             <div className='row'>
+                                <div className='col-md-4 col-xs-12'>
+                                    <p className='radioButtonDetails'>Have you been in any accidents in the past three years?</p>
+                                </div>
+                                <div className='col-md-2 col-xs-12'>
+                                    <label className="radioDetail anyAccidents-inline">
+                                        <input 
+                                            onChange={this.handleChange} 
+                                            required 
+                                            className='radioButton' 
+                                            type="radio" 
+                                            name="anyAccidents" 
+                                            value='anyAccidents_Yes'
+                                            checked={this.state.anyAccidents === 'employedBeforeRadio_Yes'}>
+                                        </input>Yes
+                                    </label>
+                                    <label className="radioDetail anyAccidents-inline">
+                                        <input 
+                                            onChange={this.handleChange} 
+                                            className='radioButton' 
+                                            type="radio" 
+                                            name="anyAccidents"
+                                            value='anyAccidents_No' 
+                                            checked={this.state.anyAccidents === 'anyAccidents_No'}>
+                                        </input>No
+                                    </label>
+                                </div>
+                            </div>
+                            <div className='row'>
                                 <div className='col-md-2 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">Date of Accident:</label>
                                 </div>
@@ -1137,6 +1162,34 @@ class ApplicationForm extends React.PureComponent {
                             <hr />
                             <div className="row">
                                 <p className='applicationDetails instructions'>Traffic Convictions and Forfeitures for the last three years - other than parking violations</p>
+                            </div>
+                            <div className='row'>
+                                <div className='col-md-4 col-xs-12'>
+                                    <p className='radioButtonDetails'>Have you ever been convicted of a crime?</p>
+                                </div>
+                                <div className='col-md-2 col-xs-12'>
+                                    <label className="radioDetail anyConvictions-inline">
+                                        <input 
+                                            onChange={this.handleChange} 
+                                            required 
+                                            className='radioButton' 
+                                            type="radio" 
+                                            name="anyConvictions" 
+                                            value='anyConvictions_Yes'
+                                            checked={this.state.anyConvictions === 'anyConvictions_Yes'}>
+                                        </input>Yes
+                                    </label>
+                                    <label className="radioDetail anyConvictions-inline">
+                                        <input 
+                                            onChange={this.handleChange} 
+                                            className='radioButton' 
+                                            type="radio" 
+                                            name="anyConvictions"
+                                            value='anyConvictions_No' 
+                                            checked={this.state.anyConvictions === 'anyConvictions_No'}>
+                                        </input>No
+                                    </label>
+                                </div>
                             </div>
                             <div className='row'>
                                 <div className='col-md-1 col-xs-12'>
