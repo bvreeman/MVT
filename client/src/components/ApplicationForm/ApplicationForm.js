@@ -3,6 +3,7 @@ import './ApplicationForm.css'
 import ApplicationSubmit from '../../pages/ApplicationSubmit'
 import Select from 'react-select';
 import { statesData } from './data';
+import { thisState } from './thisState';
 import axios from 'axios';
 import firebase from 'firebase/app';
 import "firebase/database";
@@ -10,7 +11,7 @@ import "firebase/database";
 class ApplicationForm extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = { 
             submitted: false,
             applicationDate: '',
             optradio: '',
@@ -167,7 +168,7 @@ class ApplicationForm extends React.PureComponent {
             selectedOptionLicenseState1: null,
             selectedOptionLicenseState2: null,
             selectedOptionLicenseState3: null,
-        }
+         }
         this.handleChange = this.handleChange.bind(this);
 
     }
@@ -271,7 +272,7 @@ class ApplicationForm extends React.PureComponent {
                                 <h4>Instructions to Applicant</h4>
                                 <p className='applicationDetails'>Please answer all questions. If the answer to any question is "No" or "None", do not leave the item bank, but write "Not" or "None".</p>
                             </div>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className='col-md-2 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">Application Date:</label>
                                 </div>
@@ -1073,7 +1074,7 @@ class ApplicationForm extends React.PureComponent {
                                 <div className='col-md-3 col-xs-12'>
                                     <input type="number" className="form-control" onChange={this.handleChange} value={this.state.OtherDriven} name="OtherDriven" />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className='row'>
                                 <div className='col-md-5 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">Select all states operated in, for the last five years</label>
@@ -1090,7 +1091,7 @@ class ApplicationForm extends React.PureComponent {
                                     />
                                 </div>
                             </div>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <input type="text" className="form-control" onChange={this.handleChange} value={this.state.trainingCompleted} name='trainingCompleted' placeholder="List special courses/training completed - PTD/DDC, Haz Mat, etc." />
                             </div>
                             <div className='row'>
@@ -1280,7 +1281,7 @@ class ApplicationForm extends React.PureComponent {
                             <hr />
                             <div className="row">
                                 <p className='applicationDetails instructions'>Driver's License - list each driver's license held in the past three years</p>
-                            </div>
+                            </div> */}
                             <div className='row'>
                                 <div className='col-md-1 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">State:</label>
@@ -1296,11 +1297,11 @@ class ApplicationForm extends React.PureComponent {
                                         options={statesData}
                                     />
                                 </div>
-                                <div className='col-md-5 col-xs-12'>
+                                {/* <div className='col-md-5 col-xs-12'>
                                     <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber1} name='driversLicenseNumber1' placeholder="License Number"></input>
-                                </div>
+                                </div> */}
                             </div>
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className='col-md-4 col-xs-12'>
                                     <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType1} name='driversLicenseType1' placeholder="License Type"></input>
                                 </div>
@@ -1551,7 +1552,7 @@ class ApplicationForm extends React.PureComponent {
                             <hr />
                             <div className='row'>
                                 <textarea rows="8" cols="250" name="additionalInfo" onChange={this.handleChange} value={this.state.additionalInfo} form="usrform">Enter additional info here...</textarea>
-                            </div>
+                            </div> */}
                             <input type='submit' className='applicationSubmitButton' onClick={ () => { this.handleSubmit() }} value='Send Application' />
                         </div>
                     </form>
