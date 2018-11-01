@@ -83,11 +83,6 @@ class ContactForQuote extends React.PureComponent {
                 <div className='contactForQuote'>
                     <h3 className='contactForQuoteHeading'><span>Contact Us</span> for a Quote</h3>
                     <div className='row'>
-                        {/* <form action="https://formspree.io/bvreeman@gmmail.com" method="POST">
-                            <input type="text" name="name" />
-                            <input type="email" name="_replyto" />
-                            <input type="submit" value="Send" />
-                        </form> */}
                         <form id="contact-form" className='contactForm col-md-5 col-xs-12' onSubmit={this.handleSubmit.bind(this)} method="POST">
                             <div className='col-md-12 col-xs-12 contactUsForm'>
                                 <div className="form-group">

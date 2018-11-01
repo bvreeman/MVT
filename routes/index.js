@@ -6,6 +6,6 @@ const applicationFormRoutes = require("./applicationRoute")
 // Routes
 router.use("/api", apiRoutes);
 router.use("/contactForm/send", contactFormRoutes)
-router.use('/applicationRoute/send', applicationFormRoutes)
+router.use("/applicationRoute/send", applicationFormRoutes)
 
 module.exports = router;

@@ -3,7 +3,6 @@ import './ApplicationForm.css'
 import ApplicationSubmit from '../../pages/ApplicationSubmit'
 import Select from 'react-select';
 import { statesData } from './data';
-import { thisState } from './thisState';
 import axios from 'axios';
 import firebase from 'firebase/app';
 import "firebase/database";
@@ -221,22 +220,477 @@ class ApplicationForm extends React.PureComponent {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.state.selectedOption.forEach((item, i) => {
-            this.state.statesOperated.push(this.state.selectedOption[i].label)
-         })
-        const FullName = document.getElementById('FullName').value;
-        const PhoneNumber = document.getElementById('PhoneNumber').value;
-        const Email = document.getElementById('Email').value;
-        const CustomerMessage = document.getElementById('CustomerMessage').value;
-        if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
+        if (this.state.selectedOption !== undefined){
+            this.state.selectedOption.forEach((item, i) => {
+                this.state.statesOperated.push(this.state.selectedOption[i].label)
+            })
+        }
+         
+        const applicationDate = 'this.state.applicationDate';
+        const optradio = this.state.optradio;
+        const FirstName = this.state.FirstName
+        const MiddleName = this.state.MiddleName;
+        const LastName = this.state.LastName;
+        const Age = this.state.Age;
+        const Phone = this.state.Phone;
+        const emergencyPhone = this.state.emergencyPhone;
+        const physicalExamExpDate = this.state.physicalExamExpDate;
+        const address1 = this.state.address1;
+        const addressFromDate1 = this.state.addressFromDate1;
+        const addressToDate1 = this.state.addressToDate1;
+        const address2 = this.state.address2;
+        const addressFromDate2 = this.state.addressFromDate2;
+        const addressToDate2 = this.state.addressToDate2;
+        const address3 = this.state.address3;
+        const addressFromDate3 = this.state.addressFromDate3;
+        const addressToDate3 = this.state.addressToDate3;
+        const address4 = this.state.address4;
+        const addressFromDate4 = this.state.addressFromDate4;
+        const addressToDate4 = this.state.addressToDate4;
+        const employedBeforeRadio = this.state.employedBeforeRadio;
+        const employedHereBeforeFrom = this.state.employedHereBeforeFrom;
+        const employedHereBeforeTo = this.state.employedHereBeforeTo;
+        const reasonForLeaving = this.state.reasonForLeaving;
+        const gradeSchool = this.state.gradeSchool;
+        const College = this.state.College;
+        const postGraduate = this.state.postGraduate;
+        const employer1Name = this.state.employer1Name;
+        const employer1Address = this.state.employer1Address;
+        const employer1Phone = this.state.employer1Phone;
+        const employment1Start = this.state.employment1Start;
+        const employment1End = this.state.employment1End;
+        const employer1Position = this.state.employer1Position;
+        const employer1Leaving = this.state.employer1Leaving;
+        const FMCRsRadio1 = this.state.FMCRsRadio1;
+        const CFRPart40_1 = this.state.CFRPart40_1;
+        const employer2Name = this.state.employer2Name;
+        const employer2Address = this.state.employer2Address;
+        const employer2Phone = this.state.employer2Phone;
+        const employment2Start = this.state.employment2Start;
+        const employment2End = this.state.employment2End;
+        const employer2Position = this.state.employer2Position;
+        const employer2Leaving = this.state.employer2Leaving;
+        const FMCRsRadio2 = this.state.FMCRsRadio2;
+        const CFRPart40_2 = this.state.CFRPart40_2;
+        const employer3Name = this.state.employer3Name;
+        const employer3Address = this.state.employer3Address;
+        const employer3Phone = this.state.employer3Phone;
+        const employment3Start = this.state.employment3Start;
+        const employment3End = this.state.employment3End;
+        const employer3Position = this.state.employer3Position;
+        const employer3Leaving = this.state.employer3Leaving;
+        const FMCRsRadio3 = this.state.FMCRsRadio3;
+        const CFRPart40_3 = this.state.CFRPart40_3;
+        const employer4Name = this.state.employer4Name;
+        const employer4Address = this.state.employer4Address;
+        const employer4Phone = this.state.employer4Phone;
+        const employment4Start = this.state.employment4Start;
+        const employment4End = this.state.employment4End;
+        const employer4Position = this.state.employer4Position;
+        const employer4Leaving = this.state.employer4Leaving;
+        const FMCRsRadio4 = this.state.FMCRsRadio4;
+        const CFRPart40_4 = this.state.CFRPart40_4;
+        const employer5Name = this.state.employer5Name;
+        const employer5Address = this.state.employer5Address;
+        const employer5Phone = this.state.employer5Phone;
+        const employment5Start = this.state.employment5Start;
+        const employment5End = this.state.employment5End;
+        const employer5Position = this.state.employer5Position;
+        const employer5Leaving = this.state.employer5Leaving;
+        const FMCRsRadio5 = this.state.FMCRsRadio5;
+        const CFRPart40_5 = this.state.CFRPart40_5;
+        const straightTruckFrom = this.state.straightTruckFrom;
+        const straightTruckTo = this.state.straightTruckTo;
+        const straightTruckMilesDriven = this.state.straightTruckMilesDriven;
+        const TractorTruckFrom = this.state.TractorTruckFrom;
+        const TractorTruckTo = this.state.TractorTruckTo;
+        const TractorTruckMilesDriven = this.state.TractorTruckMilesDriven;
+        const TractorTwoTrailersFrom = this.state.TractorTwoTrailersFrom;
+        const TractorTwoTrailersTo = this.state.TractorTwoTrailersTo;
+        const TractorTwoTrailersMilesDriven = this.state.TractorTwoTrailersMilesDriven;
+        const TractorThreeTrailersFrom = this.state.TractorThreeTrailersFrom;
+        const TractorThreeTrailersTo = this.state.TractorThreeTrailersTo;
+        const TractorThreeTrailersMilesDriven = this.state.TractorThreeTrailersMilesDriven;
+        const OtherFrom = this.state.OtherFrom;
+        const OtherTo = this.state.OtherTo;
+        const OtherDriven = this.state.OtherDriven;
+        const statesOperated = this.state.statesOperated
+        const selectedOption = this.state.selectedOption
+        const trainingCompleted = this.state.trainingCompleted;
+        const safeDrivingAwards = this.state.safeDrivingAwards;
+        const anyAccidents = this.state.anyAccidents;
+        const accidentDate1 = this.state.accidentDate1;
+        const natureOfAccident1 = this.state.natureOfAccident1;
+        const accidentLocation1 = this.state.accidentLocation1;
+        const numberFatalities1 = this.state.numberFatalities1;
+        const numberInjured1 = this.state.numberInjured1;
+        const accidentDate2 = this.state.accidentDate2;
+        const natureOfAccident2 = this.state.natureOfAccident2;
+        const accidentLocation2 = this.state.accidentLocation2;
+        const numberFatalities2 = this.state.numberFatalities2;
+        const numberInjured2 = this.state.numberInjured2;
+        const accidentDate3 = this.state.accidentDate3;
+        const natureOfAccident3 = this.state.natureOfAccident3;
+        const accidentLocation3 = this.state.accidentLocation3;
+        const numberFatalities3 = this.state.numberFatalities3;
+        const numberInjured3 = this.state.numberInjured3;
+        const anyConvictions = this.state.anyConvictions;
+        const convictionDate1 = this.state.convictionDate1;
+        const convictionLocation1 = this.state.convictionLocation1;
+        const convictionCharge1 = this.state.convictionCharge1;
+        const convictionPenalty1 = this.state.convictionPenalty1;
+        const convictionDate2 = this.state.convictionDate2;
+        const convictionLocation2 = this.state.convictionLocation2;
+        const convictionCharge2 = this.state.convictionCharge2;
+        const convictionPenalty2 = this.state.convictionPenalty2;
+        const convictionDate3 = this.state.convictionDate3;
+        const convictionLocation3 = this.state.convictionLocation3;
+        const convictionCharge3 = this.state.convictionCharge3;
+        const convictionPenalty3 = this.state.convictionPenalty3;
+        const licenseState1 = this.state.licenseState1;
+        const driversLicenseNumber1 = this.state.driversLicenseNumber1;
+        const driversLicenseType1 = this.state.driversLicenseType1;
+        const driversLicenseEndorsements1 = this.state.driversLicenseEndorsements1;
+        const driversLicenseExpiration1 = this.state.driversLicenseExpiration1;
+        const licenseState2 = this.state.licenseState2;
+        const driversLicenseNumber2 = this.state.driversLicenseNumber2;
+        const driversLicenseType2 = this.state.driversLicenseType2;
+        const driversLicenseEndorsements2 = this.state.driversLicenseEndorsements2;
+        const driversLicenseExpiration2 = this.state.driversLicenseExpiration2;
+        const licenseState3 = this.state.licenseState3;
+        const driversLicenseNumber3 = this.state.driversLicenseNumber3;
+        const driversLicenseType3 = this.state.driversLicenseType3;
+        const driversLicenseEndorsements3 = this.state.driversLicenseEndorsements3;
+        const driversLicenseExpiration3 = this.state.driversLicenseExpiration3;
+        const deniedLicenseRadio = this.state.deniedLicenseRadio;
+        const suspendedLicenseRadio = this.state.suspendedLicenseRadio;
+        const performJobRadio = this.state.performJobRadio;
+        const felonyRadio = this.state.felonyRadio;
+        const driversLicenseReasons = this.state.driversLicenseReasons;
+        const referenceName1 = this.state.referenceName1;
+        const referenceAddress1 = this.state.referenceAddress1;
+        const referencePhone1 = this.state.referencePhone1;
+        const referenceName2 = this.state.referenceName2;
+        const referenceAddress2 = this.state.referenceAddress2;
+        const referencePhone2 = this.state.referencePhone2;
+        const referenceName3 = this.state.referenceName3;
+        const referenceAddress3 = this.state.referenceAddress3;
+        const referencePhone3 = this.state.referencePhone3;
+        const signature = this.state.signature;
+        const additionalInfo = this.state.additionalInfo;
+        // const applicationDate = document.getElementById('applicationDate').value;
+        // const optradio = document.getElementById('optradio').value;
+        // const FirstName = document.getElementById('FirstName').value
+        // const MiddleName = document.getElementById('MiddleName').value;
+        // const LastName = document.getElementById('LastName').value;
+        // const Age = document.getElementById('Age').value;
+        // const Phone = document.getElementById('Phone').value;
+        // const emergencyPhone = document.getElementById('emergencyPhone').value;
+        // const physicalExamExpDate = document.getElementById('physicalExamExpDate').value;
+        // const address1 = document.getElementById('address1').value;
+        // const addressFromDate1 = document.getElementById('addressFromDate1').value;
+        // const addressToDate1 = document.getElementById('addressToDate1').value;
+        // const address2 = document.getElementById('address2').value;
+        // const addressFromDate2 = document.getElementById('addressFromDate2').value;
+        // const addressToDate2 = document.getElementById('addressToDate2').value;
+        // const address3 = document.getElementById('address3').value;
+        // const addressFromDate3 = document.getElementById('addressFromDate3').value;
+        // const addressToDate3 = document.getElementById('addressToDate3').value;
+        // const address4 = document.getElementById('address4').value;
+        // const addressFromDate4 = document.getElementById('addressFromDate4').value;
+        // const addressToDate4 = document.getElementById('addressToDate4').value;
+        // const employedBeforeRadio = document.getElementById('employedBeforeRadio').value;
+        // const employedHereBeforeFrom = document.getElementById('employedHereBeforeFrom').value;
+        // const employedHereBeforeTo = document.getElementById('employedHereBeforeTo').value;
+        // const reasonForLeaving = document.getElementById('reasonForLeaving').value;
+        // const gradeSchool = document.getElementById('gradeSchool').value;
+        // const College = document.getElementById('College').value;
+        // const postGraduate = document.getElementById('postGraduate').value;
+        // const employer1Name = document.getElementById('employer1Name').value;
+        // const employer1Address = document.getElementById('employer1Address').value;
+        // const employer1Phone = document.getElementById('employer1Phone').value;
+        // const employment1Start = document.getElementById('employment1Start').value;
+        // const employment1End = document.getElementById('employment1End').value;
+        // const employer1Position = document.getElementById('employer1Position').value;
+        // const employer1Leaving = document.getElementById('employer1Leaving').value;
+        // const FMCRsRadio1 = document.getElementById('FMCRsRadio1').value;
+        // const CFRPart40_1 = document.getElementById('CFRPart40_1').value;
+        // const employer2Name = document.getElementById('employer2Name').value;
+        // const employer2Address = document.getElementById('employer2Address').value;
+        // const employer2Phone = document.getElementById('employer2Phone').value;
+        // const employment2Start = document.getElementById('employment2Start').value;
+        // const employment2End = document.getElementById('employment2End').value;
+        // const employer2Position = document.getElementById('employer2Position').value;
+        // const employer2Leaving = document.getElementById('employer2Leaving').value;
+        // const FMCRsRadio2 = document.getElementById('FMCRsRadio2').value;
+        // const CFRPart40_2 = document.getElementById('CFRPart40_2').value;
+        // const employer3Name = document.getElementById('employer3Name').value;
+        // const employer3Address = document.getElementById('employer3Address').value;
+        // const employer3Phone = document.getElementById('employer3Phone').value;
+        // const employment3Start = document.getElementById('employment3Start').value;
+        // const employment3End = document.getElementById('employment3End').value;
+        // const employer3Position = document.getElementById('employer3Position').value;
+        // const employer3Leaving = document.getElementById('employer3Leaving').value;
+        // const FMCRsRadio3 = document.getElementById('FMCRsRadio3').value;
+        // const CFRPart40_3 = document.getElementById('CFRPart40_3').value;
+        // const employer4Name = document.getElementById('employer4Name').value;
+        // const employer4Address = document.getElementById('employer4Address').value;
+        // const employer4Phone = document.getElementById('employer4Phone').value;
+        // const employment4Start = document.getElementById('employment4Start').value;
+        // const employment4End = document.getElementById('employment4End').value;
+        // const employer4Position = document.getElementById('employer4Position').value;
+        // const employer4Leaving = document.getElementById('employer4Leaving').value;
+        // const FMCRsRadio4 = document.getElementById('FMCRsRadio4').value;
+        // const CFRPart40_4 = document.getElementById('CFRPart40_4').value;
+        // const employer5Name = document.getElementById('employer5Name').value;
+        // const employer5Address = document.getElementById('employer5Address').value;
+        // const employer5Phone = document.getElementById('employer5Phone').value;
+        // const employment5Start = document.getElementById('employment5Start').value;
+        // const employment5End = document.getElementById('employment5End').value;
+        // const employer5Position = document.getElementById('employer5Position').value;
+        // const employer5Leaving = document.getElementById('employer5Leaving').value;
+        // const FMCRsRadio5 = document.getElementById('FMCRsRadio5').value;
+        // const CFRPart40_5 = document.getElementById('CFRPart40_5').value;
+        // const straightTruckFrom = document.getElementById('straightTruckFrom').value;
+        // const straightTruckTo = document.getElementById('straightTruckTo').value;
+        // const straightTruckMilesDriven = document.getElementById('straightTruckMilesDriven').value;
+        // const TractorTruckFrom = document.getElementById('TractorTruckFrom').value;
+        // const TractorTruckTo = document.getElementById('TractorTruckTo').value;
+        // const TractorTruckMilesDriven = document.getElementById('TractorTruckMilesDriven').value;
+        // const TractorTwoTrailersFrom = document.getElementById('TractorTwoTrailersFrom').value;
+        // const TractorTwoTrailersTo = document.getElementById('TractorTwoTrailersTo').value;
+        // const TractorTwoTrailersMilesDriven = document.getElementById('TractorTwoTrailersMilesDriven').value;
+        // const TractorThreeTrailersFrom = document.getElementById('TractorThreeTrailersFrom').value;
+        // const TractorThreeTrailersTo = document.getElementById('TractorThreeTrailersTo').value;
+        // const TractorThreeTrailersMilesDriven = document.getElementById('TractorThreeTrailersMilesDriven').value;
+        // const OtherFrom = document.getElementById('OtherFrom').value;
+        // const OtherTo = document.getElementById('OtherTo').value;
+        // const OtherDriven = document.getElementById('OtherDriven').value;
+        // const statesOperated = this.state.statesOperated
+        // const selectedOption = this.state.selectedOption
+        // const trainingCompleted = document.getElementById('trainingCompleted').value;
+        // const safeDrivingAwards = document.getElementById('safeDrivingAwards').value;
+        // const anyAccidents = document.getElementById('anyAccidents').value;
+        // const accidentDate1 = document.getElementById('accidentDate1').value;
+        // const natureOfAccident1 = document.getElementById('natureOfAccident1').value;
+        // const accidentLocation1 = document.getElementById('accidentLocation1').value;
+        // const numberFatalities1 = document.getElementById('numberFatalities1').value;
+        // const numberInjured1 = document.getElementById('numberInjured1').value;
+        // const accidentDate2 = document.getElementById('accidentDate2').value;
+        // const natureOfAccident2 = document.getElementById('natureOfAccident2').value;
+        // const accidentLocation2 = document.getElementById('accidentLocation2').value;
+        // const numberFatalities2 = document.getElementById('numberFatalities2').value;
+        // const numberInjured2 = document.getElementById('numberInjured2').value;
+        // const accidentDate3 = document.getElementById('accidentDate3').value;
+        // const natureOfAccident3 = document.getElementById('natureOfAccident3').value;
+        // const accidentLocation3 = document.getElementById('accidentLocation3').value;
+        // const numberFatalities3 = document.getElementById('numberFatalities3').value;
+        // const numberInjured3 = document.getElementById('numberInjured3').value;
+        // const anyConvictions = document.getElementById('anyConvictions').value;
+        // const convictionDate1 = document.getElementById('convictionDate1').value;
+        // const convictionLocation1 = document.getElementById('convictionLocation1').value;
+        // const convictionCharge1 = document.getElementById('convictionCharge1').value;
+        // const convictionPenalty1 = document.getElementById('convictionPenalty1').value;
+        // const convictionDate2 = document.getElementById('convictionDate2').value;
+        // const convictionLocation2 = document.getElementById('convictionLocation2').value;
+        // const convictionCharge2 = document.getElementById('convictionCharge2').value;
+        // const convictionPenalty2 = document.getElementById('convictionPenalty2').value;
+        // const convictionDate3 = document.getElementById('convictionDate3').value;
+        // const convictionLocation3 = document.getElementById('convictionLocation3').value;
+        // const convictionCharge3 = document.getElementById('convictionCharge3').value;
+        // const convictionPenalty3 = document.getElementById('convictionPenalty3').value;
+        // const licenseState1 = document.getElementById('licenseState1').value;
+        // const driversLicenseNumber1 = document.getElementById('driversLicenseNumber1').value;
+        // const driversLicenseType1 = document.getElementById('driversLicenseType1').value;
+        // const driversLicenseEndorsements1 = document.getElementById('driversLicenseEndorsements1').value;
+        // const driversLicenseExpiration1 = document.getElementById('driversLicenseExpiration1').value;
+        // const licenseState2 = document.getElementById('licenseState2').value;
+        // const driversLicenseNumber2 = document.getElementById('driversLicenseNumber2').value;
+        // const driversLicenseType2 = document.getElementById('driversLicenseType2').value;
+        // const driversLicenseEndorsements2 = document.getElementById('driversLicenseEndorsements2').value;
+        // const driversLicenseExpiration2 = document.getElementById('driversLicenseExpiration2').value;
+        // const licenseState3 = document.getElementById('licenseState3').value;
+        // const driversLicenseNumber3 = document.getElementById('driversLicenseNumber3').value;
+        // const driversLicenseType3 = document.getElementById('driversLicenseType3').value;
+        // const driversLicenseEndorsements3 = document.getElementById('driversLicenseEndorsements3').value;
+        // const driversLicenseExpiration3 = document.getElementById('driversLicenseExpiration3').value;
+        // const deniedLicenseRadio = document.getElementById('deniedLicenseRadio').value;
+        // const suspendedLicenseRadio = document.getElementById('suspendedLicenseRadio').value;
+        // const performJobRadio = document.getElementById('performJobRadio').value;
+        // const felonyRadio = document.getElementById('felonyRadio').value;
+        // const driversLicenseReasons = document.getElementById('driversLicenseReasons').value;
+        // const referenceName1 = document.getElementById('referenceName1').value;
+        // const referenceAddress1 = document.getElementById('referenceAddress1').value;
+        // const referencePhone1 = document.getElementById('referencePhone1').value;
+        // const referenceName2 = document.getElementById('referenceName2').value;
+        // const referenceAddress2 = document.getElementById('referenceAddress2').value;
+        // const referencePhone2 = document.getElementById('referencePhone2').value;
+        // const referenceName3 = document.getElementById('referenceName3').value;
+        // const referenceAddress3 = document.getElementById('referenceAddress3').value;
+        // const referencePhone3 = document.getElementById('referencePhone3').value;
+        // const signature = document.getElementById('signature').value;
+        // const additionalInfo = document.getElementById('additionalInfo').value;
+        // const selectedOptionOperated: null,
+        // const selectedOptionLicenseState1: null,
+        // const selectedOptionLicenseState2: null,
+        // const selectedOptionLicenseState3: null,
+        // if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
             axios({
                 method: 'POST',
-                url: '/contactForm/send',
+                url: '/applicationRoute/send',
                 data: {
-                    FullName,
-                    PhoneNumber,
-                    Email,
-                    CustomerMessage
+                    applicationDate,
+                    optradio,
+                    FirstName,
+                    MiddleName,
+                    LastName,
+                    Age,
+                    Phone,
+                    emergencyPhone,
+                    physicalExamExpDate,
+                    address1,
+                    addressFromDate1,
+                    addressToDate1,
+                    address2,
+                    addressFromDate2,
+                    addressToDate2,
+                    address3,
+                    addressFromDate3,
+                    addressToDate3,
+                    address4,
+                    addressFromDate4,
+                    addressToDate4,
+                    employedBeforeRadio,
+                    employedHereBeforeFrom,
+                    employedHereBeforeTo,
+                    reasonForLeaving,
+                    gradeSchool,
+                    College,
+                    postGraduate,
+                    employer1Name,
+                    employer1Address,
+                    employer1Phone,
+                    employment1Start,
+                    employment1End,
+                    employer1Position,
+                    employer1Leaving,
+                    FMCRsRadio1,
+                    CFRPart40_1,
+                    employer2Name,
+                    employer2Address,
+                    employer2Phone,
+                    employment2Start,
+                    employment2End,
+                    employer2Position,
+                    employer2Leaving,
+                    FMCRsRadio2,
+                    CFRPart40_2,
+                    employer3Name,
+                    employer3Address,
+                    employer3Phone,
+                    employment3Start,
+                    employment3End,
+                    employer3Position,
+                    employer3Leaving,
+                    FMCRsRadio3,
+                    CFRPart40_3,
+                    employer4Name,
+                    employer4Address,
+                    employer4Phone,
+                    employment4Start,
+                    employment4End,
+                    employer4Position,
+                    employer4Leaving,
+                    FMCRsRadio4,
+                    CFRPart40_4,
+                    employer5Name,
+                    employer5Address,
+                    employer5Phone,
+                    employment5Start,
+                    employment5End,
+                    employer5Position,
+                    employer5Leaving,
+                    FMCRsRadio5,
+                    CFRPart40_5,
+                    straightTruckFrom,
+                    straightTruckTo,
+                    straightTruckMilesDriven,
+                    TractorTruckFrom,
+                    TractorTruckTo,
+                    TractorTruckMilesDriven,
+                    TractorTwoTrailersFrom,
+                    TractorTwoTrailersTo,
+                    TractorTwoTrailersMilesDriven,
+                    TractorThreeTrailersFrom,
+                    TractorThreeTrailersTo,
+                    TractorThreeTrailersMilesDriven,
+                    OtherFrom,
+                    OtherTo,
+                    OtherDriven,
+                    statesOperated,
+                    trainingCompleted,
+                    safeDrivingAwards,
+                    anyAccidents,
+                    accidentDate1,
+                    natureOfAccident1,
+                    accidentLocation1,
+                    numberFatalities1,
+                    numberInjured1,
+                    accidentDate2,
+                    natureOfAccident2,
+                    accidentLocation2,
+                    numberFatalities2,
+                    numberInjured2,
+                    accidentDate3,
+                    natureOfAccident3,
+                    accidentLocation3,
+                    numberFatalities3,
+                    numberInjured3,
+                    anyConvictions,
+                    convictionDate1,
+                    convictionLocation1,
+                    convictionCharge1,
+                    convictionPenalty1,
+                    convictionDate2,
+                    convictionLocation2,
+                    convictionCharge2,
+                    convictionPenalty2,
+                    convictionDate3,
+                    convictionLocation3,
+                    convictionCharge3,
+                    convictionPenalty3,
+                    licenseState1,
+                    driversLicenseNumber1,
+                    driversLicenseType1,
+                    driversLicenseEndorsements1,
+                    driversLicenseExpiration1,
+                    licenseState2,
+                    driversLicenseNumber2,
+                    driversLicenseType2,
+                    driversLicenseEndorsements2,
+                    driversLicenseExpiration2,
+                    licenseState3,
+                    driversLicenseNumber3,
+                    driversLicenseType3,
+                    driversLicenseEndorsements3,
+                    driversLicenseExpiration3,
+                    deniedLicenseRadio,
+                    suspendedLicenseRadio,
+                    performJobRadio,
+                    felonyRadio,
+                    driversLicenseReasons,
+                    referenceName1,
+                    referenceAddress1,
+                    referencePhone1,
+                    referenceName2,
+                    referenceAddress2,
+                    referencePhone2,
+                    referenceName3,
+                    referenceAddress3,
+                    referencePhone3,
+                    signature,
+                    additionalInfo,
+                    selectedOption
                 }
             }).then( 
                (response) => {
@@ -249,9 +703,9 @@ class ApplicationForm extends React.PureComponent {
                 this.setState({submitted: true });
                 this.databasePush();
             })
-        } else {
-            alert('Please fill out the remaining required fields')
-        }
+        // } else {
+        //     alert('Please fill out the remaining required fields')
+        // }
     }
     
       render() {
@@ -264,7 +718,7 @@ class ApplicationForm extends React.PureComponent {
                     <div>
                         <h2>Application Form</h2>
                     </div>
-                    <form id='myApplicationForm' encType='text/plain'>
+                    <form id='myApplicationForm' encType='text/plain'onSubmit={this.handleSubmit.bind(this)} method="POST">
                         <div className="form-group">
                             <p className='applicationDetails instructions'>The purpose of this application is to determine whether or not the applicant is qualified to operate motor carrier equipment according to the requirements of the Federal Motor Carrier Safety Regulations and the Company named above.</p>
                             <hr/>
@@ -272,12 +726,12 @@ class ApplicationForm extends React.PureComponent {
                                 <h4>Instructions to Applicant</h4>
                                 <p className='applicationDetails'>Please answer all questions. If the answer to any question is "No" or "None", do not leave the item bank, but write "Not" or "None".</p>
                             </div>
-                            {/* <div className='row'>
+                            <div className='row'>
                                 <div className='col-md-2 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">Application Date:</label>
                                 </div>
                                 <div className='col-md-3 col-xs-12'>
-                                    <input type="date" className="form-control" onChange={this.handleChange} value={this.state.applicationDate} name="applicationDate"/>
+                                    <input type="date" id='applicationDate' className="form-control" onChange={this.handleChange} value={this.state.applicationDate} name="applicationDate"/>
                                 </div>
                                 <div className='col-md-2 col-xs-12'>
                                     <p className='radioButtonDetails'>Position applying for:</p>
@@ -290,6 +744,7 @@ class ApplicationForm extends React.PureComponent {
                                             className='radioButton' 
                                             type="radio" 
                                             name="optradio" 
+                                            id='optradio'
                                             value='Contractor'
                                             checked={this.state.optradio === 'Contractor'}>
                                         </input>Contractor
@@ -1074,7 +1529,7 @@ class ApplicationForm extends React.PureComponent {
                                 <div className='col-md-3 col-xs-12'>
                                     <input type="number" className="form-control" onChange={this.handleChange} value={this.state.OtherDriven} name="OtherDriven" />
                                 </div>
-                            </div> */}
+                            </div>
                             <div className='row'>
                                 <div className='col-md-5 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">Select all states operated in, for the last five years</label>
@@ -1091,7 +1546,7 @@ class ApplicationForm extends React.PureComponent {
                                     />
                                 </div>
                             </div>
-                            {/* <div className='row'>
+                            <div className='row'>
                                 <input type="text" className="form-control" onChange={this.handleChange} value={this.state.trainingCompleted} name='trainingCompleted' placeholder="List special courses/training completed - PTD/DDC, Haz Mat, etc." />
                             </div>
                             <div className='row'>
@@ -1281,7 +1736,7 @@ class ApplicationForm extends React.PureComponent {
                             <hr />
                             <div className="row">
                                 <p className='applicationDetails instructions'>Driver's License - list each driver's license held in the past three years</p>
-                            </div> */}
+                            </div>
                             <div className='row'>
                                 <div className='col-md-1 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">State:</label>
@@ -1297,11 +1752,11 @@ class ApplicationForm extends React.PureComponent {
                                         options={statesData}
                                     />
                                 </div>
-                                {/* <div className='col-md-5 col-xs-12'>
+                                <div className='col-md-5 col-xs-12'>
                                     <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseNumber1} name='driversLicenseNumber1' placeholder="License Number"></input>
-                                </div> */}
+                                </div>
                             </div>
-                            {/* <div className='row'>
+                            <div className='row'>
                                 <div className='col-md-4 col-xs-12'>
                                     <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.driversLicenseType1} name='driversLicenseType1' placeholder="License Type"></input>
                                 </div>
@@ -1552,8 +2007,8 @@ class ApplicationForm extends React.PureComponent {
                             <hr />
                             <div className='row'>
                                 <textarea rows="8" cols="250" name="additionalInfo" onChange={this.handleChange} value={this.state.additionalInfo} form="usrform">Enter additional info here...</textarea>
-                            </div> */}
-                            <input type='submit' className='applicationSubmitButton' onClick={ () => { this.handleSubmit() }} value='Send Application' />
+                            </div>
+                            <input type='submit' className='applicationSubmitButton' onClick={this.handleSubmit} value='Send Application' />
                         </div>
                     </form>
                 </div>

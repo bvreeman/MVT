@@ -62,7 +62,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
   transport.sendMail(mail, (err, data) => {
-    console.log('this is the mail', mail)
     if (err) {
       res.json({
         msg: 'fail'

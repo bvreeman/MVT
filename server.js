@@ -33,6 +33,11 @@ app.post('/contactForm/send', (req, res) => {
   console.log('does this happen?', req.body)
   res.send();
 })
+
+app.post('/applicationRoute/send', (req, res) => {
+  console.log('does this happen?', req.body)
+  res.send();
+})
  
 // If no API routes are hit, send the React app
 app.get('*', (req, res) => {
