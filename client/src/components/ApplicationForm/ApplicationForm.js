@@ -1569,7 +1569,7 @@ class ApplicationForm extends React.PureComponent {
                                             type="radio" 
                                             name="anyAccidents" 
                                             value='anyAccidents_Yes'
-                                            checked={this.state.anyAccidents === 'employedBeforeRadio_Yes'}>
+                                            checked={this.state.anyAccidents === 'anyAccidents_Yes'}>
                                         </input>Yes
                                     </label>
                                     <label className="radioDetail anyAccidents-inline">

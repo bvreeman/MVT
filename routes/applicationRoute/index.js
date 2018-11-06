@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer')
 let transport;
 
 if (process.env.NODE_ENV === "production") {
-  console.log('production')
+  console.log('application route production')
   transport = nodemailer.createTransport({
     service: "Hotmail",
     auth: {
@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
       }
     })
   } else {
-    console.log('development')
+    console.log('application route development')
     let creds = require('../../config/config');
     transport = nodemailer.createTransport({
       service: "Hotmail",
@@ -185,10 +185,10 @@ router.post('/applicationRoute/send', (req, res, next) => {
     const referencePhone3 = req.body.referencePhone3
     const signature = req.body.signature
     const additionalInfo = req.body.additionalInfo
-    const selectedOptionOperated = selectedOptionOperated
-    const selectedOptionLicenseState1 = req.body.selectedOptionLicenseState1
-    const selectedOptionLicenseState2 = req.body.selectedOptionLicenseState2
-    const selectedOptionLicenseState3 = req.body.selectedOptionLicenseState3
+    // const selectedOptionOperated = req.body.selectedOptionOperated
+    // const selectedOptionLicenseState1 = req.body.selectedOptionLicenseState1
+    // const selectedOptionLicenseState2 = req.body.selectedOptionLicenseState2
+    // const selectedOptionLicenseState3 = req.body.selectedOptionLicenseState3
     const content = `
         Application submitted on: ${applicationDate} \n
         Applying to be: ${optradio}
@@ -196,7 +196,6 @@ router.post('/applicationRoute/send', (req, res, next) => {
         Age: ${Age} \n
         Phone: ${PhoneNumber} \n 
         Emergency Phone: ${emergencyPhone}
-        Email: ${Email} \n 
         Physical Exam Expiration Date: ${physicalExamExpDate} \n
         \nLives at ${address1} since ${addressFromDate1} until ${addressToDate1} \n
         Other places of residence: \n
@@ -244,20 +243,20 @@ router.post('/applicationRoute/send', (req, res, next) => {
         Was their job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40: ${CFRPart40_5}\n
         \nDriving Experience\n
         \nStraight Truck:\n
-        Drove ${straightTruckMilesDriven} from ${straightTruckFrom} to ${straightTruckTo}\n
+        Drove ${straightTruckMilesDriven} miles from ${straightTruckFrom} to ${straightTruckTo}\n
         \nTractor Truck:\n
-        Drove ${TractorTruckMilesDriven} from ${TractorTruckFrom} to ${TractorTruckTo}\n
+        Drove ${TractorTruckMilesDriven} miles from ${TractorTruckFrom} to ${TractorTruckTo}\n
         \nTractor Two Trailers:\n
-        Drove ${TractorTwoTrailersMilesDriven} from ${TractorTwoTrailersFrom} to ${TractorTwoTrailersTo}\n
+        Drove ${TractorTwoTrailersMilesDriven} miles from ${TractorTwoTrailersFrom} to ${TractorTwoTrailersTo}\n
         \nTractor Three Trailers:\n
-        Drove ${TractorThreeTrailersMilesDriven} from ${TractorThreeTrailersFrom} to ${TractorThreeTrailersTo}\n
+        Drove ${TractorThreeTrailersMilesDriven} miles from ${TractorThreeTrailersFrom} to ${TractorThreeTrailersTo}\n
         \nOther:\n
-        Drove ${OtherDriven} from ${OtherFrom} to ${OtherTo}\n
+        Drove ${OtherDriven} miles from ${OtherFrom} to ${OtherTo}\n
         \nStates Operated In: ${statesOperated}\n
         Courses and Training Completed: ${trainingCompleted}\n
         Awards won: ${safeDrivingAwards}\n
         \nAccidents:\n
-        Has the appliant been in any accidents in the past three years: ${anyAccidents}\n
+        Has the applicant been in any accidents in the past three years: ${anyAccidents}\n
         \n***If the values are blank, the applicant did not fill them out or they haven't been in any accidents***\n
         \nAccident on ${accidentDate1}\n
         Nature of Accident: ${natureOfAccident1}\n
