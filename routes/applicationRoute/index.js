@@ -34,6 +34,7 @@ transport.verify((error, success) => {
 });
 
 router.post('/applicationRoute/send', (req, res, next) => {
+    console.log('gets here for req', req)
     const applicationDate = req.body.applicationDate
     console.log('app date', applicationDate)
     const optradio = req.body.optradio

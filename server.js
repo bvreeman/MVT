@@ -35,7 +35,7 @@ app.post('/contactForm/send', (req, res) => {
 })
 
 app.post('/applicationRoute/send', (req, res) => {
-  console.log('does this happen?', req.body)
+  // console.log('does this happen application route?', req.body)
   res.send();
 })
  

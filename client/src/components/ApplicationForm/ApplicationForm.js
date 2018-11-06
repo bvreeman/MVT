@@ -226,7 +226,7 @@ class ApplicationForm extends React.PureComponent {
             })
         }
          
-        const applicationDate = 'this.state.applicationDate';
+        const applicationDate = this.state.applicationDate;
         const optradio = this.state.optradio;
         const FirstName = this.state.FirstName
         const MiddleName = this.state.MiddleName;
