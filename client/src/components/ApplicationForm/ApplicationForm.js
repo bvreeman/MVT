@@ -378,163 +378,6 @@ class ApplicationForm extends React.PureComponent {
         const referencePhone3 = this.state.referencePhone3;
         const signature = this.state.signature;
         const additionalInfo = this.state.additionalInfo;
-        // const applicationDate = document.getElementById('applicationDate').value;
-        // const optradio = document.getElementById('optradio').value;
-        // const FirstName = document.getElementById('FirstName').value
-        // const MiddleName = document.getElementById('MiddleName').value;
-        // const LastName = document.getElementById('LastName').value;
-        // const Age = document.getElementById('Age').value;
-        // const Phone = document.getElementById('Phone').value;
-        // const emergencyPhone = document.getElementById('emergencyPhone').value;
-        // const physicalExamExpDate = document.getElementById('physicalExamExpDate').value;
-        // const address1 = document.getElementById('address1').value;
-        // const addressFromDate1 = document.getElementById('addressFromDate1').value;
-        // const addressToDate1 = document.getElementById('addressToDate1').value;
-        // const address2 = document.getElementById('address2').value;
-        // const addressFromDate2 = document.getElementById('addressFromDate2').value;
-        // const addressToDate2 = document.getElementById('addressToDate2').value;
-        // const address3 = document.getElementById('address3').value;
-        // const addressFromDate3 = document.getElementById('addressFromDate3').value;
-        // const addressToDate3 = document.getElementById('addressToDate3').value;
-        // const address4 = document.getElementById('address4').value;
-        // const addressFromDate4 = document.getElementById('addressFromDate4').value;
-        // const addressToDate4 = document.getElementById('addressToDate4').value;
-        // const employedBeforeRadio = document.getElementById('employedBeforeRadio').value;
-        // const employedHereBeforeFrom = document.getElementById('employedHereBeforeFrom').value;
-        // const employedHereBeforeTo = document.getElementById('employedHereBeforeTo').value;
-        // const reasonForLeaving = document.getElementById('reasonForLeaving').value;
-        // const gradeSchool = document.getElementById('gradeSchool').value;
-        // const College = document.getElementById('College').value;
-        // const postGraduate = document.getElementById('postGraduate').value;
-        // const employer1Name = document.getElementById('employer1Name').value;
-        // const employer1Address = document.getElementById('employer1Address').value;
-        // const employer1Phone = document.getElementById('employer1Phone').value;
-        // const employment1Start = document.getElementById('employment1Start').value;
-        // const employment1End = document.getElementById('employment1End').value;
-        // const employer1Position = document.getElementById('employer1Position').value;
-        // const employer1Leaving = document.getElementById('employer1Leaving').value;
-        // const FMCRsRadio1 = document.getElementById('FMCRsRadio1').value;
-        // const CFRPart40_1 = document.getElementById('CFRPart40_1').value;
-        // const employer2Name = document.getElementById('employer2Name').value;
-        // const employer2Address = document.getElementById('employer2Address').value;
-        // const employer2Phone = document.getElementById('employer2Phone').value;
-        // const employment2Start = document.getElementById('employment2Start').value;
-        // const employment2End = document.getElementById('employment2End').value;
-        // const employer2Position = document.getElementById('employer2Position').value;
-        // const employer2Leaving = document.getElementById('employer2Leaving').value;
-        // const FMCRsRadio2 = document.getElementById('FMCRsRadio2').value;
-        // const CFRPart40_2 = document.getElementById('CFRPart40_2').value;
-        // const employer3Name = document.getElementById('employer3Name').value;
-        // const employer3Address = document.getElementById('employer3Address').value;
-        // const employer3Phone = document.getElementById('employer3Phone').value;
-        // const employment3Start = document.getElementById('employment3Start').value;
-        // const employment3End = document.getElementById('employment3End').value;
-        // const employer3Position = document.getElementById('employer3Position').value;
-        // const employer3Leaving = document.getElementById('employer3Leaving').value;
-        // const FMCRsRadio3 = document.getElementById('FMCRsRadio3').value;
-        // const CFRPart40_3 = document.getElementById('CFRPart40_3').value;
-        // const employer4Name = document.getElementById('employer4Name').value;
-        // const employer4Address = document.getElementById('employer4Address').value;
-        // const employer4Phone = document.getElementById('employer4Phone').value;
-        // const employment4Start = document.getElementById('employment4Start').value;
-        // const employment4End = document.getElementById('employment4End').value;
-        // const employer4Position = document.getElementById('employer4Position').value;
-        // const employer4Leaving = document.getElementById('employer4Leaving').value;
-        // const FMCRsRadio4 = document.getElementById('FMCRsRadio4').value;
-        // const CFRPart40_4 = document.getElementById('CFRPart40_4').value;
-        // const employer5Name = document.getElementById('employer5Name').value;
-        // const employer5Address = document.getElementById('employer5Address').value;
-        // const employer5Phone = document.getElementById('employer5Phone').value;
-        // const employment5Start = document.getElementById('employment5Start').value;
-        // const employment5End = document.getElementById('employment5End').value;
-        // const employer5Position = document.getElementById('employer5Position').value;
-        // const employer5Leaving = document.getElementById('employer5Leaving').value;
-        // const FMCRsRadio5 = document.getElementById('FMCRsRadio5').value;
-        // const CFRPart40_5 = document.getElementById('CFRPart40_5').value;
-        // const straightTruckFrom = document.getElementById('straightTruckFrom').value;
-        // const straightTruckTo = document.getElementById('straightTruckTo').value;
-        // const straightTruckMilesDriven = document.getElementById('straightTruckMilesDriven').value;
-        // const TractorTruckFrom = document.getElementById('TractorTruckFrom').value;
-        // const TractorTruckTo = document.getElementById('TractorTruckTo').value;
-        // const TractorTruckMilesDriven = document.getElementById('TractorTruckMilesDriven').value;
-        // const TractorTwoTrailersFrom = document.getElementById('TractorTwoTrailersFrom').value;
-        // const TractorTwoTrailersTo = document.getElementById('TractorTwoTrailersTo').value;
-        // const TractorTwoTrailersMilesDriven = document.getElementById('TractorTwoTrailersMilesDriven').value;
-        // const TractorThreeTrailersFrom = document.getElementById('TractorThreeTrailersFrom').value;
-        // const TractorThreeTrailersTo = document.getElementById('TractorThreeTrailersTo').value;
-        // const TractorThreeTrailersMilesDriven = document.getElementById('TractorThreeTrailersMilesDriven').value;
-        // const OtherFrom = document.getElementById('OtherFrom').value;
-        // const OtherTo = document.getElementById('OtherTo').value;
-        // const OtherDriven = document.getElementById('OtherDriven').value;
-        // const statesOperated = this.state.statesOperated
-        // const selectedOption = this.state.selectedOption
-        // const trainingCompleted = document.getElementById('trainingCompleted').value;
-        // const safeDrivingAwards = document.getElementById('safeDrivingAwards').value;
-        // const anyAccidents = document.getElementById('anyAccidents').value;
-        // const accidentDate1 = document.getElementById('accidentDate1').value;
-        // const natureOfAccident1 = document.getElementById('natureOfAccident1').value;
-        // const accidentLocation1 = document.getElementById('accidentLocation1').value;
-        // const numberFatalities1 = document.getElementById('numberFatalities1').value;
-        // const numberInjured1 = document.getElementById('numberInjured1').value;
-        // const accidentDate2 = document.getElementById('accidentDate2').value;
-        // const natureOfAccident2 = document.getElementById('natureOfAccident2').value;
-        // const accidentLocation2 = document.getElementById('accidentLocation2').value;
-        // const numberFatalities2 = document.getElementById('numberFatalities2').value;
-        // const numberInjured2 = document.getElementById('numberInjured2').value;
-        // const accidentDate3 = document.getElementById('accidentDate3').value;
-        // const natureOfAccident3 = document.getElementById('natureOfAccident3').value;
-        // const accidentLocation3 = document.getElementById('accidentLocation3').value;
-        // const numberFatalities3 = document.getElementById('numberFatalities3').value;
-        // const numberInjured3 = document.getElementById('numberInjured3').value;
-        // const anyConvictions = document.getElementById('anyConvictions').value;
-        // const convictionDate1 = document.getElementById('convictionDate1').value;
-        // const convictionLocation1 = document.getElementById('convictionLocation1').value;
-        // const convictionCharge1 = document.getElementById('convictionCharge1').value;
-        // const convictionPenalty1 = document.getElementById('convictionPenalty1').value;
-        // const convictionDate2 = document.getElementById('convictionDate2').value;
-        // const convictionLocation2 = document.getElementById('convictionLocation2').value;
-        // const convictionCharge2 = document.getElementById('convictionCharge2').value;
-        // const convictionPenalty2 = document.getElementById('convictionPenalty2').value;
-        // const convictionDate3 = document.getElementById('convictionDate3').value;
-        // const convictionLocation3 = document.getElementById('convictionLocation3').value;
-        // const convictionCharge3 = document.getElementById('convictionCharge3').value;
-        // const convictionPenalty3 = document.getElementById('convictionPenalty3').value;
-        // const licenseState1 = document.getElementById('licenseState1').value;
-        // const driversLicenseNumber1 = document.getElementById('driversLicenseNumber1').value;
-        // const driversLicenseType1 = document.getElementById('driversLicenseType1').value;
-        // const driversLicenseEndorsements1 = document.getElementById('driversLicenseEndorsements1').value;
-        // const driversLicenseExpiration1 = document.getElementById('driversLicenseExpiration1').value;
-        // const licenseState2 = document.getElementById('licenseState2').value;
-        // const driversLicenseNumber2 = document.getElementById('driversLicenseNumber2').value;
-        // const driversLicenseType2 = document.getElementById('driversLicenseType2').value;
-        // const driversLicenseEndorsements2 = document.getElementById('driversLicenseEndorsements2').value;
-        // const driversLicenseExpiration2 = document.getElementById('driversLicenseExpiration2').value;
-        // const licenseState3 = document.getElementById('licenseState3').value;
-        // const driversLicenseNumber3 = document.getElementById('driversLicenseNumber3').value;
-        // const driversLicenseType3 = document.getElementById('driversLicenseType3').value;
-        // const driversLicenseEndorsements3 = document.getElementById('driversLicenseEndorsements3').value;
-        // const driversLicenseExpiration3 = document.getElementById('driversLicenseExpiration3').value;
-        // const deniedLicenseRadio = document.getElementById('deniedLicenseRadio').value;
-        // const suspendedLicenseRadio = document.getElementById('suspendedLicenseRadio').value;
-        // const performJobRadio = document.getElementById('performJobRadio').value;
-        // const felonyRadio = document.getElementById('felonyRadio').value;
-        // const driversLicenseReasons = document.getElementById('driversLicenseReasons').value;
-        // const referenceName1 = document.getElementById('referenceName1').value;
-        // const referenceAddress1 = document.getElementById('referenceAddress1').value;
-        // const referencePhone1 = document.getElementById('referencePhone1').value;
-        // const referenceName2 = document.getElementById('referenceName2').value;
-        // const referenceAddress2 = document.getElementById('referenceAddress2').value;
-        // const referencePhone2 = document.getElementById('referencePhone2').value;
-        // const referenceName3 = document.getElementById('referenceName3').value;
-        // const referenceAddress3 = document.getElementById('referenceAddress3').value;
-        // const referencePhone3 = document.getElementById('referencePhone3').value;
-        // const signature = document.getElementById('signature').value;
-        // const additionalInfo = document.getElementById('additionalInfo').value;
-        // const selectedOptionOperated: null,
-        // const selectedOptionLicenseState1: null,
-        // const selectedOptionLicenseState2: null,
-        // const selectedOptionLicenseState3: null,
-        // if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
             axios({
                 method: 'POST',
                 url: '/applicationRoute/send',
@@ -700,6 +543,8 @@ class ApplicationForm extends React.PureComponent {
                    console.log('this is the error', error)
                }
             ).then(() => {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
                 this.setState({submitted: true });
                 this.databasePush();
             })
@@ -814,7 +659,7 @@ class ApplicationForm extends React.PureComponent {
                             </div>
                             <div className="row">
                                 <div className='col-md-4 col-xs-12'>
-                                    <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.address1} name="address1" placeholder='Address' />
+                                    <input required type="text" className="form-control" onChange={this.handleChange} value={this.state.address1} name="address1" placeholder='Address 1' />
                                 </div>
                                 <div className='col-md-1 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect1">From:</label>
@@ -831,7 +676,7 @@ class ApplicationForm extends React.PureComponent {
                             </div>
                             <div className="row">
                                 <div className='col-md-4 col-xs-12'>
-                                    <input type="text" className="form-control" onChange={this.handleChange} value={this.state.address2} name="address2" placeholder='Address' />
+                                    <input type="text" className="form-control" onChange={this.handleChange} value={this.state.address2} name="address2" placeholder='Address 2' />
                                 </div>
                                 <div className='col-md-1 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect2">From:</label>
@@ -848,7 +693,7 @@ class ApplicationForm extends React.PureComponent {
                             </div>
                             <div className="row">
                                 <div className='col-md-4 col-xs-12'>
-                                    <input type="text" className="form-control" onChange={this.handleChange} value={this.state.address3} name="address3" placeholder='Address' />
+                                    <input type="text" className="form-control" onChange={this.handleChange} value={this.state.address3} name="address3" placeholder='Address 3' />
                                 </div>
                                 <div className='col-md-1 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect3">From:</label>
@@ -865,7 +710,7 @@ class ApplicationForm extends React.PureComponent {
                             </div>
                             <div className="row">
                                 <div className='col-md-4 col-xs-12'>
-                                    <input type="text" className="form-control" onChange={this.handleChange} value={this.state.address4} name="address4" placeholder='Address' />
+                                    <input type="text" className="form-control" onChange={this.handleChange} value={this.state.address4} name="address4" placeholder='Address 4' />
                                 </div>
                                 <div className='col-md-1 col-xs-12'>
                                     <label className='formLabel' htmlFor="exampleFormControlSelect4">From:</label>

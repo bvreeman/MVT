@@ -34,7 +34,7 @@ transport.verify((error, success) => {
 });
 
 router.post('/applicationRoute/send', (req, res, next) => {
-    console.log('gets here for req', req)
+    console.log('gets here for req', req.body)
     const applicationDate = req.body.applicationDate
     console.log('app date', applicationDate)
     const optradio = req.body.optradio
@@ -154,17 +154,17 @@ router.post('/applicationRoute/send', (req, res, next) => {
     const convictionLocation3 = req.body.convictionLocation3
     const convictionCharge3 = req.body.convictionCharge3
     const convictionPenalty3 = req.body.convictionPenalty3
-    const licenseState1 = req.body.licenseState1
+    const licenseState1 = req.body.licenseState1.label
     const driversLicenseNumber1 = req.body.driversLicenseNumber1
     const driversLicenseType1 = req.body.driversLicenseType1
     const driversLicenseEndorsements1 = req.body.driversLicenseEndorsements1
     const driversLicenseExpiration1 = req.body.driversLicenseExpiration1
-    const licenseState2 = req.body.licenseState2
+    const licenseState2 = req.body.licenseState2.label
     const driversLicenseNumber2 = req.body.driversLicenseNumber2
     const driversLicenseType2 = req.body.driversLicenseType2
     const driversLicenseEndorsements2 = req.body.driversLicenseEndorsements2
     const driversLicenseExpiration2 = req.body.driversLicenseExpiration2
-    const licenseState3 = req.body.licenseState3
+    const licenseState3 = req.body.licenseState3.label
     const driversLicenseNumber3 = req.body.driversLicenseNumber3
     const driversLicenseType3 = req.body.driversLicenseType3
     const driversLicenseEndorsements3 = req.body.driversLicenseEndorsements3
@@ -191,106 +191,164 @@ router.post('/applicationRoute/send', (req, res, next) => {
     // const selectedOptionLicenseState3 = req.body.selectedOptionLicenseState3
     const content = `
         Application submitted on: ${applicationDate} \n
-        Applying to be: ${optradio}
+        Applying to be: ${optradio} \n
         Name: ${FullName} \n 
         Age: ${Age} \n
         Phone: ${PhoneNumber} \n 
-        Emergency Phone: ${emergencyPhone}
+        Emergency Phone: ${emergencyPhone} \n
         Physical Exam Expiration Date: ${physicalExamExpDate} \n
-        \nLives at ${address1} since ${addressFromDate1} until ${addressToDate1} \n
-        Other places of residence: \n
-        ${address2} from ${addressFromDate2} to ${addressToDate2} \n
-        ${address3} from ${addressFromDate3} to ${addressToDate3} \n
-        ${address4} from ${addressFromDate4} to ${addressToDate4} \n
+        \nLives at ${address1} \n
+        From: ${addressFromDate1} \n
+        To: ${addressToDate1} \n
+        \n Other places of residence: \n
+        Address 2: ${address2} \n
+        From: ${addressFromDate2} \n
+        To: ${addressToDate2} \n
+        Address 3: ${address3} \n
+        From: ${addressFromDate3} \n
+        To: ${addressToDate3} \n
+        address 4: ${address4} \n
+        From: ${addressFromDate4} \n
+        To: ${addressToDate4} \n
         \nWere they employed here before? ${employedBeforeRadio} \n
-        From: ${employedHereBeforeFrom} To ${employedHereBeforeTo} \n
+        From: ${employedHereBeforeFrom} \n
+        To: ${employedHereBeforeTo} \n
         They left because: ${reasonForLeaving} \n
-        \nGrade school grade completed: ${gradeSchool} College completed: ${College} Post Grad completed: ${postGraduate} \n
+        \nSchooling Completed: \n
+        Grade school grade completed: ${gradeSchool} \n
+        College completed: ${College} \n
+        Post Grad completed: ${postGraduate} \n
         \nEmployment History: \n
-        ${employer1Name} from ${employment1Start} to ${employment1End} \n
-        Located at: ${employer1Address} Phone: ${employer1Phone} \n
+        Employer Name: ${employer1Name} \n
+        From: ${employment1Start} \n
+        To: ${employment1End} \n
+        Located at: ${employer1Address} \n
+        Phone: ${employer1Phone} \n
         Position: ${employer1Position} \n
         Reason for Leaving: ${employer1Leaving} \n
         Were they subject to the FMCRs* while employed here: ${FMCRsRadio1}\n
         Was their job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40: ${CFRPart40_1}\n
         \n***If values are blank, they were not filled out by applicant***\n
-        \n${employer2Name} from ${employment2Start} to ${employment2End} \n
-        Located at: ${employer2Address} Phone: ${employer2Phone} \n
+        \nEmployer Name ${employer2Name} \n
+        From: ${employment2Start} \n
+        To: ${employment2End} \n
+        Located at: ${employer2Address} \n
+        Phone: ${employer2Phone} \n
         Position: ${employer2Position} \n
         Reason for Leaving: ${employer2Leaving} \n
         Were they subject to the FMCRs* while employed here: ${FMCRsRadio2}\n
         Was their job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40: ${CFRPart40_2}\n
         \n***If values are blank, they were not filled out by applicant***\n
-        \n${employer3Name} from ${employment3Start} to ${employment3End} \n
-        Located at: ${employer3Address} Phone: ${employer3Phone} \n
+        \nEmployer Name ${employer3Name} 
+        \nFrom: ${employment3Start} \n
+        To: ${employment3End} \n
+        Located at: ${employer3Address} \n
+        Phone: ${employer3Phone} \n
         Position: ${employer3Position} \n
         Reason for Leaving: ${employer3Leaving} \n
         Were they subject to the FMCRs* while employed here: ${FMCRsRadio3}\n
         Was their job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40: ${CFRPart40_3}\n
         \n***If values are blank, they were not filled out by applicant***\n
-        \n${employer4Name} from ${employment4Start} to ${employment4End} \n
-        Located at: ${employer4Address} Phone: ${employer4Phone} \n
+        \nEmployer Name ${employer4Name} \n
+        From: ${employment4Start} \n
+        To: ${employment4End} \n
+        Located at: ${employer4Address} \n
+        Phone: ${employer4Phone} \n
         Position: ${employer4Position} \n
         Reason for Leaving: ${employer4Leaving} \n
         Were they subject to the FMCRs* while employed here: ${FMCRsRadio4}\n
         Was their job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40: ${CFRPart40_4}\n
         \n***If values are blank, they were not filled out by applicant***\n
-        \n${employer5Name} from ${employment5Start} to ${employment5End} \n
-        Located at: ${employer5Address} Phone: ${employer5Phone} \n
+        \nEmployer Name ${employer5Name} \n
+        From: ${employment5Start} \n
+        To: ${employment5End} \n
+        Located at: ${employer5Address} \n
+        Phone: ${employer5Phone} \n
         Position: ${employer5Position} \n
         Reason for Leaving: ${employer5Leaving} \n
         Were they subject to the FMCRs* while employed here: ${FMCRsRadio5}\n
         Was their job designated as a safety-sensitive function in any DOT-Regulated mode subject to the drug and alcohol requirements of 49 CFR Part 40: ${CFRPart40_5}\n
-        \nDriving Experience\n
+        \nDriving Experience:\n
         \nStraight Truck:\n
-        Drove ${straightTruckMilesDriven} miles from ${straightTruckFrom} to ${straightTruckTo}\n
+        Drove ${straightTruckMilesDriven} miles \n
+        From: ${straightTruckFrom} \n
+        To: ${straightTruckTo}\n
         \nTractor Truck:\n
-        Drove ${TractorTruckMilesDriven} miles from ${TractorTruckFrom} to ${TractorTruckTo}\n
+        Drove ${TractorTruckMilesDriven} miles \n
+        From: ${TractorTruckFrom} \n
+        To: ${TractorTruckTo}\n
         \nTractor Two Trailers:\n
-        Drove ${TractorTwoTrailersMilesDriven} miles from ${TractorTwoTrailersFrom} to ${TractorTwoTrailersTo}\n
+        Drove ${TractorTwoTrailersMilesDriven} miles \n
+        From: ${TractorTwoTrailersFrom} \n
+        To: ${TractorTwoTrailersTo}\n
         \nTractor Three Trailers:\n
-        Drove ${TractorThreeTrailersMilesDriven} miles from ${TractorThreeTrailersFrom} to ${TractorThreeTrailersTo}\n
+        Drove ${TractorThreeTrailersMilesDriven} miles \n
+        From: ${TractorThreeTrailersFrom} \n
+        To: ${TractorThreeTrailersTo}\n
         \nOther:\n
-        Drove ${OtherDriven} miles from ${OtherFrom} to ${OtherTo}\n
+        Drove ${OtherDriven} miles \n
+        From: ${OtherFrom} \n
+        To: ${OtherTo}\n
         \nStates Operated In: ${statesOperated}\n
         Courses and Training Completed: ${trainingCompleted}\n
         Awards won: ${safeDrivingAwards}\n
         \nAccidents:\n
         Has the applicant been in any accidents in the past three years: ${anyAccidents}\n
         \n***If the values are blank, the applicant did not fill them out or they haven't been in any accidents***\n
-        \nAccident on ${accidentDate1}\n
+        \nAccident 1 \n
+        Accident on: ${accidentDate1}\n
         Nature of Accident: ${natureOfAccident1}\n
         Location of Accident: ${accidentLocation1}\n
-        Injuries: ${numberInjured1} Fatalities: ${numberFatalities1}\n
-        \nAccident on ${accidentDate2}\n
+        Injuries: ${numberInjured1} \n
+        Fatalities: ${numberFatalities1}\n
+        \nAccident 2 \n
+        Accident on: ${accidentDate2}\n
         Nature of Accident: ${natureOfAccident2}\n
         Location of Accident: ${accidentLocation2}\n
-        Injuries: ${numberInjured2} Fatalities: ${numberFatalities2}\n
-        \nAccident on ${accidentDate3}\n
+        Injuries: ${numberInjured2} \n
+        Fatalities: ${numberFatalities2}\n
+        \nAccident 3 \n
+        Accident on: ${accidentDate3}\n
         Nature of Accident: ${natureOfAccident3}\n
         Location of Accident: ${accidentLocation3}\n
-        Injuries: ${numberInjured3} Fatalities: ${numberFatalities3}\n
+        Injuries: ${numberInjured3} \n
+        Fatalities: ${numberFatalities3}\n
         \nConvictions\n
-        Has the applicant been convicted of any crimes: ${anyConvictions}
+        Has the applicant been convicted of any crimes: ${anyConvictions} \n
         \n***If the values are blank, the applicant did not fill them out or they haven't been convicted of any crimes***\n
-        \nDate of Conviction: ${convictionDate1}\n
+        \nConviction 1 \n
+        Date of Conviction: ${convictionDate1}\n
         Location of Conviction: ${convictionLocation1}\n
-        Charge: ${convictionCharge1} Penalty: ${convictionPenalty1}\n
-        \nDate of Conviction: ${convictionDate2}\n
+        Charge: ${convictionCharge1} \n
+        Penalty: ${convictionPenalty1}\n
+        \nConviction 2 \n
+        Date of Conviction: ${convictionDate2}\n
         Location of Conviction: ${convictionLocation2}\n
-        Charge: ${convictionCharge2} Penalty: ${convictionPenalty2}\n
-        \nDate of Conviction: ${convictionDate3}\n
+        Charge: ${convictionCharge2} \n
+        Penalty: ${convictionPenalty2}\n
+        \nConviction 3 \n
+        Date of Conviction: ${convictionDate3}\n
         Location of Conviction: ${convictionLocation3}\n
-        Charge: ${convictionCharge3} Penalty: ${convictionPenalty3}\n
+        Charge: ${convictionCharge3} \n
+        Penalty: ${convictionPenalty3}\n
         \nLicense Information\n
-        \nLicensed in ${licenseState1}. License Number: ${driversLicenseNumber1}\n
-        License Type: ${driversLicenseType1} Endorsements: ${driversLicenseEndorsements1}\n
+        \nLicensed 1 \n
+        State: ${licenseState1} \n
+        License Number: ${driversLicenseNumber1}\n
+        License Type: ${driversLicenseType1} \n
+        Endorsements: ${driversLicenseEndorsements1}\n
         Expiration: ${driversLicenseExpiration1}\n
-        \nLicensed in ${licenseState2}. License Number: ${driversLicenseNumber2}\n
-        License Type: ${driversLicenseType2} Endorsements: ${driversLicenseEndorsements2}\n
+        \nLicensed 2 \n
+        State: ${licenseState2} \n
+        License Number: ${driversLicenseNumber2}\n
+        License Type: ${driversLicenseType2} \n
+        Endorsements: ${driversLicenseEndorsements2}\n
         Expiration: ${driversLicenseExpiration2}\n
-        \nLicensed in ${licenseState3}. License Number: ${driversLicenseNumber3}\n
-        License Type: ${driversLicenseType3} Endorsements: ${driversLicenseEndorsements3}\n
+        \nLicensed 3 \n
+        State: ${licenseState3} \n
+        License Number: ${driversLicenseNumber3}\n
+        License Type: ${driversLicenseType3} \n
+        Endorsements: ${driversLicenseEndorsements3}\n
         Expiration: ${driversLicenseExpiration3}\n
         \nHas the applicant ever been denied a license: ${deniedLicenseRadio}\n
         Has the applicant ever had their license suspended: ${suspendedLicenseRadio}\n
@@ -298,19 +356,22 @@ router.post('/applicationRoute/send', (req, res, next) => {
         Has the applicant been convicted of a felony: ${felonyRadio}\n
         If any of the above were answered YES, here is the explanation: ${driversLicenseReasons}\n
         \nReferences:\n
-        \nName: ${referenceName1}\n
+        \nReference 1 \n
+        Name: ${referenceName1}\n
         Address: ${referenceAddress1}\n
         Phone: ${referencePhone1}\n
-        \nName: ${referenceName2}\n
+        \nReference 2 \n
+        Name: ${referenceName2}\n
         Address: ${referenceAddress2}\n
         Phone: ${referencePhone2}\n
-        \nName: ${referenceName3}\n
+        \nReference 3 \n
+        Name: ${referenceName3}\n
         Address: ${referenceAddress3}\n
         Phone: ${referencePhone3}\n
         \nElectronic Signature:\n
         ${signature}\n
         \nAdditional Info:\n
-        \n${additionalInfo}
+        ${additionalInfo}
         `
 
 let mail;
@@ -335,7 +396,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
   transport.sendMail(mail, (err, data) => {
-    console.log('this is the mail', mail)
+    // console.log('this is the mail', mail)
     if (err) {
       res.json({
         msg: 'fail'
