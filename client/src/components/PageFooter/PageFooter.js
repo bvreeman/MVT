@@ -27,8 +27,7 @@ class PageFooter extends React.PureComponent {
                         <Col md="4" lg="4" xl="4" className="mb-4">
                             <h6 className="text-uppercase font-weight-bold"><strong>Minnesota Valley Transport</strong></h6>
                             <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" />
-                            <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
-                                amet, consectetur adipisicing elit.</p>
+                            <p>We get things done right, the first time, with little hassle.</p>
                         </Col>
                         <Col md="4" lg="4" xl="4" className="mb-4">
                             <h6 className="text-uppercase font-weight-bold"><strong>Affiliations</strong></h6>
