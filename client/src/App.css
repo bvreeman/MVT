@@ -2,6 +2,7 @@
   height:100%;
   position:relative;
   width: 100%;
+  background-color: #FFFBFF
 }
 
 @media only screen and (max-width: 991px) {

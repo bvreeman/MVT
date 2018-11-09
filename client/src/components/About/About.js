@@ -17,17 +17,16 @@ class About extends React.PureComponent {
                     </div>
                     <div className='col-md-6 col-xs-12 aboutMVT'>
                         <img className='AboutUsLogo' src={logo} alt="Minnesota Valley Transport, New Ulm, MN"/>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos officia quaerat eaque consectetur eum eius dolorum perspiciatis porro atque sed dolorem quia, eveniet, voluptas nihil illo? Nam, veniam perspiciatis?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis rerum, consequatur voluptatum quibusdam rem, odit qui fugiat deleniti maxime dignissimos quaerat, libero reiciendis nemo quo nisi! Perspiciatis, quasi odio. Veritatis!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo modi officia ab laboriosam magnam nobis atque excepturi sapiente voluptate unde, illo, cum corrupti impedit dolores. Rerum nesciunt ducimus veritatis molestias.</p>
+                        <p>Transporting goods from A to B should be a worry-free endeavor for customers, and Minnesota Valley Transport promises to offer that very thing. Putting its customers first is a key to their business strategy.</p>
+                        <p>Minnesota Valley Transport prides itself in its excellence in service. If an issue were to arise, they work hard to make it right the first time with as little hassle as possible.</p>
                     </div>
                 </div>
                 <hr />
-                <div className='row secondAboutSection'>
+                <div className='row aboutMVT secondAboutSection'>
                     <div className='col-md-6 col-xs-12 aboutMVT2'>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum fuga fugit ratione, quidem id, et ut quod nihil pariatur, illo harum! Suscipit quisquam quod ratione voluptate incidunt inventore, natus excepturi?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit eos officia quaerat eaque consectetur eum eius dolorum perspiciatis porro atque sed dolorem quia, eveniet, voluptas nihil illo? Nam, veniam perspiciatis?</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis rerum, consequatur voluptatum quibusdam rem, odit qui fugiat deleniti maxime dignissimos quaerat, libero reiciendis nemo quo nisi! Perspiciatis, quasi odio. Veritatis!</p>
+                        <p>Minnesota Valley Transport has been in business since 1984, and was recently acquired by Dan Forsythe of New Ulm in November of 2015.</p>
+                        <p>Dan had worked at another local trucking company for nine years prior to purchasing the company.</p>
+                        <p>He feels it is important to participate in and give back to his community. Dan is a member of the local Chamber of Commerce.</p>
                     </div>
                     <div className='col-md-6 col-xs-12'>
                         <img className='buildingPic' src={danCert} alt="Minnesota Valley Transport Headquarters"/>
@@ -37,10 +36,14 @@ class About extends React.PureComponent {
                 <h2 className='associationsHeading'>Proud members of these great <span>associations</span></h2>
                 <div className='row'>
                     <div className='col-md-6 col-xs-12 mtaDiv'>
-                        <img className='associationsLogo' src={mtaLogo} alt="Minnesota Trucking Association"/>
+                        <a href="https://www.mntruck.org/" target="_blank" rel="noopener noreferrer" className='logoLink'>
+                            <img className='associationsLogo' src={mtaLogo} alt="Minnesota Trucking Association"/>
+                        </a>
                     </div>
                     <div className='col-md-6 col-xs-12 mtaDiv'>
-                        <img className='associationsLogo' src={smartwayLogo} alt="SmartWay"/>
+                        <a href="https://www.epa.gov/smartway" target="_blank" rel="noopener noreferrer" className='logoLink'>
+                            <img className='associationsLogo' src={smartwayLogo} alt="SmartWay"/>
+                        </a>
                     </div>
                 </div>
             </div>
