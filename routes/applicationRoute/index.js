@@ -381,7 +381,7 @@ if (process.env.NODE_ENV === "production") {
   mail = {
     from: FullName,
     to: process.env.CREDS_OUTGOING,
-    subject: 'New Message from your website contact form',
+    subject: 'New Application filled out from your website',
     text: content
   }
 } else {
@@ -390,7 +390,7 @@ if (process.env.NODE_ENV === "production") {
   mail = {
     from: FullName,
     to: creds.OUTGOING,
-    subject: 'New Message from your website contact form',
+    subject: 'New Application filled out from your website',
     text: content
   }
 }
