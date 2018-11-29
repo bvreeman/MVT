@@ -75,9 +75,11 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
-#art-gallery {
-    text-align: center;
-}
+
+    #art-gallery {
+        text-align: center;
+    }
+
 } 
 
 /* Medium devices (landscape tablets, 768px and up) */
