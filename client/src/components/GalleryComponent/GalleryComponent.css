@@ -70,14 +70,15 @@
         max-width: 95%;
         
     } 
+
 /* Media Queries */
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (max-width: 991px) {
-.pageContentWidth {
-    margin-bottom: 200px;
+@media only screen and (max-width: 600px) {
+#art-gallery {
+    text-align: center;
 }
-}  */
+} 
 
 /* Medium devices (landscape tablets, 768px and up) */
 /* @media only screen and (min-width: 768px) {

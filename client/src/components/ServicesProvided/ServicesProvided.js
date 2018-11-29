@@ -20,7 +20,7 @@ class ServicesProvided extends React.PureComponent {
                         <div className="col-md-4 col-xs-12">
                             <img className='truckIcon' src={truckIconRight} alt="Truck Icon"/>
                             <h4 className='truckIconHeading'>Truck and Trailer Repair and Wash</h4>
-                            <p className='serviceDescription'>Full service truck and trailer shop capable of anything from a quick trailer washout to diagnostics and preventative maintenance to major engien work. We are here to help you keep your rubber turning down the road.</p>
+                            <p className='serviceDescription'>Full service truck and trailer shop capable of anything from a quick trailer washout to diagnostics and preventative maintenance to major engine work. We are here to help you keep your rubber turning down the road.</p>
                         </div>
                     </Zoom>
                     <Zoom>
