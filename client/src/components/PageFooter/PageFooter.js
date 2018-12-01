@@ -49,6 +49,7 @@ class PageFooter extends React.PureComponent {
                             <p><i className="fa fa-home mr-3"></i> New Ulm, MN 56073, US</p>
                             <p><i className="fa fa-envelope mr-3"></i> dan@mnvalleytransport.com</p>
                             <p><i className="fa fa-phone mr-3"></i> (507) 354-3276</p>
+                            <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Pj1CLx7KuJS7boL6MMfjUntUgiriEvHw10OhJzT1hDhymy9UAk8vTRddRvXB"></script></span>
                         </Col>
                     </Row>
                 </Container>
