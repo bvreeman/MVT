@@ -20,6 +20,12 @@
 ./client/.env
 *.env
 /config
+*server.key
+*server.pass.key
+./server.key
+./server.pass.key
+*server.csr
+./server.csr
 
 npm-debug.log*
 yarn-debug.log*
