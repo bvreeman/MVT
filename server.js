@@ -5,6 +5,7 @@ const applicationRoutes = require('./routes/applicationRoute')
 const app = express();
 const PORT = process.env.PORT || 3001;
 const path = require('path');
+const compression = require('compression');
 
 // Define middleware here
 app.use('/upload', express.static('upload'));
@@ -12,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(compression());
 // app.use(methodOverride('_method'));
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
