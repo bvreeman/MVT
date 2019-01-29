@@ -1,7 +1,8 @@
 import React from "react";
 import './HeaderNav.css';
 import {Link} from 'react-router-dom';
-import whiteLogo from '../../images/WhiteMVT.png'
+// import whiteLogo from '../../images/WhiteMVT.png'
+import whiteLogo from '../../images/WhiteMVT(2).png'
 // import shadowedWhiteLogo from '../../images/mvtShadowedLogo2White.png'
 // import noShadowLogo from '../../images/mvtNoShadowLogo2.png'
 

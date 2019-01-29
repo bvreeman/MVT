@@ -1,6 +1,7 @@
 import React from 'react';
 import './ServicesProvided.css';
-import truckIconRight from '../../images/truckFacingRight.png'
+// import truckIconRight from '../../images/truckFacingRight.png'
+import truckIconRight from '../../images/truckFacingRight(2).png'
 import Zoom from 'react-reveal/Zoom';
 
 class ServicesProvided extends React.PureComponent {
