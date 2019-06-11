@@ -1,0 +1,14 @@
+{
+    "sandbox": {
+        "awscloudformation": {
+            "AuthRoleName": "mnvalleytransport-sandbox-20190611110023-authRole",
+            "UnauthRoleArn": "arn:aws:iam::302119328534:role/mnvalleytransport-sandbox-20190611110023-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::302119328534:role/mnvalleytransport-sandbox-20190611110023-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "mnvalleytransport-sandbox-20190611110023-deployment",
+            "UnauthRoleName": "mnvalleytransport-sandbox-20190611110023-unauthRole",
+            "StackName": "mnvalleytransport-sandbox-20190611110023",
+            "StackId": "arn:aws:cloudformation:us-east-2:302119328534:stack/mnvalleytransport-sandbox-20190611110023/06f390a0-8c62-11e9-bd36-0aedd1bf2484"
+        }
+    }
+}
