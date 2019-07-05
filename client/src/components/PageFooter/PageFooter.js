@@ -10,10 +10,11 @@ class PageFooter extends React.PureComponent {
                     <Container>
                         <Row className="socialItems py-4 d-flex align-items-center">
                             <Col md="6" lg="5" className="text-center text-md-left mb-4 mb-md-0">
-                                <h5 className="mb-0 white-text">Get connected with us on Facebook!</h5>
+                                <h5 className="mb-0 white-text">Get connected with us!</h5>
                             </Col>
                             <Col md="6" lg="7" className="text-center text-md-right">
                                 <a className="fb-ic ml-0" rel="noopener noreferrer" href="https://www.facebook.com/mnvalleytransport/" target="_blank" style={{color: '#ffffff'}}><i className="fa fa-facebook white-text mr-lg-4"></i></a>
+                                <a className="fb-ic ml-0" rel="noopener noreferrer" href="https://www.linkedin.com/company/minnesota-valley-transport/" target="_blank" style={{color: '#ffffff'}}><i className="fa fa-linkedin-square white-text mr-lg-4"></i></a>
                                 {/* <a className="tw-ic"><i className="fa fa-twitter white-text mr-lg-4"> </i></a>
                                 <a className="gplus-ic"><i className="fa fa-google-plus white-text mr-lg-4"> </i></a>
                                 <a className="li-ic"><i className="fa fa-linkedin white-text mr-lg-4"> </i></a>

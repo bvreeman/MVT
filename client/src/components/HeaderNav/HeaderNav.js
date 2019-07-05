@@ -21,6 +21,7 @@ const HeaderNav = () =>
                 <Link to="/DriversApplication" className="navbar-brand">Become a Driver</Link>
                 <Link to='/ContactUsPage' className="navbar-brand">Contact Us</Link>
                 <a className="navbarRight socialItems fb-ic ml-0" rel="noopener noreferrer" href="https://www.facebook.com/mnvalleytransport/" target="_blank" style={{color: '#ffffff'}}><i className="fa fa-facebook white-text mr-lg-4"></i></a>
+                <a className="navbarRight socialItems fb-ic ml-0" rel="noopener noreferrer" href="https://www.linkedin.com/company/minnesota-valley-transport/" target="_blank" style={{color: '#ffffff'}}><i className="fa fa-linkedin-square white-text mr-lg-4"></i></a>
             </div>
         </div>
     </nav>
