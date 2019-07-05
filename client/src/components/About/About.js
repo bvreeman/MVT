@@ -17,7 +17,7 @@ class About extends React.PureComponent {
                     </div>
                     <div className='col-md-6 col-xs-12 aboutMVT'>
                         <img className='AboutUsLogo' src={logo} alt="Minnesota Valley Transport, New Ulm, MN"/>
-                        <p>Transporting goods from A to B should be a worry-free problem for customers, and Minnesota Valley Transport promises to offer that very solution. Putting its customers first is key to their business strategy.</p>
+                        <p>Transporting refrigerated goods from A to B should be a worry-free problem for customers, and Minnesota Valley Transport promises to offer that very solution. Putting its customers first is key to their business strategy.</p>
                         <p>Minnesota Valley Transport prides itself in its excellence in service. If an issue were to arise, they work hard to make it right the first time with as little hassle as possible.</p>
                     </div>
                 </div>

@@ -23,6 +23,7 @@
     "react-scripts": "^1.1.5",
     "react-select": "^2.4.4"
   },
+  "deploy": "aws s3 sync build/ alleyransport-20190611112139-hostingbucket-sandbox",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
