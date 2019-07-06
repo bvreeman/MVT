@@ -30,28 +30,6 @@ app.use('/', applicationRoutes)
 //   res.send();
 // })
 
-app.get('/gallery', (req, res) => {
-  res.render('index.html')
-}).catch((err) => {
-  console.error(505)
-  console.log(err, 'error')
-});
-
-app.get('/about', (req, res) => {
-  res.render('index.html')
-});
-
-app.get('/DriversApplication', (req, res) => {
-  res.render('index.html')
-}).catch((err) => {
-  console.error(505)
-  console.log(err, 'error')
-});
-
-app.get('/ContactUsPage', (req, res) => {
-  res.render('index.html')
-});
-
 app.post('/contactForm/send', (req, res) => {
   console.log('does this happen?', req.body)
   res.send();
