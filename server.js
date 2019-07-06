@@ -30,9 +30,21 @@ app.use('/', applicationRoutes)
 //   res.send();
 // })
 
-// app.get('/contactForm/send', (req, res) => {
+app.get('/gallery', (req, res) => {
+  res.render('index.html')
+});
 
-// })
+app.get('/about', (req, res) => {
+  res.render('index.html')
+});
+
+app.get('/DriversApplication', (req, res) => {
+  res.render('index.html')
+});
+
+app.get('/ContactUsPage', (req, res) => {
+  res.render('index.html')
+});
 
 app.post('/contactForm/send', (req, res) => {
   console.log('does this happen?', req.body)
