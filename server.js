@@ -41,10 +41,10 @@ app.post('/applicationRoute/send', (req, res) => {
 })
  
 // If no API routes are hit, send the React app
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, "/client/build/index.html"));
   if (err) {
-    console.log(err)
+    console.log('error', err)
     res.status(500).send(err)
   }
 });
