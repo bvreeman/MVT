@@ -31,15 +31,21 @@ app.use('/', applicationRoutes)
 // })
 
 app.get('/gallery', (req, res) => {
-  res.render('index.html')
+  res.render('index.html/gallery')
+}).catch((err) => {
+  console.error(505)
+  console.log(err, 'error')
 });
 
 app.get('/about', (req, res) => {
-  res.render('index.html')
+  res.render('index.html/about')
 });
 
 app.get('/DriversApplication', (req, res) => {
   res.render('index.html')
+}).catch((err) => {
+  console.error(505)
+  console.log(err, 'error')
 });
 
 app.get('/ContactUsPage', (req, res) => {
