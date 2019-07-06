@@ -25,11 +25,6 @@ if (process.env.NODE_ENV === "production") {
 app.use("/", contactRoutes)
 app.use('/', applicationRoutes)
 
-// app.post('/', (req, res) => {
-
-//   res.send();
-// })
-
 app.post('/contactForm/send', (req, res) => {
   console.log('does this happen?', req.body)
   res.send();
@@ -42,7 +37,7 @@ app.post('/applicationRoute/send', (req, res) => {
  
 // If no API routes are hit, send the React app
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+  res.sendFile(path.join(__dirname, "/client/build"));
   if (err) {
     console.log('error', err)
     res.status(500).send(err)
