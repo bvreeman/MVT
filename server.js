@@ -31,14 +31,14 @@ app.use('/', applicationRoutes)
 // })
 
 app.get('/gallery', (req, res) => {
-  res.render('index.html/gallery')
+  res.render('index.html')
 }).catch((err) => {
   console.error(505)
   console.log(err, 'error')
 });
 
 app.get('/about', (req, res) => {
-  res.render('index.html/about')
+  res.render('index.html')
 });
 
 app.get('/DriversApplication', (req, res) => {
