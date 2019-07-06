@@ -36,14 +36,27 @@ app.post('/applicationRoute/send', (req, res) => {
 })
  
 // If no API routes are hit, send the React app
-app.get('/*', (req, res) => {
-  console.log('hitting this?')
-  res.sendFile(path.join(__dirname, "/client/build"));
-  if (err) {
-    console.log('error', err)
-    res.status(500).send(err)
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+// Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    if (err) {
+      console.log('error', err)
+      res.status(500).send(err)
   }
-});
+  });
+}
+
+// app.get('/*', (req, res) => {
+//   console.log('hitting this?')
+//   res.sendFile(path.join(__dirname, "/client/build/index.html"));
+//   if (err) {
+//     console.log('error', err)
+//     res.status(500).send(err)
+//   }
+// });
 
 // Start the API server
 app.listen(PORT, () => {
