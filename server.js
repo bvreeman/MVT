@@ -19,7 +19,8 @@ app.use(compression());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  console.log('we are in production')
+  app.use(express.static(path.join(__dirname, "client/build/index.html")));
 }
 // Add routes, both API and view
 app.use("/", contactRoutes)
@@ -36,27 +37,27 @@ app.post('/applicationRoute/send', (req, res) => {
 })
  
 // If no API routes are hit, send the React app
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, 'client/build')));
-// Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    if (err) {
-      console.log('error', err)
-      res.status(500).send(err)
-  }
-  });
-}
-
-// app.get('/*', (req, res) => {
-//   console.log('hitting this?')
-//   res.sendFile(path.join(__dirname, "/client/build/index.html"));
-//   if (err) {
-//     console.log('error', err)
-//     res.status(500).send(err)
+// if (process.env.NODE_ENV === 'production') {
+//   // Serve any static files
+//   app.use(express.static(path.join(__dirname, 'client/build')));
+// // Handle React routing, return all requests to React app
+//   app.get('*', function(req, res) {
+//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+//     if (err) {
+//       console.log('error', err)
+//       res.status(500).send(err)
 //   }
-// });
+//   });
+// }
+
+app.get('*', (req, res) => {
+  console.log('hitting this?')
+  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+  if (err) {
+    console.log('error', err)
+    res.status(500).send(err)
+  }
+});
 
 // Start the API server
 app.listen(PORT, () => {
