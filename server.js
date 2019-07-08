@@ -52,7 +52,7 @@ app.post('/applicationRoute/send', (req, res) => {
 
 app.get('*', (req, res) => {
   console.log('hitting this?')
-  res.sendFile(path.join(__dirname, "/client/build", 'index.html'));
+  res.sendFile(path.join(__dirname, "/client/build"));
   if (err) {
     console.log('error', err)
     res.status(500).send(err)
