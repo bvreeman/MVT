@@ -32,7 +32,7 @@
     "express": "^4.17.1",
     "nodemailer": "^4.7.0",
     "path": "^0.12.7",
-    "react-scripts": "3.0.0",
+    "react-scripts": "^3.0.1",
     "uuid": "^3.3.2"
   },
   "description": "Minnesota Valley Transport Website",
