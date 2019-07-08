@@ -20,7 +20,7 @@ app.use(compression());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   console.log('we are in production')
-  app.use(express.static(path.join(__dirname, "client/build/index.html")));
+  app.use(express.static(path.join(__dirname, "client/build")));
 }
 // Add routes, both API and view
 app.use("/", contactRoutes)
@@ -52,7 +52,7 @@ app.post('/applicationRoute/send', (req, res) => {
 
 app.get('*', (req, res) => {
   console.log('hitting this?')
-  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+  res.sendFile(path.join(__dirname, "/client/build"));
   if (err) {
     console.log('error', err)
     res.status(500).send(err)
