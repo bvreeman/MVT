@@ -97,10 +97,6 @@ class ContactForQuote extends React.PureComponent {
                                 <div className="form-group">
                                 <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name='CustomerMessage' id="CustomerMessage" placeholder="Message (required)" />
                                 </div>
-                                {/* <div className='contactFormReCaptcha'>
-                                    <div className="g-recaptcha" data-sitekey={process.env.REACT_APP_SITEKEY} value={this.state.reCAPTCHAvalue} onChange={this.handleReCAPTCHAchange}></div>
-                                    <ReCAPTCHAComponent />
-                                </div> */}
                                 <input type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
                             </div>
                         </form>
@@ -117,10 +113,6 @@ class ContactForQuote extends React.PureComponent {
                                 </div>
                                 <div className="form-group">
                                 <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name='CustomerMessage' id="CustomerMessage" placeholder="Message (required)" />
-                                </div> */}
-                                {/* <div className='contactFormReCaptcha'>
-                                    <div className="g-recaptcha" data-sitekey={process.env.REACT_APP_SITEKEY} value={this.state.reCAPTCHAvalue} onChange={this.handleReCAPTCHAchange}></div>
-                                    <ReCAPTCHAComponent />
                                 </div> */}
                                 {/* <input type='submit' className='contactSubmitButton' value='Send' />
                             </div>

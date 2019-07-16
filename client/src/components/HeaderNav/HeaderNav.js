@@ -12,6 +12,7 @@ const HeaderNav = () =>
         <div className="navbar-header">
             <div className='navbarLeft'>
                 <Link to="/"><img src={whiteLogo} alt="Minnesota Valley Transport" className="navbarLogo"></img></Link>
+                {/* <h1>Test</h1> */}
             </div>
             <div className="navbarCenter">
                 <Link to="/" className="navbar-brand">Home</Link>
