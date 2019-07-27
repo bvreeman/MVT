@@ -2,13 +2,17 @@ import React from 'react';
 import './ContactForQuote.css';
 import ContactFormSubmit from '../../components/ContactFormSubmit';
 // import ReCAPTCHAComponent from '../../components/ReCAPTCHAComponent';
-import axios from 'axios';
+// import axios from 'axios';
 import firebase from 'firebase/app';
 import "firebase/database";
 
 import phone from '../../images/phone.png'
 // import { networkInterfaces } from 'os';
 
+const url = 'https://m1gyqaigyk.execute-api.us-west-2.amazonaws.com/dev/email/send'
+const form = document.getElementById('contact-form')
+const toast = document.getElementById('toast')
+// const submit = document.getElementById('submit')
 
 class ContactForQuote extends React.PureComponent {
     constructor(props) {
@@ -19,7 +23,8 @@ class ContactForQuote extends React.PureComponent {
             Email: '',
             CustomerMessage: '',
             // reCAPTCHAvalue: false,
-            submitted: false
+            submitted: false,
+            toast
         }
         this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,6 +47,39 @@ class ContactForQuote extends React.PureComponent {
         itemsRef.push(this.state);
     }
 
+    serverlessEmailError = (err) => {
+        let that = this;
+        that.setState({
+            toast: 'There was an error with your message. \nMake sure to check that your email address is correct. \nPlease contact us at 507-354-3276 in the meantime'
+        })
+        console.log(err)
+    }
+
+    serverlessEmailSuccess = () => {
+        let that = this;
+        that.setState({
+            toast: 'Thanks for contacting us. \nSomeone will be with you in the next 24-48 hours.',
+            FullName: '',
+            Email: '',
+            PhoneNumber: '',
+            CustomerMessage: ''
+        })
+    }
+
+    serverlessEmailSend = (url, body, callback) => {
+        let req = new XMLHttpRequest();
+        req.open("POST", url, true);
+        req.setRequestHeader("Content-Type", "application/json");
+        req.addEventListener("load", function () {
+            if (req.status < 400) {
+              callback(null, JSON.parse(req.responseText));
+            } else {
+              callback(new Error("Request failed: " + req.statusText));
+            }
+          });
+          req.send(JSON.stringify(body));
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const FullName = document.getElementById('FullName').value;
@@ -49,26 +87,43 @@ class ContactForQuote extends React.PureComponent {
         const Email = document.getElementById('Email').value;
         const CustomerMessage = document.getElementById('CustomerMessage').value;
         if (this.state.FullName !== '' && this.state.Email !== '' && this.state.CustomerMessage !== ''){
-            axios({
-                method: 'POST',
-                url: '/contactForm/send',
-                data: {
-                    FullName,
-                    PhoneNumber,
-                    Email,
-                    CustomerMessage
+            const payload = {
+                FullName: FullName,
+                Email: Email,
+                PhoneNumber: PhoneNumber,
+                CustomerMessage: CustomerMessage
+            }
+            this.serverlessEmailSend(url, payload, ((err, res) => {
+                if (err) { 
+                    return this.serverlessEmailError(err) 
+                } else {
+                    // this.databasePush();
+                    this.serverlessEmailSuccess();
                 }
-            }).then( 
-               (response) => {
-                   console.log('this is the response', response)
-               } ,
-               (error) => {
-                   console.log('this is the error', error)
-               }
-            ).then(() => {
-                this.setState({submitted: true });
-                this.databasePush();
-            })
+            }))
+            // )
+            // }).then(() => {
+            // })
+            // axios({
+            //     method: 'POST',
+            //     url: '/contactForm/send',
+            //     data: {
+            //         FullName,
+            //         PhoneNumber,
+            //         Email,
+            //         CustomerMessage
+            //     }
+            // }).then( 
+            //    (response) => {
+            //        console.log('this is the response', response)
+            //    } ,
+            //    (error) => {
+            //        console.log('this is the error', error)
+            //    }
+            // ).then(() => {
+            //     this.setState({submitted: true });
+            //     this.databasePush();
+            // })
         } else {
             alert('Please fill out the remaining required fields')
         }
@@ -92,12 +147,13 @@ class ContactForQuote extends React.PureComponent {
                                     <input type="text" onChange={this.handleChange} className="form-control" value={this.state.PhoneNumber} name='PhoneNumber' id="PhoneNumber" placeholder="Phone Number" />
                                 </div>
                                 <div className="form-group">
-                                <input required type='text' onChange={this.handleChange} className="form-control" value={this.state.Email} name='Email' id="Email" placeholder="Email (required)" />
+                                <input required type='email' onChange={this.handleChange} className="form-control" value={this.state.Email} name='Email' id="Email" placeholder="Email (required)" />
                                 </div>
                                 <div className="form-group">
                                 <textarea required rows="4"  onChange={this.handleChange} className="form-control" value={this.state.CustomerMessage} name='CustomerMessage' id="CustomerMessage" placeholder="Message (required)" />
                                 </div>
-                                <input type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
+                                {<p id='toast'>{this.state.toast}</p>}
+                                <input id='submit' type='submit' className='contactSubmitButton' onClick={this.handleSubmit} value='Submit' />
                             </div>
                         </form>
                         {/* <form id="contact-form" className='contactForm col-md-5 col-xs-12'  action="https://formspree.io/bvreeman@gmail.com" method="POST">

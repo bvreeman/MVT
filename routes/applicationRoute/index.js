@@ -42,6 +42,7 @@ router.post('/applicationRoute/send', (req, res, next) => {
     const Age = req.body.Age
     const PhoneNumber = req.body.Phone
     const emergencyPhone = req.body.emergencyPhone
+    const Email = req.body.Email
     const physicalExamExpDate = req.body.physicalExamExpDate
     const address1 = req.body.address1
     const addressFromDate1 = req.body.addressFromDate1
@@ -196,6 +197,7 @@ router.post('/applicationRoute/send', (req, res, next) => {
         Age: ${Age} \n
         Phone: ${PhoneNumber} \n 
         Emergency Phone: ${emergencyPhone} \n
+        Email: ${Email} \n
         Physical Exam Expiration Date: ${physicalExamExpDate} \n
         \nLives at ${address1} \n
         From: ${addressFromDate1} \n
