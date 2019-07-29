@@ -10,7 +10,7 @@ import phone from '../../images/phone.png'
 // import { networkInterfaces } from 'os';
 
 const url = 'https://m1gyqaigyk.execute-api.us-west-2.amazonaws.com/dev/email/send'
-const form = document.getElementById('contact-form')
+// const form = document.getElementById('contact-form')
 const toast = document.getElementById('toast')
 // const submit = document.getElementById('submit')
 

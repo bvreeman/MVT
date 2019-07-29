@@ -1,23 +1,25 @@
 import React from 'react';
 import './ApplicationForm.css'
-import ApplicationSubmit from '../../pages/ApplicationSubmit'
+// import ApplicationSubmit from '../../pages/ApplicationSubmit'
 import Select from 'react-select';
 import { statesData } from './data';
 // import axios from 'axios';
-import firebase from 'firebase/app';
-import "firebase/database";
+// import firebase from 'firebase/app';
+// import "firebase/database";
 
-const url = 'https://m1gyqaigyk.execute-api.us-west-2.amazonaws.com/dev/email/send'
+const url = 'https://latkbg9827.execute-api.us-west-2.amazonaws.com/dev/email/send'
 // const form = document.getElementById('contact-form')
-// const toast = document.getElementById('toast')
+const toast = document.getElementById('toast')
 
 class ApplicationForm extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = { 
-            submitted: false,
+            // submitted: false,
             applicationDate: '',
-            optradio: '',
+            optradioDriver: '',
+            optradioContractor: '',
+            optradioContractorDriver: '',
             FirstName: '',
             MiddleName: '',
             LastName: '',
@@ -38,7 +40,8 @@ class ApplicationForm extends React.PureComponent {
             address4: '',
             addressFromDate4: '',
             addressToDate4: '',
-            employedBeforeRadio: '',
+            employedBeforeRadio_Yes: '',
+            employedBeforeRadio_No: '',
             employedHereBeforeFrom: '',
             employedHereBeforeTo: '',
             reasonForLeaving: '',
@@ -52,8 +55,10 @@ class ApplicationForm extends React.PureComponent {
             employment1End: '',
             employer1Position: '',
             employer1Leaving: '',
-            FMCRsRadio1: '',
-            CFRPart40_1: '',
+            FMCRsRadio1_Yes: '',
+            FMCRsRadio1_No: '',
+            CFRPart40_1_Yes: '',
+            CFRPart40_1_No: '',
             employer2Name: '',
             employer2Address: '',
             employer2Phone: '',
@@ -61,8 +66,10 @@ class ApplicationForm extends React.PureComponent {
             employment2End: '',
             employer2Position: '',
             employer2Leaving: '',
-            FMCRsRadio2: '',
-            CFRPart40_2: '',
+            FMCRsRadio2_Yes: '',
+            FMCRsRadio2_No: '',
+            CFRPart40_2_No: '',
+            CFRPart40_2_Yes: '',
             employer3Name: '',
             employer3Address: '',
             employer3Phone: '',
@@ -70,8 +77,10 @@ class ApplicationForm extends React.PureComponent {
             employment3End: '',
             employer3Position: '',
             employer3Leaving: '',
-            FMCRsRadio3: '',
-            CFRPart40_3: '',
+            FMCRsRadio3_Yes: '',
+            FMCRsRadio3_No: '',
+            CFRPart40_3_Yes: '',
+            CFRPart40_3_No: '',
             employer4Name: '',
             employer4Address: '',
             employer4Phone: '',
@@ -79,8 +88,10 @@ class ApplicationForm extends React.PureComponent {
             employment4End: '',
             employer4Position: '',
             employer4Leaving: '',
-            FMCRsRadio4: '',
-            CFRPart40_4: '',
+            FMCRsRadio4_Yes: '',
+            FMCRsRadio4_No: '',
+            CFRPart40_4_Yes: '',
+            CFRPart40_4_No: '',
             employer5Name: '',
             employer5Address: '',
             employer5Phone: '',
@@ -88,8 +99,10 @@ class ApplicationForm extends React.PureComponent {
             employment5End: '',
             employer5Position: '',
             employer5Leaving: '',
-            FMCRsRadio5: '',
-            CFRPart40_5: '',
+            FMCRsRadio5_Yes: '',
+            FMCRsRadio5_No: '',
+            CFRPart40_5_Yes: '',
+            CFRPart40_5_No: '',
             straightTruckFrom: '',
             straightTruckTo: '',
             straightTruckMilesDriven: '',
@@ -108,7 +121,8 @@ class ApplicationForm extends React.PureComponent {
             statesOperated: [],
             trainingCompleted: '',
             safeDrivingAwards: '',
-            anyAccidents: '',
+            anyAccidents_Yes: '',
+            anyAccidents_No: '',
             accidentDate1: '',
             natureOfAccident1: '',
             accidentLocation1: '',
@@ -124,7 +138,8 @@ class ApplicationForm extends React.PureComponent {
             accidentLocation3: '',
             numberFatalities3: '',
             numberInjured3: '',
-            anyConvictions: '',
+            anyConvictions_Yes: '',
+            anyConvictions_No: '',
             convictionDate1: '',
             convictionLocation1: '',
             convictionCharge1: '',
@@ -152,10 +167,14 @@ class ApplicationForm extends React.PureComponent {
             driversLicenseType3: '',
             driversLicenseEndorsements3: '',
             driversLicenseExpiration3: '',
-            deniedLicenseRadio: '',
-            suspendedLicenseRadio: '',
-            performJobRadio: '',
-            felonyRadio: '',
+            deniedLicenseRadio_Yes: '',
+            deniedLicenseRadio_No: '',
+            suspendedLicenseRadio_Yes: '',
+            suspendedLicenseRadio_No: '',
+            performJobRadio_Yes: '',
+            performJobRadio_No: '',
+            felonyRadio_Yes: '',
+            felonyRadio_No: '',
             driversLicenseReasons: '',
             referenceName1: '',
             referenceAddress1: '',
@@ -172,21 +191,21 @@ class ApplicationForm extends React.PureComponent {
             selectedOptionLicenseState1: null,
             selectedOptionLicenseState2: null,
             selectedOptionLicenseState3: null,
-            toast: '',
+            toast
          }
         this.handleChange = this.handleChange.bind(this);
 
     }
 
-    databasePush = () => {
-        let itemsRef = firebase.database().ref(`${this.state.LastName}${this.state.FirstName}Application/`)
-        // console.log(this.state);
+    // databasePush = () => {
+    //     let itemsRef = firebase.database().ref(`${this.state.LastName}${this.state.FirstName}Application/`)
+    //     // console.log(this.state);
         
-        let submittedApplicationData = {
-            data: this.state
-        }
-        itemsRef.push(submittedApplicationData);
-    }
+    //     let submittedApplicationData = {
+    //         data: this.state
+    //     }
+    //     itemsRef.push(submittedApplicationData);
+    // }
 
     handleChange(event) {
         // event.preventDefault();
@@ -228,7 +247,9 @@ class ApplicationForm extends React.PureComponent {
         that.setState({
             toast: 'Thanks for sending your application. \nWe will review the application and get back with you as soon as possible.',
             applicationDate: '',
-            optradio: '',
+            optradioDriver: '',
+            optradioContractor: '',
+            optradioContractorDriver: '',
             FirstName: '',
             MiddleName: '',
             LastName: '',
@@ -249,7 +270,8 @@ class ApplicationForm extends React.PureComponent {
             address4: '',
             addressFromDate4: '',
             addressToDate4: '',
-            employedBeforeRadio: '',
+            employedBeforeRadio_Yes: '',
+            employedBeforeRadio_No: '',
             employedHereBeforeFrom: '',
             employedHereBeforeTo: '',
             reasonForLeaving: '',
@@ -263,8 +285,10 @@ class ApplicationForm extends React.PureComponent {
             employment1End: '',
             employer1Position: '',
             employer1Leaving: '',
-            FMCRsRadio1: '',
-            CFRPart40_1: '',
+            FMCRsRadio1_Yes: '',
+            FMCRsRadio1_No: '',
+            CFRPart40_1_Yes: '',
+            CFRPart40_1_No: '',
             employer2Name: '',
             employer2Address: '',
             employer2Phone: '',
@@ -272,8 +296,10 @@ class ApplicationForm extends React.PureComponent {
             employment2End: '',
             employer2Position: '',
             employer2Leaving: '',
-            FMCRsRadio2: '',
-            CFRPart40_2: '',
+            FMCRsRadio2_Yes: '',
+            FMCRsRadio2_No: '',
+            CFRPart40_2_No: '',
+            CFRPart40_2_Yes: '',
             employer3Name: '',
             employer3Address: '',
             employer3Phone: '',
@@ -281,8 +307,10 @@ class ApplicationForm extends React.PureComponent {
             employment3End: '',
             employer3Position: '',
             employer3Leaving: '',
-            FMCRsRadio3: '',
-            CFRPart40_3: '',
+            FMCRsRadio3_Yes: '',
+            FMCRsRadio3_No: '',
+            CFRPart40_3_Yes: '',
+            CFRPart40_3_No: '',
             employer4Name: '',
             employer4Address: '',
             employer4Phone: '',
@@ -290,8 +318,10 @@ class ApplicationForm extends React.PureComponent {
             employment4End: '',
             employer4Position: '',
             employer4Leaving: '',
-            FMCRsRadio4: '',
-            CFRPart40_4: '',
+            FMCRsRadio4_Yes: '',
+            FMCRsRadio4_No: '',
+            CFRPart40_4_Yes: '',
+            CFRPart40_4_No: '',
             employer5Name: '',
             employer5Address: '',
             employer5Phone: '',
@@ -299,8 +329,10 @@ class ApplicationForm extends React.PureComponent {
             employment5End: '',
             employer5Position: '',
             employer5Leaving: '',
-            FMCRsRadio5: '',
-            CFRPart40_5: '',
+            FMCRsRadio5_Yes: '',
+            FMCRsRadio5_No: '',
+            CFRPart40_5_Yes: '',
+            CFRPart40_5_No: '',
             straightTruckFrom: '',
             straightTruckTo: '',
             straightTruckMilesDriven: '',
@@ -319,7 +351,8 @@ class ApplicationForm extends React.PureComponent {
             statesOperated: [],
             trainingCompleted: '',
             safeDrivingAwards: '',
-            anyAccidents: '',
+            anyAccidents_Yes: '',
+            anyAccidents_No: '',
             accidentDate1: '',
             natureOfAccident1: '',
             accidentLocation1: '',
@@ -335,7 +368,8 @@ class ApplicationForm extends React.PureComponent {
             accidentLocation3: '',
             numberFatalities3: '',
             numberInjured3: '',
-            anyConvictions: '',
+            anyConvictions_Yes: '',
+            anyConvictions_No: '',
             convictionDate1: '',
             convictionLocation1: '',
             convictionCharge1: '',
@@ -363,10 +397,14 @@ class ApplicationForm extends React.PureComponent {
             driversLicenseType3: '',
             driversLicenseEndorsements3: '',
             driversLicenseExpiration3: '',
-            deniedLicenseRadio: '',
-            suspendedLicenseRadio: '',
-            performJobRadio: '',
-            felonyRadio: '',
+            deniedLicenseRadio_Yes: '',
+            deniedLicenseRadio_No: '',
+            suspendedLicenseRadio_Yes: '',
+            suspendedLicenseRadio_No: '',
+            performJobRadio_Yes: '',
+            performJobRadio_No: '',
+            felonyRadio_Yes: '',
+            felonyRadio_No: '',
             driversLicenseReasons: '',
             referenceName1: '',
             referenceAddress1: '',
@@ -416,12 +454,25 @@ class ApplicationForm extends React.PureComponent {
                 this.state.statesOperated.push(this.state.selectedOption[i].label)
             })
         }
-
         const applicationDate = document.getElementById('applicationDate').value;
-        const optradioDriver = document.getElementById('driver').value;
-        const optradioContractor = document.getElementById('contractor').value;
-        const optradioContractorDriver = document.getElementById('contractorDriver').value;
-
+        let optradioDriver 
+        let optradioContractor
+        let optradioContractorDriver
+        if (document.getElementById('driver').checked) {
+            optradioDriver = 'Applying to be a Driver';
+            optradioContractor = '';
+            optradioContractorDriver = '';
+        }
+        if (document.getElementById('contractor').checked) {
+            optradioContractor = 'Applying to be a Contractor';
+            optradioDriver = '';
+            optradioContractorDriver = '';
+        }
+        if (document.getElementById('contractorDriver').checked) {
+            optradioContractorDriver = 'Applying to be a Contractor Driver';
+            optradioDriver = '';
+            optradioContractor = '';
+        }
         const FirstName = document.getElementById('FirstName').value;
         const MiddleName = document.getElementById('MiddleName').value;
         const LastName = document.getElementById('LastName').value;
@@ -442,8 +493,16 @@ class ApplicationForm extends React.PureComponent {
         const address4 = document.getElementById('address4').value;
         const addressFromDate4 = document.getElementById('addressFromDate4').value;
         const addressToDate4 = document.getElementById('addressToDate4').value;
-        const employedBeforeRadio_Yes = document.getElementById('employedBeforeRadio_Yes').value;
-        const employedBeforeRadio_No = document.getElementById('employedbeforeRadio_No')
+        let employedBeforeRadio_Yes 
+        let employedBeforeRadio_No
+        if (document.getElementById('employedBeforeRadio_Yes').checked) {
+            employedBeforeRadio_Yes = 'Yes';
+            employedBeforeRadio_No = '';
+        }
+        if (document.getElementById('employedBeforeRadio_No').checked) {
+            employedBeforeRadio_No = 'No';
+            employedBeforeRadio_Yes = '';
+        }
         const employedHereBeforeFrom = document.getElementById('employedHereBeforeFrom').value;
         const employedHereBeforeTo = document.getElementById('employedHereBeforeTo').value;
         const reasonForLeaving = document.getElementById('reasonForLeaving').value;
@@ -457,10 +516,26 @@ class ApplicationForm extends React.PureComponent {
         const employment1End = document.getElementById('employment1End').value;
         const employer1Position = document.getElementById('employer1Position').value;
         const employer1Leaving = document.getElementById('employer1Leaving').value;
-        const FMCRsRadio1_Yes = document.getElementById('FMCRsRadio1_Yes').value;
-        const FMCRsRadio1_No = document.getElementById('FMCRsRadio1_No').value;
-        const CFRPart40_1_Yes = document.getElementById('CFRPart40_1_Yes').value;
-        const CFRPart40_1_No = document.getElementById('CFRPart40_1_No').value;
+        let FMCRsRadio1_Yes 
+        let FMCRsRadio1_No
+        let CFRPart40_1_Yes 
+        let CFRPart40_1_No
+        if (document.getElementById('FMCRsRadio1_Yes').checked) {
+            FMCRsRadio1_Yes = 'Yes';
+            FMCRsRadio1_No = '';    
+        }
+        if (document.getElementById('FMCRsRadio1_No').checked) {
+            FMCRsRadio1_Yes = '';
+            FMCRsRadio1_No = 'No';
+        }
+        if (document.getElementById('CFRPart40_1_Yes').checked) {
+            CFRPart40_1_Yes = 'Yes';
+            CFRPart40_1_No = '';
+        }
+        if (document.getElementById('CFRPart40_1_No').checked) {
+            CFRPart40_1_Yes = '';
+            CFRPart40_1_No = 'No';
+        }
         const employer2Name = document.getElementById('employer2Name').value;
         const employer2Address = document.getElementById('employer2Address').value;
         const employer2Phone = document.getElementById('employer2Phone').value;
@@ -468,10 +543,26 @@ class ApplicationForm extends React.PureComponent {
         const employment2End = document.getElementById('employment2End').value;
         const employer2Position = document.getElementById('employer2Position').value;
         const employer2Leaving = document.getElementById('employer2Leaving').value;
-        const FMCRsRadio2_Yes = document.getElementById('FMCRsRadio2_Yes').value;
-        const FMCRsRadio2_No = document.getElementById('FMCRsRadio2_No').value;
-        const CFRPart40_2_Yes = document.getElementById('CFRPart40_2_Yes').value;
-        const CFRPart40_2_No = document.getElementById('CFRPart40_2_No').value;
+        let FMCRsRadio2_Yes 
+        let FMCRsRadio2_No
+        let CFRPart40_2_Yes 
+        let CFRPart40_2_No
+        if (document.getElementById('FMCRsRadio2_Yes').checked) {
+            FMCRsRadio2_Yes = 'Yes';
+            FMCRsRadio2_No = '';
+        }
+        if (document.getElementById('FMCRsRadio2_No').checked) {
+            FMCRsRadio2_Yes = '';
+            FMCRsRadio2_No = 'No';
+        }
+        if (document.getElementById('CFRPart40_2_Yes').checked) {
+            CFRPart40_2_Yes = 'Yes';
+            CFRPart40_2_No = '';
+        }
+        if (document.getElementById('CFRPart40_2_No').checked) {
+            CFRPart40_2_Yes = '';
+            CFRPart40_2_No = 'No';
+        }
         const employer3Name = document.getElementById('employer3Name').value;
         const employer3Address = document.getElementById('employer3Address').value;
         const employer3Phone = document.getElementById('employer3Phone').value;
@@ -479,10 +570,26 @@ class ApplicationForm extends React.PureComponent {
         const employment3End = document.getElementById('employment3End').value;
         const employer3Position = document.getElementById('employer3Position').value;
         const employer3Leaving = document.getElementById('employer3Leaving').value;
-        const FMCRsRadio3_Yes = document.getElementById('FMCRsRadio3_Yes').value;
-        const FMCRsRadio3_No = document.getElementById('FMCRsRadio3_No').value;
-        const CFRPart40_3_Yes = document.getElementById('CFRPart40_3_Yes').value;
-        const CFRPart40_3_No = document.getElementById('CFRPart40_3_No').value;        
+        let FMCRsRadio3_Yes 
+        let FMCRsRadio3_No
+        let CFRPart40_3_Yes 
+        let CFRPart40_3_No
+        if (document.getElementById('FMCRsRadio3_Yes').checked) {
+            FMCRsRadio3_Yes = 'Yes';
+            FMCRsRadio3_No = '';
+        }
+        if (document.getElementById('FMCRsRadio3_No').checked) {
+            FMCRsRadio3_Yes = '';
+            FMCRsRadio3_No = 'No';
+        }
+        if (document.getElementById('CFRPart40_3_Yes').checked) {
+            CFRPart40_3_Yes = 'Yes';
+            CFRPart40_3_No = '';
+        }
+        if (document.getElementById('CFRPart40_3_No').checked) {
+            CFRPart40_3_Yes = '';
+            CFRPart40_3_No = 'No';
+        }
         const employer4Name = document.getElementById('employer4Name').value;
         const employer4Address = document.getElementById('employer4Address').value;
         const employer4Phone = document.getElementById('employer4Phone').value;
@@ -490,10 +597,26 @@ class ApplicationForm extends React.PureComponent {
         const employment4End = document.getElementById('employment4End').value;
         const employer4Position = document.getElementById('employer4Position').value;
         const employer4Leaving = document.getElementById('employer4Leaving').value;
-        const FMCRsRadio4_Yes = document.getElementById('FMCRsRadio4_Yes').value;
-        const FMCRsRadio4_No = document.getElementById('FMCRsRadio4_No').value;
-        const CFRPart40_4_Yes = document.getElementById('CFRPart40_4_Yes').value;
-        const CFRPart40_4_No = document.getElementById('CFRPart40_4_No').value;
+        let FMCRsRadio4_Yes 
+        let FMCRsRadio4_No
+        let CFRPart40_4_Yes 
+        let CFRPart40_4_No
+        if (document.getElementById('FMCRsRadio4_Yes').checked) {
+            FMCRsRadio4_Yes = 'Yes';
+            FMCRsRadio4_No = '';
+        }
+        if (document.getElementById('FMCRsRadio4_No').checked) {
+            FMCRsRadio4_No = 'No';
+            FMCRsRadio4_Yes = '';
+        }
+        if (document.getElementById('CFRPart40_4_Yes').checked) {
+            CFRPart40_4_Yes = 'Yes';
+            CFRPart40_4_No = '';
+        }
+        if (document.getElementById('CFRPart40_4_No').checked) {
+            CFRPart40_4_No = 'No';
+            CFRPart40_4_Yes = '';
+        }
         const employer5Name = document.getElementById('employer5Name').value;
         const employer5Address = document.getElementById('employer5Address').value;
         const employer5Phone = document.getElementById('employer5Phone').value;
@@ -501,10 +624,26 @@ class ApplicationForm extends React.PureComponent {
         const employment5End = document.getElementById('employment5End').value;
         const employer5Position = document.getElementById('employer5Position').value;
         const employer5Leaving = document.getElementById('employer5Leaving').value;
-        const FMCRsRadio5_Yes = document.getElementById('FMCRsRadio5_Yes').value;
-        const FMCRsRadio5_No = document.getElementById('FMCRsRadio5_No').value;
-        const CFRPart40_5_Yes = document.getElementById('CFRPart40_5_Yes').value;
-        const CFRPart40_5_No = document.getElementById('CFRPart40_5_No').value;
+        let FMCRsRadio5_Yes 
+        let FMCRsRadio5_No
+        let CFRPart40_5_Yes 
+        let CFRPart40_5_No
+        if (document.getElementById('FMCRsRadio5_Yes').checked) {
+            FMCRsRadio5_Yes = 'Yes';
+            FMCRsRadio5_No = '';
+        }
+        if (document.getElementById('FMCRsRadio5_No').checked) {
+            FMCRsRadio5_No = 'No';
+            FMCRsRadio5_Yes = '';
+        }
+        if (document.getElementById('CFRPart40_5_Yes').checked) {
+            CFRPart40_5_Yes = 'Yes';
+            CFRPart40_5_No = '';
+        }
+        if (document.getElementById('CFRPart40_5_No').checked) {
+            CFRPart40_5_No = 'No';
+            CFRPart40_5_Yes = '';
+        }        
         const straightTruckFrom = document.getElementById('straightTruckFrom').value;
         const straightTruckTo = document.getElementById('straightTruckTo').value;
         const straightTruckMilesDriven = document.getElementById('straightTruckMilesDriven').value;
@@ -520,12 +659,26 @@ class ApplicationForm extends React.PureComponent {
         const OtherFrom = document.getElementById('OtherFrom').value;
         const OtherTo = document.getElementById('OtherTo').value;
         const OtherDriven = document.getElementById('OtherDriven').value;
-        const statesOperated = document.getElementById('statesOperated').value;
-        // const selectedOption = document.getElementById('selectedOption').value;
+        let statesOperated
+        if (this.state.statesOperated === undefined) {
+            statesOperated = ' '; 
+        } else if (this.state.statesOperated.length === 1) {
+            this.state.statesOperated.join();
+        } else {
+            statesOperated = this.state.statesOperated.join(', ')
+        }
         const trainingCompleted = document.getElementById('trainingCompleted').value;
         const safeDrivingAwards = document.getElementById('safeDrivingAwards').value;
-        const anyAccidents_Yes = document.getElementById('anyAccidents_Yes').value;
-        const anyAccidents_No = document.getElementById('anyAccidents_No').value;
+        let anyAccidents_Yes
+        let anyAccidents_No
+        if (document.getElementById('anyAccidents_Yes').checked) {
+            anyAccidents_Yes = 'Yes'
+            anyAccidents_No = ''
+        }     
+        if (document.getElementById('anyAccidents_No').checked) {
+            anyAccidents_No = 'No';
+            anyAccidents_Yes= ''
+        }
         const accidentDate1 = document.getElementById('accidentDate1').value;
         const natureOfAccident1 = document.getElementById('natureOfAccident1').value;
         const accidentLocation1 = document.getElementById('accidentLocation1').value;
@@ -541,8 +694,16 @@ class ApplicationForm extends React.PureComponent {
         const accidentLocation3 = document.getElementById('accidentLocation3').value;
         const numberFatalities3 = document.getElementById('numberFatalities3').value;
         const numberInjured3 = document.getElementById('numberInjured3').value;
-        const anyConvictions_Yes = document.getElementById('anyConvictions_Yes').value;
-        const anyConvictions_No = document.getElementById('anyConvictions_No').value;
+        let anyConvictions_Yes
+        let anyConvictions_No
+        if (document.getElementById('anyConvictions_Yes').checked) {
+            anyConvictions_Yes = 'Yes';
+            anyConvictions_No = ''
+        }     
+        if (document.getElementById('anyConvictions_No').checked) {
+            anyConvictions_No = 'No';
+            anyConvictions_Yes = ''
+        }
         const convictionDate1 = document.getElementById('convictionDate1').value;
         const convictionLocation1 = document.getElementById('convictionLocation1').value;
         const convictionCharge1 = document.getElementById('convictionCharge1').value;
@@ -555,29 +716,70 @@ class ApplicationForm extends React.PureComponent {
         const convictionLocation3 = document.getElementById('convictionLocation3').value;
         const convictionCharge3 = document.getElementById('convictionCharge3').value;
         const convictionPenalty3 = document.getElementById('convictionPenalty3').value;
-        const licenseState1 = document.getElementById('licenseState1').value;
+        let licenseState1 = this.state.licenseState1.label
         const driversLicenseNumber1 = document.getElementById('driversLicenseNumber1').value;
         const driversLicenseType1 = document.getElementById('driversLicenseType1').value;
         const driversLicenseEndorsements1 = document.getElementById('driversLicenseEndorsements1').value;
         const driversLicenseExpiration1 = document.getElementById('driversLicenseExpiration1').value;
-        const licenseState2 = document.getElementById('licenseState2').value;
+        let licenseState2
+        if (!this.state.licenseState2) {
+            licenseState2 = '';
+        } else {
+            licenseState2 = this.state.licenseState2.label
+        }
         const driversLicenseNumber2 = document.getElementById('driversLicenseNumber2').value;
         const driversLicenseType2 = document.getElementById('driversLicenseType2').value;
         const driversLicenseEndorsements2 = document.getElementById('driversLicenseEndorsements2').value;
         const driversLicenseExpiration2 = document.getElementById('driversLicenseExpiration2').value;
-        const licenseState3 = document.getElementById('licenseState3').value;
+        let licenseState3
+        if (!this.state.licenseState3) {
+            licenseState3 = '';
+        } else {
+            licenseState3 = this.state.licenseState3.label
+        }
         const driversLicenseNumber3 = document.getElementById('driversLicenseNumber3').value;
         const driversLicenseType3 = document.getElementById('driversLicenseType3').value;
         const driversLicenseEndorsements3 = document.getElementById('driversLicenseEndorsements3').value;
         const driversLicenseExpiration3 = document.getElementById('driversLicenseExpiration3').value;
-        const deniedLicenseRadio_Yes = document.getElementById('deniedLicenseRadio_Yes').value;
-        const deniedLicenseRadio_No = document.getElementById('deniedLicenseRadio_No').value;
-        const suspendedLicenseRadio_Yes = document.getElementById('suspendedLicenseRadio_Yes').value;
-        const suspendedLicenseRadio_No = document.getElementById('suspendedLicenseRadio_No').value;
-        const performJobRadio_Yes = document.getElementById('performJobRadio_Yes').value;
-        const performJobRadio_No = document.getElementById('performJobRadio_No').value;
-        const felonyRadio_Yes = document.getElementById('felonyRadio_Yes').value;
-        const felonyRadio_No = document.getElementById('felonyRadio_No').value;
+        let deniedLicenseRadio_Yes 
+        let deniedLicenseRadio_No
+        if (document.getElementById('deniedLicenseRadio_Yes').checked) {
+            deniedLicenseRadio_Yes = 'Yes, they have had a license denied';
+        }     
+        if (document.getElementById('deniedLicenseRadio_No').checked) {
+            deniedLicenseRadio_No = 'No, they have never been denied a license';
+            deniedLicenseRadio_Yes = '';
+        }
+        let suspendedLicenseRadio_Yes 
+        let suspendedLicenseRadio_No
+        if (document.getElementById('suspendedLicenseRadio_Yes').checked) {
+            suspendedLicenseRadio_Yes = 'Yes, license has been suspended';
+            suspendedLicenseRadio_No = '';
+        }     
+        if (document.getElementById('suspendedLicenseRadio_No').checked) {
+            suspendedLicenseRadio_No = 'License has not been suspended';
+            suspendedLicenseRadio_Yes = '';
+        }
+        let performJobRadio_Yes
+        let performJobRadio_No
+        if (document.getElementById('performJobRadio_Yes').checked) {
+            performJobRadio_Yes = 'Yes, there is a reason they may not be able to perform the job';
+            performJobRadio_No = '';
+        }
+        if (document.getElementById('performJobRadio_No').checked) {
+            performJobRadio_No = 'No reason they should not be able to perform the job';
+            performJobRadio_Yes = '';
+        }
+        let felonyRadio_Yes
+        let felonyRadio_No
+        if (document.getElementById('felonyRadio_Yes').checked) {
+            felonyRadio_Yes = 'Yes, felony on record';
+            felonyRadio_No = '';
+        }
+        if (document.getElementById('felonyRadio_No').checked) {
+            felonyRadio_No = 'No felony on record';
+            felonyRadio_Yes = '';
+        }
         const driversLicenseReasons = document.getElementById('driversLicenseReasons').value;
         const referenceName1 = document.getElementById('referenceName1').value;
         const referenceAddress1 = document.getElementById('referenceAddress1').value;
@@ -590,10 +792,6 @@ class ApplicationForm extends React.PureComponent {
         const referencePhone3 = document.getElementById('referencePhone3').value;
         const signature = document.getElementById('signature').value;
         const additionalInfo = document.getElementById('additionalInfo').value;
-        // const selectedOptionOperated = document.getElementById('selectedOptionOperated').value;
-        // const selectedOptionLicenseState1 = document.getElementById('selectedOptionLicenseState1').value;
-        // const selectedOptionLicenseState2 = document.getElementById('selectedOptionLicenseState2').value;
-        // const selectedOptionLicenseState3 = document.getElementById('selectedOptionLicenseState3').value;
          
         // This is for the nodemailer app ---------------------
 
@@ -758,19 +956,16 @@ class ApplicationForm extends React.PureComponent {
         // This is for the nodemailer app ---------------------^^^
 
 
-        // console.log(applicationDate, 'applicationDate')
-        // if (applicationDate !== '' && optradio !== '' && FirstName !== '' && MiddleName !== '' 
-        // && LastName !== '' && Age !== '' && Phone !== '' && emergencyPhone !== '' && Email !=='' && address1 !== '' 
-        // && addressFromDate1 !== '' && addressToDate1 !== '' && employedBeforeRadio !== ''
-        // && gradeSchool !== '' && employer1Name !== '' && employer1Address !== '' && employer1Phone !== '' 
-        // && employment1Start !== '' && employment1End !== '' && employer1Position !== '' && employer1Leaving !== ''
-        // && FMCRsRadio1 !== '' && CFRPart40_1 !== '' && anyAccidents !== '' && anyConvictions !== '' 
-        // && licenseState1 !== '' && driversLicenseNumber1 !== '' && driversLicenseEndorsements1 !== ''
-        // && driversLicenseType1 !== '' && driversLicenseExpiration1 !== '' && deniedLicenseRadio !== '' 
-        // && suspendedLicenseRadio !== '' && performJobRadio !== '' && felonyRadio !== '' && referenceName1 !== ''
-        // && referenceAddress1 !== '' && referencePhone1 !== '' && referenceName2 !== '' && referenceAddress2 !== '' 
-        // && referencePhone2 !== '' && referenceName3 !== '' && referenceAddress3 !== '' && referencePhone3 !== '' 
-        // && signature !== ''){
+        if (applicationDate !== '' && FirstName !== '' && MiddleName !== '' && LastName !== '' 
+        && Age !== '' && Phone !== '' && emergencyPhone !== '' && Email !=='' && address1 !== '' 
+        && addressFromDate1 !== '' && addressToDate1 !== '' && gradeSchool !== '' 
+        && employer1Name !== '' && employer1Address !== '' && employer1Phone !== '' 
+        && employment1Start !== '' && employment1End !== '' && employer1Position !== '' 
+        && employer1Leaving !== '' && licenseState1 !== '' && driversLicenseNumber1 !== '' 
+        && driversLicenseEndorsements1 !== ''&& driversLicenseType1 !== '' && driversLicenseExpiration1 !== '' 
+        && referenceName1 !== '' && referenceAddress1 !== '' && referencePhone1 !== '' 
+        && referenceName2 !== '' && referenceAddress2 !== '' && referencePhone2 !== '' 
+        && referenceName3 !== '' && referenceAddress3 !== '' && referencePhone3 !== '' && signature !== ''){
             const payload = {
                 applicationDate,
                 optradioDriver: optradioDriver,
@@ -943,19 +1138,15 @@ class ApplicationForm extends React.PureComponent {
                 referencePhone3: referencePhone3,
                 signature: signature,
                 additionalInfo: additionalInfo,
-                // selectedOption: selectedOption,
-                // selectedOptionOperated: selectedOptionOperated,
-                // selectesOptionLicenseState3: selectedOptionLicenseState3,
             }
-            console.log('payload', payload)
-            // this.serverlessApplicationFormSend(url, payload, ((err, res) => {
-            //     if (err) { 
-            //         return this.serverlessApplicationFormError(err) 
-            //     } else {
-            //         // this.databasePush();
-            //         this.serverlessApplicationFormSuccess();
-            //     }
-            // }))
+            this.serverlessApplicationFormSend(url, payload, ((err, res) => {
+                if (err) { 
+                    return this.serverlessApplicationFormError(err) 
+                } else {
+                    // this.databasePush();
+                    this.serverlessApplicationFormSuccess();
+                }
+            }))
 
             // axios({
             //     method: 'POST',
@@ -1128,16 +1319,16 @@ class ApplicationForm extends React.PureComponent {
             //     this.setState({submitted: true });
             //     this.databasePush();
             // })
-        // } else {
-        //     alert('Please fill out the remaining required fields')
-        // }
+        } else {
+            alert('Please fill out the remaining required fields')
+        }
     }
     
       render() {
-        if (this.state.submitted) {
-            return <ApplicationSubmit/>;
-        }
-        else {
+        // if (this.state.submitted) {
+        //     return <ApplicationSubmit/>;
+        // }
+        // else {
             return (
                 <div className='container formDiv'>
                     <div>
@@ -2478,7 +2669,7 @@ class ApplicationForm extends React.PureComponent {
                             <div className='row'>
                                 <textarea rows="8" cols="250" name="additionalInfo" onChange={this.handleChange} id='additionalInfo' value={this.state.additionalInfo} form="usrform">Enter additional info here...</textarea>
                             </div>
-                            {<p id='toast'>{this.state.toast}</p>}
+                            {<p id='applicationToast'>{this.state.toast}</p>}
                             <input type='submit' className='applicationSubmitButton' onClick={this.handleSubmit} value='Send Application' />
                         </div>
                     </form>
@@ -3784,7 +3975,7 @@ class ApplicationForm extends React.PureComponent {
                 </div>
             )
         }
-      }
+    //   }
     }
 
 export default ApplicationForm;
